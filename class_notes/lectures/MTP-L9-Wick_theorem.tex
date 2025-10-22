@@ -1,0 +1,130 @@
+\hypsection{Wick's theorem}
+(8)
+
+Nate that, because of symmetry, the s-point carrelation for $s$ any odd integer is fero (the Gaussion remains unchanged if $\vec{x} \rightarrow-\vec{x}$). 
+
+What happens when we want to calculate $\left\langle x_{i} x_{j} \cdots x_{e}\right\rangle$ ? Should we always do all the derivatives as in ep. (12)? No!\nof the vars are Goussion we can use
+
+Wick's theorem: Any correlation between an even number of Gaussion 2. V. can be written down as a sum of products of 2- point conelation functions $\left(A^{-1}\right)$.\nFor instance
+
+$$ 
+\begin{aligned}
+\left\langle x_{a} x_{b} x_{c} x_{d}\right\rangle= & \left\langle x_{a} x_{b}\right\rangle\left\langle x_{c} x_{d}\right\rangle+\left\langle x_{a} x_{c}\right\rangle\left\langle x_{b} x_{d}\right\rangle+\left\langle x_{a} x_{d}\right\rangle\left\langle x_{b} x_{c}\right\rangle \\
+& \left.\left(A^{-1}\right)_{a b} \quad \hat{~}_{A^{-1}}\right)_{c d} \quad \cdots \quad \text { (indexes may be equal) }
+\end{aligned}
+$$ 
+
+Exercize: from the previous cose, show that (no calculations!)
+
+$$ 
+\begin{aligned}
+& \left\langle x_{1}^{2} x_{2}^{2}\right\rangle=\frac{3}{8} \cdot \frac{3}{8}+\frac{1}{8} \cdot \frac{1}{8}+\frac{1}{8} \cdot \frac{1}{8}=\frac{11}{64} \\
+& \left\langle x_{1}^{4}\right\rangle=3\left(\frac{3}{8}\right)^{2}=\left\langle x_{2}^{4}\right\rangle,\left\langle x, x_{2}^{2}\right\rangle=0
+\end{aligned}
+$$ 
+
+In general:\n(14) $\langle\underbrace{x_{i} x_{j} \ldots x_{n} x_{m}}_{s \text { vors }}\rangle=\sum_{p}\left(A^{-1}\right)_{i_{p} j_{p}} \cdots\left(A^{-1}\right)_{n_{p} m_{p}}$
+
+Where the sum uns over all pairings of $s$ indexes, i.e. over all ways of grouping $s$ (even) indexes $i, j \ldots, n, m$ into poins (counting the poin even when indexes are equal; order in the poirs is not important). Of there are $s$ vers then the passible painings are $(s-1)!!=(s-1)(s-3) \ldots 3.1$.
+
+Further important results obtained with choracteristic functions\n(1) If you are given two indipendent and identically distributed (iit) roudom variables, how do you calculate the polf of thein sum? What is its c.f.?\nWe assume they are real with pof $q(x) :$ \n2.v. drawn from
+
+$$ 
+ x=x_{1}+x_{2} \quad x_{1}, x_{2} \stackrel{\downarrow}{\sim} g(x) 
+$$ 
+
+When we dow $x_{1}$ and $x_{2}$ from $q(x)$, many different outcomes con give you the same sum $x$, these have to be added up with the consesponding probability, hence\n(15) $p(x)=\int \delta(\underbrace{x-\left(x_{1}+x_{2}\right)}) p\left(x_{1}, x_{2}\right) d x_{1} d x_{2} \equiv\left\langle\delta\left(x-x_{1}-x_{2}\right)\right\rangle$ we select all passible $x_{1}, x_{2}$ s.t. Hein sum is $x^{*}$.\ni.i.d.
+
+$$ 
+\begin{aligned}
+& =\int d\left(x-x_{1}-x_{2}\right) q\left(x_{1}\right) q\left(x_{2}\right) d x_{1} d x_{2} \\
+& =\int q(x-y) q(y) d y \quad \text { it's a convalution. }
+\end{aligned}
+$$ 
+
+What is the c.f. of $p(x)$ if the c.f. of $q(x)$ is $\varphi_{1}(k)$ ?\n(16)
+
+$$ 
+\begin{aligned}
+\varphi(k) & \equiv\left\langle e^{i k x}\right\rangle=\int e^{i k x} p(x) d x=\int d x e^{i k x} \delta\left(x-\left(x_{1}+x_{2}\right)\right) q\left(x_{1}\right) q\left(x_{2}\right) d x_{1} d x_{2} \\
+& =\int e^{i k\left(x_{1}+x_{2}\right)} q\left(x_{1}\right) q\left(x_{2}\right) d x_{1} d x_{2}=[\varphi(k)]^{2}
+\end{aligned}
+$$ 
+
+What happens if the $2 . v$. are independ. but not ident. distrib.?\n(10) The (weak) law of large numbers (converg. in distrib.)\n(2) If we are now given $n$ iid $2 . v$. whose polf is $q(x)$ with c.f. $\varphi_{1}(x)$, what happens to $x=\frac{1}{n} \sum_{i} x_{i} x_{i}$ as $n \rightarrow \infty$ ?\nLet's assume that the mean of $x_{i}$ is $\mu \quad\left(\mu=\int x q(x) d x<\infty\right)$. (See Grimmett & Stingater, p. 193, prob. and Randam Processes). proof:\nLet $\varphi(n)$ be the $c \cdot f$. of the average of the rand. variables
+
+$$ 
+\begin{aligned}
+\varphi(n) \equiv\left\langle e^{i k x}\right\rangle & =\left\langle e^{i k \frac{1}{n} \sum_{i} x_{i}}\right\rangle=\int e^{\frac{i k}{m} \sum_{i} x_{i}} q\left(x_{1}\right) \cdots q\left(x_{m}\right) d x_{1} \cdots d x_{m} \\x & =\frac{1}{n} \sum_{i} x_{i}
+\end{aligned}
+$$ 
+
+(17)
+
+$$ 
+=\left(\int e^{i \frac{k}{m} x_{1}} q(x,) d x\right) \cdots\left(\int e^{i k \frac{x_{m}}{m}} q\left(x_{m}\right) d x_{m}\right)=\left(\varphi_{1}\left(\frac{k}{n}\right)\right)^{n}
+$$ 
+
+Also, Taylor
+
+$$ 
+\varphi_{1}\left(\frac{k}{n}\right) \equiv \int e^{i \frac{k}{n} x} q(x) d x \stackrel{\downarrow}{=} 1+\frac{i k}{n}\langle x\rangle+\sigma\left(\frac{1}{n}\right) \text { as } n \rightarrow \infty
+$$ 
+
+From (17)
+
+$$ 
+\begin{aligned}
+& \left(1+\frac{i k}{n}\langle x\rangle+\ldots\right)^{n} \\& \text { by proved that } \varphi_{n}(k) \rightarrow e^{i \mu k},-n \rightarrow \infty
+\end{aligned} e^{i \mu k}=\underbrace{\int \delta(x-\mu) e^{i k x} d x}_{\rho(x)}
+$$ 
+
+Here we have only proved that\nWe have a much stronger result:\n(18) $\frac{1}{n} \sum_{i}^{n} x_{i} \rightarrow \mu$ The strong law of loye numbers stotes Let $x_{1} \ldots x_{m}$ be a sequence of i.i.d. z.v. each with finite mean $\mu$. Then the finite (empinical) overoge opproaches $\mu$ as $n \rightarrow \infty$. (Grimmett, p. ${329}$ )
+This law tells us that, for large $n$, the sum $\sum_{i} x_{i}$ is approximately $x \mu$. Of cousse there will be fluctuations around $n \mu$. A notural question is then whot con we soy about $\sum_{i}^{n} x_{i}-\mu n$ ?
+There is an extraorolinary answer to this question, which is valid whenever $x_{i}$ have finite veriance:
+a) $\sum_{i}^{m} x_{i}-\mu n$ is obout os big os $\sqrt{n}$
+b) The distribution of $\frac{\sum_{i}^{n} x_{i}-\mu n}{\sqrt{n}}$ opproaches a Gaussian polf os $n \rightarrow \infty$ IRRESPECTIVE of the pof of $x_{i}$.
+
+Claims a) and b) ore the core meaning of the
+
+\section*{Central Limit Theorem}
+Let $x_{1} \ldots x_{n}$ be a sepvence of i.i.d. n.v. with finite mean $\mu$ and finite (non-zero) variance $\sigma^{2}$. Then the p.d.f. of
+(19) $\quad Y_{n}=\frac{\sum_{i}^{m} x_{i}-\mu n}{\sqrt{n} \sigma} \xrightarrow[\begin{array}{c}
+ m \rightarrow \infty \\ \text { convergence } \\ \text { in distrib. } \\
+\end{array}]{ } N(0,1) \quad \begin{gathered} \text { Goussion distr. } \ \text { with men o mi } \ \text { variance } 1 . 
+\end{gathered}$
+
+Obs: $\left\langle Y_{m}\right\rangle=\frac{1}{\sqrt{m} \sigma}\left(\Sigma_{i}\left\langle x_{i}\right\rangle-\mu m\right)=0$
+
+$$ 
+\operatorname{Var}\left(Y_{n}\right)=\frac{1}{n \sigma^{2}} \operatorname{Var}\left(\sum_{i}^{m} x_{i}-\mu m\right)=\frac{1}{m \sigma^{2}} \operatorname{Var}\left(\sum_{i}^{m} x_{i}\right)=\frac{\sum_{i} \operatorname{Var}\left(x_{i}\right)}{n \sigma^{2}}=\frac{n \sigma^{2}}{n \sigma^{2}}=1
+$$ 
+
+(please, go throughly through all the steps and uvise the properties of var (…)).\nThis means that $Y_{n}$ has a center (0) and a "width" that does not chage os $n$ varies.\nproof:
+Let's assume that cach z.v. has a p.d.f. $q(x)$ with c.f. $\varphi_{1}(n), \quad \varphi(n)$ is the c.f. of $r_{m}$ :
+$\varphi(n)=\left\langle e^{i n V_{m}}\right\rangle=\int e^{i n \frac{\Sigma_{i} x_{i}-\mu_{m}}{\sqrt{\pi} \sigma}} g\left(x_{1}\right) \cdots g\left(x_{m}\right) d x_{1} \cdots d x_{m}=$
+
+\begin{equation*}
+=e^{-\frac{i k \mu \sqrt{n}}{\sigma}}(\underbrace{\int e^{\frac{i n x}{\sqrt{n} \sigma}} g(x) d x}_{\varphi_{1}\left(\frac{k}{\sqrt{n} \sigma}\right)})^{n} \tag{20}
+\end{equation*}
+
+As in the previous theorem we can expond $\varphi_{1}$ os noso
+
+Toylon and (5)
+
+$$ 
+\begin{gathered}
+\varphi_{1}\left(\frac{k}{\sqrt{n} \sigma}\right)^{\downarrow}=1+\frac{i k}{\sqrt{n} \sigma}\langle x\rangle-\frac{k^{2}}{2 m \sigma^{2}}\left\langle x^{2}\right\rangle+O\left(m^{-3 / 2}\right) \\
+=e^{\frac{i k}{\sqrt{n}\sigma} \mu-\frac{k^{2}}{2n}} \quad(\leftarrow \text { show why only }-\frac{k^{2}}{2n} \text { zemoins. })
+\end{gathered}
+$$ 
+
+from (20)
+
+$$ 
+\varphi(k)=e^{-\frac{i k \mu}{\sigma} \sqrt{m}} e^{\frac{i k \mu}{\sigma} \sqrt{m}-\frac{k^{2}}{2}}=e^{-\frac{k^{2}}{2}}
+$$ 
+
+As we have shown in ep. (6), this is the e.f. of $p(x)=\frac{1}{\sqrt{2 \pi}} e^{-\frac{x^{2}}{2}} \equiv N(0,1)$ Show 1) $\sum_{i}^{n} x_{i} \sim N
+\left(m \mu, n \sigma^{2}\right) ;$ 2) $\frac{1}{n} \sum_{i} x_{i} \sim N
+\left(\mu, \frac{\sigma^{2}}{n}\right)$ T

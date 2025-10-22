@@ -1,0 +1,42 @@
+\documentclass[
+	a4paper, 
+	fontsize=10pt,
+	twoside=true, 
+	numbers=noenddot,
+]{kaobook}
+
+\input{preamble}
+
+\begin{document}
+
+\frontmatter
+\tableofcontents
+%\listof{lec}
+
+\mainmatter
+\setchapterstyle{kao}
+
+% Input lecture files here
+\input{lectures_formatted/Models-of-Theoretical-Physics-2025-10-20.tex}
+\input{lectures_formatted/MTP-L1-ODEs_from_reaction_rates.tex}
+\input{lectures_formatted/MTP-L2-Fokker-Planck_equation.tex}
+\input{lectures_formatted/MTP-L3-Fokker-Planck_equation_derivation.tex}
+\input{lectures_formatted/MTP-L4-Turing_Pattern_Formation.tex}
+\input{lectures_formatted/MTP-L5-Birth_and_death_Markov_processes.tex}
+\input{lectures_formatted/MTP-L6-Gaussian_Integrals.tex}
+\input{lectures_formatted/MTP-L7-Wiener_path_integral.tex}
+\input{lectures_formatted/MTP-L8-Introduction_to_Stochastic_Processes.tex}
+\input{lectures_formatted/MTP-L9-Wick_theorem.tex}
+\input{lectures_formatted/MTP-L10-Introduction_to_Stochastic_Differential_Equations.tex}
+\input{lectures_formatted/MTP-L11-Gaussian_Integrals_continued.tex}
+\input{lectures_formatted/MTP-L12-Laplace_method.tex}
+\input{lectures_formatted/MTP-L13-Law_of_large_numbers.tex}
+\input{lectures_formatted/MTP-L14-Dynamical_Systems.tex}
+\input{lectures_formatted/MTP-L15-Laplace_method_continued.tex}
+
+
+\backmatter
+% Bibliography, index, etc.
+\printbibliography
+
+\end{document}

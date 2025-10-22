@@ -1,0 +1,219 @@
+\hypsection{Gaussian Integrals continued}
+Models TP, 3/10/25\\
+(3) \quad $\int_{-\infty}^{+\infty} e^{-\frac{a x^{2}}{2}+b x} d x=\sqrt{\frac{2 \pi}{a}} e^{\frac{b^{2}}{2 a}} \quad a>0, b \in \mathbb{C}$\\
+(4) $\varphi(k)=\int e^{i k x} p(x) d x=\left\langle e^{i k x}\right\rangle$\\
+(5) $\left.(-i)^{n} \frac{d^{n} \varphi}{d k^{n}}\right|_{k=0}=\left\langle x^{n}\right\rangle$\\
+(6) \quad $\int_{-\infty}^{+\infty} \frac{1}{\sqrt{2 \pi \sigma^{2}}} e^{-\frac{x^{2}}{2 \sigma^{2}}} e^{i n x} d x=e^{-\frac{\sigma^{2} k^{2}}{2}}$
+
+Beconse of of. (5)
+
+$$ 
+\langle x\rangle=-\left.i \frac{d}{d k} e^{-\frac{\Delta^{2} k^{2}}{2}}\right|_{k=0}=0 
+$$ 
+
+Important Gaussion iniegrals :\\
+$\left\langle x^{n}\right\rangle=\left.(-i)^{n} \frac{d^{n}}{d k^{n}} e^{-\frac{\sigma^{2} k^{2}}{2}}\right|_{k=0}=0 \quad$ if $m$ is odd (by symmetry)
+\else however
+
+$$ 
+\begin{gathered}
+\left\langle x^{4}\right\rangle=\left.\frac{d^{4}}{d k^{4}} e^{-\frac{\sigma^{2} k^{2}}{2}}\right|_{k=0}=\left[\sigma^{4}\left(3-6 k^{2} \sigma^{2}+k^{4} \sigma^{4}\right) e^{-\frac{\sigma^{2} k^{2}}{2}}\right]_{k=0}=\
+=3 \sigma^{4}=\frac{1}{\sqrt{2 \pi \sigma^{2}}} \int_{-\infty}^{+\infty} c^{-\frac{x^{2}}{2 \sigma^{2}}} x^{4} d x .
+\end{gathered}
+$$ 
+
+If we want to calculate $\left\langle x^{n}\right\rangle$, we better itart from
+
+$$ 
+\int_{-\infty}^{+\infty} e^{-\frac{a x^{2}}{2}} d x=\sqrt{\frac{2 \pi}{a}} 
+$$ 
+
+We differentiaie both sides wrt a:
+onec
+
+$$ 
+\int_{-\infty}^{+\infty} x^{2} e^{-\frac{a x^{2}}{2}} d x=\frac{\sqrt{2 \pi}}{a^{3 / 2}} \rightarrow\left\langle x^{2}\right\rangle 
+$$ 
+
+twice
+
+$$ 
+\int_{-\infty}^{+\infty} x^{4} e^{-\frac{a x^{2}}{2}} d x=\frac{3 \sqrt{2 \pi}}{a^{5 / 2}} 
+$$ 
+
+in times $n$ is even
+
+$$ 
+\int_{-\infty}^{+\infty} x^{n} e^{-\frac{a x^{2}}{2}} d x=\frac{(n-1)(n-3) \cdots 5 \cdot 3 \cdot 1 \sqrt{2 \pi}}{a^{(n+1) / 2}} 
+$$ 
+
+From this find the expression of $\left\langle x^{n}\right\rangle$ as a function of 6 and $n$ (aven).
+
+Multidimensional Gaussion DuTegrals
+
+Example:
+
+$$ 
+\int_{-\infty}^{+\infty} d x_{1} \int_{-\infty}^{+\infty} d x_{2} e^{-\frac{3}{2}\left(x_{1}^{2}+x_{2}^{2}\right)+x_{1} x_{2}}=? 
+$$ 
+
+Ex: write down the exponent in the form $-\frac{1}{2} \vec{x}^{\top} A \vec{x}$.
+More generally,
+
+$$ 
+z(A)=\int_{\mathbb{R}^{m}} d \hat{x} e^{-\frac{1}{2} \vec{x}^{\top} A \vec{x}} 
+$$ 
+
+Where $\vec{x}=\left(x_{1}, \ldots, x_{n}\right)$ and the matrix $A$ is diagonalizable with strictly positive eigenvalues (poritive difinite).\then there exist an orthogoual matrix $O \quad\left(\Rightarrow 0 \cdot O^{\top}=O^{\top} \cdot O=11\right)$ such that we can define $\vec{y}=O \vec{x}$ and $O A O^{\top}=\Lambda$
+
+$$ 
+\Lambda=\left(\begin{array}{cc}
+\lambda_{1} \lambda_{2} & 0 \\ 0 & \ddots \\ 
+\lambda_{m}
+\end{array}\right) \quad \lambda_{i}>0 \quad i=1,2, \ldots m
+$$ 
+
+It follows that
+
+$$ 
+\vec{x}^{\top} A \vec{x}=\vec{x}^{\top} O^{\top} \wedge O \vec{x}=\vec{y}^{\top} \wedge \vec{y} 
+$$ 
+
+$z(A)=\int d_{x}^{*} e^{-\frac{1}{2} \vec{x}^{\top} A \vec{x}}=\int d y\left\|\frac{\partial \vec{x}}{\partial \vec{y}}\right\| e^{-\frac{1}{2} \vec{y}^{\top} A \vec{y}}$
+deterninani of the Jacobion : $\left\|\frac{\partial \vec{x}}{\partial \vec{y}}\right\|=\operatorname{det}\left(O^{\top}\right)=1$ (show as an evere.)
+
+$$ 
+\vec{y}^{\top} \wedge \vec{y}=\sum_{i j} y_{i} \Lambda_{i j} y_{j}=\sum_{i j} y_{i} \lambda_{i} \delta_{i j} y_{j}=\sum_{i} \lambda_{i} y_{i}^{2} 
+$$ 
+
+From this we get
+
+$$ 
+\begin{aligned}
+& =\int_{\mathbb{R}^{m}} d^{n} y e^{-\frac{1}{2} \sum_{i} \lambda_{i} y_{i}^{2}}=\prod_{i}^{n} \int_{-\infty}^{+\infty} d y_{i} e^{-\frac{1}{2} \lambda_{i} y_{i}^{2}}=\pi_{i} \sqrt{\frac{2 \pi}{\lambda_{i}}}=\frac{(2 n)^{n / 2}}{\sqrt{\lambda_{1} \cdots \lambda_{m}}} \\ 
+& \operatorname{det}(A)=\operatorname{det}\left(O^{\top} \Lambda O\right)=\operatorname{det}(\Lambda)(\operatorname{det} O)^{2}=\operatorname{det} \Lambda=\lambda_{1} \cdots \lambda_{\eta}
+\end{aligned}
+$$ 
+
+Hence
+(8) \quad $z(A)=\frac{(2 \pi)^{m / 2}}{\sqrt{\operatorname{det} A}}=\int_{\mathbb{R}^{m}} d \hat{x} \quad e^{-\frac{1}{2} \vec{x}^{\top} A \vec{x}}$
+
+By using (8) show that
+
+$$ 
+\int_{-\infty}^{+\infty} d x_{1} \int_{-\infty}^{+\infty} d x_{2} e^{-\frac{3}{2}\left(x_{1}^{2}+x_{2}^{2}\right)+x_{1} x_{2}}=\frac{\pi}{\sqrt{2}} 
+$$ 
+
+Exercife: Let $p(x, y)=\frac{\sqrt{\operatorname{det} A}}{2 \pi} e^{-\frac{1}{2}\left(a_{11} x^{2}+2 a_{12} x y+a_{22} y^{2}\right)}$ where $a_{11}, a_{22}>0$. Show that $q(x)=\int p(x, y)$ dy is still a Gaussion distribution. Find the corresponding variance of $x$. This is also true for m-dimension Gaussion verides.
+
+We want now to calculate
+(9) $z(A, \vec{b})=\int d^{n} x e^{-\frac{1}{2} \vec{x}^{\top} A \vec{x}+\vec{x}^{\top} \cdot \vec{b}}$
+we use the same strategy we used before:
+
+$$ 
+\begin{array}{r}
+\vec{\nabla}_{x}\left(-\frac{1}{2} \vec{x}^{\top} A \vec{x}+\vec{x}^{\top} \cdot \vec{b}\right)=-A \vec{x}+\vec{b}=0 \Rightarrow \vec{x}=A^{-1} \vec{b} \\ (eldet A \neq 0)
+\end{array}
+$$ 
+
+We introduce
+
+$$ 
+\begin{aligned}
+\vec{y} & =\vec{x}-A^{-1} \vec{b} \\ -F rac{1}{2} \vec{x}^{\top} A \vec{x}+\vec{x}^{\top} \cdot \vec{b} & =-\frac{1}{2} \vec{y}^{\top} A \vec{y}+\frac{\vec{b}^{\top} A^{-1} \vec{b}}{2} \quad \text { (do the calculation). } 
+\end{aligned}
+$$ 
+
+Hence
+
+$$ 
+\begin{array}{r}
+z(A, \vec{b})=\int_{\mathbb{R}^{m}} d \vec{y} e^{-\frac{1}{2} \vec{y}^{\top} A \vec{y}+\frac{\vec{b}^{\top} A^{\prime} \vec{b}}{2}}=e^{\frac{\vec{b}^{\top} A^{-1} \vec{b}}{2}} \frac{z(A, 0)}{\overline{\widehat{T}}} \\ \text { known from. Eg. 8 }
+\end{array}
+$$ 
+
+
+\begin{equation*}
+z(A, \vec{b})=\frac{(2 \pi)^{n / 2}}{\sqrt{\operatorname{det} A}} e^{\frac{\vec{b}^{\top} A^{-1} \vec{b}}{2}} \tag{10}
+\end{equation*} 
+
+
+Eq. (10) allows to find the charact. function of the multivariare Gaussion distrib.
+
+$$ 
+p(\vec{x})=\frac{1}{z(A, 0)} e^{-\frac{1}{2} \vec{x}^{\top} A \vec{x}} 
+$$ 
+
+$$ 
+\int_{\mathbb{R}^{m}} d \hat{x} p(x) e^{i \bar{k} \cdot \bar{x}}=e^{-\frac{\vec{k}^{\top} A^{-1} \vec{k}}{2}}=\varphi(k) 
+$$ 
+
+What is the meaning of $A^{-1}$ ?
+The definition of the ch. $f$. in the multidim. case is:
+
+$$ 
+\varphi(\vec{k})=\int \hat{d} x e^{i \vec{k} \cdot \vec{x}} p(\vec{x}) \quad \vec{k}=\left(k_{1}, k_{2}, \ldots, k_{m}\right) 
+$$ 
+
+therefore we derive
+
+
+\begin{equation*}
+\left.(-i)^{s} \underbrace{\frac{\partial}{\partial k_{i}} \frac{\partial}{\partial k_{j}} \cdots \frac{\partial}{\partial k_{l}}}_{s \text { mony desiv. }} \varphi(\vec{k})\right|_{\vec{k}=0}=\int d^{s} x x_{i} x_{j} \cdots x_{l} p(\vec{x})=\underbrace{\left\langle x_{i} x_{j} \cdots x_{l}\right\rangle}_{ egin{subarray}{c}S-\text { point conelation function } \ S-\text { voriables }\end{subarray}} \tag{12}
+\end{equation*} 
+
+
+Let's colculate the 2 -point conelation function for a Goussion distr.
+
+
+\begin{equation*}
+\left\langle x_{i} x_{j}\right\rangle=\left.(-i)^{2} \frac{\partial}{\partial k_{i}} \frac{\partial}{\partial k_{j}} e^{-\frac{\vec{k}^{\top} A^{-1} \vec{k}}{2}}\right|_{\vec{k}=0}=\left(A^{-1}\right)_{i j} \tag{13}
+\end{equation*} 
+
+
+$A^{-7}$ is the 2 -point conelation function between a pair of Gauss. r.v. When $A^{-1}$ is a diagon. motrix, we say that the vars ore uncomel.
+
+In the previous example: \quad $A=\left(\begin{array}{cc}3 & -1 \\ -1 & 3\end{array}\right) \quad A^{-1}=\frac{1}{8}\left(\begin{array}{ll}3 & 1 \\ 1 & 3\end{array}\right)$
+hence
+
+$$ 
+\left\langle x_{1}^{2}\right\rangle=\frac{3}{8}=\left\langle x_{2}^{2}\right\rangle \quad\left\langle x_{1} x_{2}\right\rangle=\frac{1}{8}=\left\langle x_{2} x_{1}\right\rangle 
+$$ 
+
+Notice that, because of symmetry, the s-point conel. funct. for s-variable ( $s$ is odd) is zero (the Genssion remains unchanged when $\vec{x} \rightarrow-\vec{x}$ ).
+
+What happens when we calculate $\left\langle x_{i} x_{j} \ldots x_{e}\right\rangle$ ?
+Should we do all the derivatives like in ey. (12)? No!
+If the vars are Gaussion then we can use:
+
+Wick's Heoremen. Any conelation between an even number of zero-mean Gaussion 2.v. can be written down as a sum of products of 2 -point conclation function $S\left(A^{-1}\right)$.
+For instance:
+$\left\langle x_{a} x_{b} x_{c} x_{d}\right\rangle=\underbrace{\left\langle x_{a} x_{b}\right\rangle}_{\left(A^{-1}\right)_{a b}} \underbrace{\left.x_{c} x_{d}\right\rangle}_{\left(A^{-1}\right)_{c d}}+\left\langle x_{a} x_{c}\right\rangle\left\langle x_{b} x_{d}\right\rangle+\left\langle x_{a} x_{d}\right\rangle\left\langle x_{b} x_{c}\right\rangle$
+In general
+(14)
+
+$$ 
+\langle\underbrace{x_{i} x_{j} \cdots x_{m} x_{m}}_{s-\text { vers }}\rangle=\sum_{p}\left(A^{-1}\right)_{i j_{p}} \cdots\left(A^{-1}\right)_{m_{p} m_{p}}
+$$ 
+where the sum is over all possible poinings of $s$ indexes, i.e. over all ways of grouping $s$ (even) indexed $s i, j \ldots, m, m$ into pairs (courting poins ever when indexes one equal).
+Exercige: show that
+
+$$ 
+\begin{aligned}
+& \left\langle x_{1}^{2} x_{2}^{2}\right\rangle=\frac{3}{8} \cdot \frac{3}{8}+\frac{1}{8} \cdot \frac{1}{8}+\frac{1}{8} \cdot \frac{1}{8}=\frac{11}{64} \\ 
+& \left\langle x_{1}^{4}\right\rangle=3\left(\frac{3}{8}\right)^{2}=\left\langle x_{2}^{4}\right\rangle \quad\left\langle x_{1} x_{2}^{2}\right\rangle=
+\end{aligned}
+$$ 
+
+J. Zimn-Justin, Quantum Field Thery and Gitical Phenomena
+(ch. 1).
+
+Important results obtrimed with choracteristic functions
+If we are given the joint probability density function $p
+(x, x_{2})$ and it Keppens that $p
+(x_{1}, x_{2})=p_{1}
+(x_{1}) p_{2}
+(x_{2}) \quad\left(p_{1} \neq p_{2}\right)$ then the two vors are independent. Of, a top of this, $p_{1}=p_{2}$, then we soy that the two 2.v. are independent and identically distributed (ii.d.).
+
+If we are given two z.v. that are i.i.d. con we colulde the distribution of their sum?
+If $x_{1} \sim q(x)$ and $x_{2} \sim q(x)$ what is the distribution of $x=x_{1}+x_{2}$ ?

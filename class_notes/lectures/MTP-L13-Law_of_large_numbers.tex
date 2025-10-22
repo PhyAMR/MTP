@@ -1,0 +1,114 @@
+\section{Law of large numbers}
+Models 7/10/25:
+
+If we are given 2 2.v. $x_{1}, x_{2}$ and their joint prob. $p\left(x_{1}, x_{2}\right)$, then we soy that $x_{1}$ and $x_{2}$ are indep if.
+
+$$ p\left(x_{1}, x_{2}\right)=p\left(x_{1}\right) q\left(x_{2}\right) $$ 
+
+where $x_{1} \sim p\left(x_{1}\right)$ and $x_{2} \sim g\left(x_{2}\right)$. On general $p \neq p$.
+Also, if. $p=q$. He we say that $x_{1}$ and $x_{2}$ are independent and identically divinibuted.
+
+If we are given $x_{1}, x_{2}$ that are i.i.d. what is the distribution of
+
+$$ x=x_{1}+x_{2} \quad x \sim p(x) $$ 
+
+(15) $p(x)=\int \delta(\underbrace{x-\left(x_{1}+x_{2}\right)}) p\left(x_{1}, x_{2}\right) d x_{1} d x_{2} \equiv\left\langle\delta\left(x-x_{1}-x_{2}\right)\right\rangle$ we select all passible $x_{1}, x_{2}$ s.t. Hein sum is $x^{*}$.
+i.i.d.
+
+$$ \begin{aligned} & =\int d\left(x-x_{1}-x_{2}\right) q\left(x_{1}\right) q\left(x_{2}\right) d x_{1} d x_{2} \ & =\int q(x-y) q(y) d y \quad \text { it's a convalution. } \ \end{aligned} $$ 
+
+We con calculate the c.f. of $p(x)$ :
+
+\begin{align*}
+\varphi(k) & \equiv\left\langle e^{i k x}\right\rangle=\int e^{i k x} p(x) d x=\int d x e^{i k x} \delta\left(x-x_{1}-x_{2}\right) p\left(x_{1}\right) q\left(x_{2}\right) d x_{1} d x_{2} \\ & =\int e^{i k\left(x_{1}+x_{2}\right)} q\left(x_{1}\right) q\left(x_{2}\right) d x_{1} d x_{2}=[\varphi(k)]^{2} \tag{16}
+\end{align*} 
+
+Exerc.: . What is the disiribusion of the sum if they are indep sut not ident. distrib.?
+
+\begin{itemize}
+  \item What is the c.f. of dirinib. of the sam of $n$ iid?
+  \item Colculitic the distrib of $x=x_{1}+x_{2}$ where $x_{1}, x_{2}$ are $i i d$ drawn from
+a) $U([0,1])$,
+b) $N(\mu, \sigma)$,
+c) $\lambda e^{-\lambda x}$.
+  \item Calculate the dirimismion of the product $x=x_{1} x_{2}$ where $x_{1}, x_{2}$ are positive iid.
+\end{itemize}
+
+\section*{The (weok) law of large numbers}
+If we are given $x$ iid rand. var. whose polf is $q(x)$ with a $c \cdot f \cdot \varphi_{1}(k)$, what happens to $x=\frac{1}{m} \sum_{i} x_{i}$ as $n \rightarrow \infty$ ?
+
+We assume that the mean of $x_{i}$ is $\mu \quad\left(\mu=\int d x q(x) x<\infty\right)$. (See Gimmett & Stingater, p. 193, prob. and Randam Processes). proof:
+Let $\varphi(n)$ be the $c \cdot f$. of the average of the rand. variables
+
+$$ \begin{aligned} \varphi(n) \equiv\left\langle e^{i k x}\right\rangle & =\left\langle e^{i k \frac{1}{n} \sum_{i} x_{i}}\right\rangle=\int e^{\frac{i k}{m} \sum_{i} x_{i}} q\left(x_{1}\right) \cdots q\left(x_{m}\right) d x_{1} \cdots d x_{m} \ x & =\frac{1}{n} \sum_{i} x_{i} \end{aligned} $$ 
+
+(17)
+
+$$ =\left(\int e^{i \frac{k}{m} x_{1}} q(x,) d x\right) \cdots\left(\int e^{i k \frac{x_{m}}{m}} q\left(x_{m}\right) d x_{m}\right)=\left(\varphi_{1}\left(\frac{k}{n}\right)\right)^{n} $$ 
+
+$\varphi_{2}\left(\frac{k}{n}\right)=\int e^{i \frac{k}{n} x} q(x) d x=1+\frac{i k}{n}\langle x\rangle+\mathcal{O}\left(\frac{1}{n}\right)$ as $n \rightarrow$
+Toylon convergence in chistribution
+from (17)
+
+$$ \left(1+\frac{i k}{n}\langle x\rangle+\ldots\right)^{n} \xrightarrow[n \rightarrow \infty]{\downarrow} e^{i \mu k}=\int \underbrace{\delta(x-\mu)}_{p(x)=\delta(x-\mu)} e^{i k x} d x $$ 
+
+\section*{The strong law of lage numbers}
+Let $x_{1} \ldots x_{m}$ be a regrence of i.i.d. 2.v. each with finite mean $\mu$. Then the empirical average $\frac{1}{n} \sum_{i} x_{i}$ approaches $\mu$ as $n \rightarrow \infty$ (Gimmett, p. 329 ).
+
+Here the convergence is almost sure.
+
+$$ P\left(\left\{\underline{\underline{\frac{1}{n} \sum_{1} x_{i}}} \rightarrow \mu \text { as } n \rightarrow \infty\right\}\right)=1 $$ 
+
+This Hearem tells as that for large $n$ the sum $\sum_{i} x_{i}$ is well approximated by $\mu n$. If course there will be fluctuations around $\mu x$. A notural question is : what con we say obout $\sum_{i} x_{i}-n \mu$ ? How fort do we approach the limit? What about the fluctuations around np? 
+Whenever $x_{i}$ have finite variance $\sigma^{2}$:
+
+\begin{enumerate}
+  \item $\sum_{i} x_{i}-\mu^{n}$ is about as big as $\sqrt{n}$
+  \item The distribution of $\frac{\sum_{i} x_{i}-\mu n}{\sqrt{n}}$ approacles a Goussion distribution as $n \rightarrow \infty$ IRRESPECTIVE of the divinibution of $x_{i}$.
+\end{enumerate}
+
+The claims in a) and s) ore the core meaning of the Central Limit Theorem
+Let $x_{1} \ldots x_{n}$ be a sepvence of i.i.d. z.v. with finite mean $\mu$ and finite (nongeno) variance $\sigma^{2}$. Then the PDF of
+(19)
+
+$$ \begin{aligned} & Y_{n}=\frac{\sum_{i} x_{i}-\mu n}{\sqrt{n} \sigma} \xrightarrow[\begin{array}{c} m \rightarrow \infty \\ \text { convergence } \\ \text { in distrib. } \end{array}]{ } N(0,1) \quad \begin{gathered} \text { Goussion distr. } \ \text { with men o mi } \ \text { variance } 1 . \end{gathered} \end{aligned} $$ 
+
+Obs :
+
+$$ \left\langle Y_{m}\right\rangle=\frac{1}{\sqrt{m} \sigma}\left(\Sigma_{i}\left\langle x_{i}\right\rangle-\mu m\right)=0 $$ 
+
+Ex:
+$-\operatorname{Var}\left(Y_{n}\right)=\cdots=1$
+
+\begin{itemize}
+  \item Let $x_{1}, x_{2}$ be two i.i.d. Gaussion 2.v. such. that
+\end{itemize}
+
+$$ \left\langle x_{i}\right\rangle=0,\left\langle x_{i}^{2}\right\rangle=1,\left\langle x_{1} x_{2}\right\rangle=0 \quad i=1,2 \text { . } $$ 
+
+Colulate $\left\langle y_{i}\right\rangle,\left\langle y_{i}^{2}\right\rangle,\left\langle y_{1} y_{2}\right\rangle \quad i=1,2$ where
+
+$$ \left\{\begin{array}{l} y_{1}=\rho+\sqrt{1-\rho^{2}} x_{1} \ y_{2}=\rho+\sqrt{1-\rho^{2}}\left(\gamma x_{1}+\sqrt{1-\gamma^{2}} x_{2}\right) \end{array}\right. $$ 
+
+where $|\rho| \leqslant 1,|\gamma| \leqslant 1$.
+Obs: the definition of $Y_{m}$ means that it is centered at $D$ with a veriance that does not depend on $n$.
+proof:
+Let's assume that cach z.v. has a p.d.f. $q(x)$ with c.f. $\varphi_{1}(n), \quad \varphi(n)$ is the c.f. of $r_{m}$: 
+$\varphi(n)=\left\langle e^{i n V_{m}}\right\rangle=\int e^{i n \frac{\Sigma_{i} x_{i}-\mu_{m}}{\sqrt{\pi} \sigma}} g\left(x_{1}\right) \cdots g\left(x_{m}\right) d x_{1} \cdots d x_{m}=$
+
+\begin{equation*}
+=e^{-\frac{i k \mu \sqrt{n}}{\sigma}}(\underbrace{\int e^{\frac{i n x}{\sqrt{n} \sigma}} g(x) d x}_{\varphi_{1}\left(\frac{k}{\sqrt{n} \sigma}\right)})^{n} \tag{20}
+\end{equation*} 
+
+As in the previous theorem we can expond $\varphi_{1}$ as noso
+Toylon and (5)
+
+$$ \begin{gathered}
+\varphi_{1}\left(\frac{k}{\sqrt{n} \sigma}\right)^{\downarrow}=1+\frac{i k}{\sqrt{n} \sigma}\langle x\rangle-\frac{k^{2}}{2 m \sigma^{2}}\left\langle x^{2}\right\rangle+O\left(m^{-3 / 2}\right) \\ =e^{\frac{i k}{\sqrt{\sigma}} \mu-\frac{k^{2}}{2 n}} \quad(\leftarrow \text { show why only }-\frac{k^{2}}{2 n} \text { zemoins. })
+\end{gathered} $$ 
+
+from (20)
+
+$$ \varphi(k)=e^{-\frac{i k \mu}{\sigma} \sqrt{m}} e^{\frac{i k \mu}{\sigma} \sqrt{m}-\frac{k^{2}}{2}}=e^{-\frac{k^{2}}{2}} $$ 
+
+As we have shown in ep. (6), this is the e.f. of $p(x)=\frac{1}{\sqrt{2 \pi}} e^{-\frac{x^{2}}{2}} \equiv N(0,1)$ Show 1) $\sum_{i}^{n} x_{i} \sim N\left(m \mu, n \sigma^{2}\right) ;$ 2) $\frac{1}{n} \sum_{i} x_{i} \sim N\left(\mu, \frac{\sigma^{2}}{n}\right)$

@@ -1,0 +1,120 @@
+% Lecture file created by newnote
+% Class: Models of Theoretical Physics
+% Professor: Azaele Sandro
+% Date: 2025-10-17
+\lecture{9}{Wick's theorem}{2025-10-17}
+\pagelayout{margin}
+% --- Start writing here ---
+
+\section{Wick's theorem}
+Note that, because of symmetry, the s-point correlation for $s$ any odd integer is zero (the Gaussian remains unchanged if $\vec{x} \rightarrow-\vec{x}$). 
+
+What happens when we want to calculate $\left\langle x_{i} x_{j} \cdots x_{l}\right\rangle$? Should we always do all the derivatives as in eq. (12)? No!
+If the vars are Gaussian we can use
+
+\subsection*{Wick's theorem}
+Any correlation between an even number of Gaussian r.v. can be written down as a sum of products of 2-point correlation functions $\left(A^{-1}\right)$.
+For instance
+\begin{DispWithArrows}
+    \begin{aligned}
+    \left\langle x_{a} x_{b} x_{c} x_{d}\right\rangle= & \left\langle x_{a} x_{b}\right\rangle\left\langle x_{c} x_{d}\right\rangle+\left\langle x_{a} x_{c}\right\rangle\left\langle x_{b} x_{d}\right\rangle+\left\langle x_{a} x_{d}\right\rangle\left\langle x_{b} x_{c}\right\rangle \\
+    & \left(A^{-1}\right)_{a b} \quad \left(A^{-1}\right)_{c d} \quad \cdots \quad \text { (indexes may be equal) }
+    \end{aligned}
+\end{DispWithArrows}
+Exercise: from the previous case, show that (no calculations!)
+\begin{DispWithArrows}
+    \begin{aligned}
+    & \left\langle x_{1}^{2} x_{2}^{2}\right\rangle=\frac{3}{8} \cdot \frac{3}{8}+\frac{1}{8} \cdot \frac{1}{8}+\frac{1}{8} \cdot \frac{1}{8}=\frac{11}{64} \\
+    & \left\langle x_{1}^{4}\right\rangle=3\left(\frac{3}{8}\right)^{2}=\left\langle x_{2}^{4}\right\rangle,\left\langle x_{1} x_{2}^{2}\right\rangle=0
+    \end{aligned}
+\end{DispWithArrows}
+In general:
+\begin{DispWithArrows}[tag=14]
+    \langle\underbrace{x_{i} x_{j} \ldots x_{n} x_{m}}_{s \text { vars }}\rangle=\sum_{p}\left(A^{-1}\right)_{i_{p} j_{p}} \cdots\left(A^{-1}\right)_{n_{p} m_{p}}
+\end{DispWithArrows}
+Where the sum runs over all pairings of $s$ indexes, i.e. over all ways of grouping $s$ (even) indexes $i, j \ldots, n, m$ into pairs (counting the pair even when indexes are equal; order in the pairs is not important). If there are $s$ vars then the possible pairings are $(s-1)!!=(s-1)(s-3) \ldots 3 \cdot 1$.
+
+\subsection*{Further important results obtained with characteristic functions}
+(1) If you are given two independent and identically distributed (iid) random variables, how do you calculate the pdf of their sum? What is its c.f.?
+We assume they are real with pdf $q(x)$:
+\begin{DispWithArrows}
+    $x=x_{1}+x_{2} \quad x_{1}, x_{2} \sim q(x)$
+\end{DispWithArrows}
+When we draw $x_{1}$ and $x_{2}$ from $q(x)$, many different outcomes can give you the same sum $x$, these have to be added up with the corresponding probability, hence
+\begin{DispWithArrows}[tag=15]
+    $p(x)=\int \delta\left(x-\left(x_{1}+x_{2}\right)\right) p\left(x_{1}, x_{2}\right) d x_{1} d x_{2} \equiv\left\langle\delta\left(x-x_{1}-x_{2}\right)\right\rangle$
+\end{DispWithArrows}
+we select all possible $x_{1}, x_{2}$ s.t. their sum is $x$.
+i.i.d.
+\begin{DispWithArrows}
+    \begin{aligned}
+    & =\int \delta\left(x-x_{1}-x_{2}\right) q\left(x_{1}\right) q\left(x_{2}\right) d x_{1} d x_{2} \\
+    & =\int q(x-y) q(y) d y \quad \text { it's a convolution. }
+    \end{aligned}
+\end{DispWithArrows}
+What is the c.f. of $p(x)$ if the c.f. of $q(x)$ is $\varphi_{1}(k)$?
+\begin{DispWithArrows}[tag=16]
+    \begin{aligned}
+    \varphi(k) & \equiv\left\langle e^{i k x}\right\rangle=\int e^{i k x} p(x) d x=\int d x e^{i k x} \delta\left(x-\left(x_{1}+x_{2}\right)\right) q\left(x_{1}\right) q\left(x_{2}\right) d x_{1} d x_{2} \\
+    & =\int e^{i k\left(x_{1}+x_{2}\right)} q\left(x_{1}\right) q\left(x_{2}\right) d x_{1} d x_{2}=\left[\varphi_{1}(k)\right]^{2}
+    \end{aligned}
+\end{DispWithArrows}
+What happens if the r.v. are independent but not identically distributed?
+(2) The (weak) law of large numbers (convergence in distribution)
+If we are now given $n$ iid r.v. whose pdf is $q(x)$ with c.f. $\varphi_{1}(k)$, what happens to $X=\frac{1}{n} \sum_{i} x_{i}$ as $n \rightarrow \infty$?
+Let's assume that the mean of $x_{i}$ is $\mu \quad\left(\mu=\int x q(x) d x<\infty\right)$. (See Grimmett & Stirzaker, p. 193, Prob. and Random Processes). proof:
+Let $\varphi_{n}(k)$ be the c.f. of the average of the rand. variables
+\begin{DispWithArrows}
+    \varphi_{n}(k) \equiv\left\langle e^{i k X}\right\rangle=\left\langle e^{i k \frac{1}{n} \sum_{i} x_{i}}\right\rangle=\int e^{\frac{i k}{n} \sum_{i} x_{i}} q\left(x_{1}\right) \cdots q\left(x_{n}\right) d x_{1} \cdots d x_{n}
+\end{DispWithArrows}
+\begin{DispWithArrows}[tag=17]
+    =\left(\int e^{i \frac{k}{n} x_{1}} q\left(x_{1}\right) d x_{1}\right) \cdots\left(\int e^{i k \frac{x_{n}}{n}} q\left(x_{n}\right) d x_{n}\right)=\left(\varphi_{1}\left(\frac{k}{n}\right)\right)^{n}
+\end{DispWithArrows}
+Also, Taylor
+\begin{DispWithArrows}
+    \varphi_{1}\left(\frac{k}{n}\right) = 1+\frac{i k}{n}\langle x\rangle+O\left(\frac{1}{n^2}\right) \text { as } n \rightarrow \infty
+\end{DispWithArrows}
+From (17)
+\begin{DispWithArrows}
+    \left(1+\frac{i k}{n}\langle x\rangle+\ldots\right)^{n} \xrightarrow[n \rightarrow \infty]{} e^{i \mu k}=\int \delta(x-\mu) e^{i k x} d x
+\end{DispWithArrows}
+Here we have only proved that we have a much stronger result:
+\begin{DispWithArrows}[tag=18]
+    \frac{1}{n} \sum_{i=1}^{n} x_{i} \rightarrow \mu
+\end{DispWithArrows}
+The strong law of large numbers states: Let $x_{1} \ldots x_{n}$ be a sequence of i.i.d. r.v. each with finite mean $\mu$. Then the finite (empirical) average approaches $\mu$ as $n \rightarrow \infty$. (Grimmett, p. 329)
+This law tells us that, for large $n$, the sum $\sum_{i} x_{i}$ is approximately $n \mu$. Of course there will be fluctuations around $n \mu$. A natural question is then what can we say about $\sum_{i=1}^{n} x_{i}-\mu n$?
+There is an extraordinary answer to this question, which is valid whenever $x_{i}$ have finite variance:
+a) $\sum_{i=1}^{n} x_{i}-\mu n$ is about as big as $\sqrt{n}$
+b) The distribution of $\frac{\sum_{i=1}^{n} x_{i}-\mu n}{\sqrt{n}}$ approaches a Gaussian pdf as $n \rightarrow \infty$ IRRESPECTIVE of the pdf of $x_{i}$.
+
+Claims a) and b) are the core meaning of the
+
+\subsection*{Central Limit Theorem}
+Let $x_{1} \ldots x_{n}$ be a sequence of i.i.d. r.v. with finite mean $\mu$ and finite (non-zero) variance $\sigma^{2}$. Then the p.d.f. of
+\begin{DispWithArrows}[tag=19]
+    $Y_{n}=\frac{\sum_{i=1}^{n} x_{i}-\mu n}{\sqrt{n} \sigma} \xrightarrow[n \rightarrow \infty]{\text{conv. in distrib.}} N(0,1)$
+\end{DispWithArrows}
+Obs: $\left\langle Y_{n}\right\rangle=\frac{1}{\sqrt{n} \sigma}\left(\sum_{i}\left\langle x_{i}\right\rangle-\mu n\right)=0$
+\begin{DispWithArrows}
+    \operatorname{Var}\left(Y_{n}\right)=\frac{1}{n \sigma^{2}} \operatorname{Var}\left(\sum_{i=1}^{n} x_{i}-\mu n\right)=\frac{1}{n \sigma^{2}} \operatorname{Var}\left(\sum_{i=1}^{n} x_{i}\right)=\frac{\sum_{i} \operatorname{Var}\left(x_{i}\right)}{n \sigma^{2}}=\frac{n \sigma^{2}}{n \sigma^{2}}=1
+\end{DispWithArrows}
+(please, go throughly through all the steps and revise the properties of var(…)).
+This means that $Y_{n}$ has a center (0) and a "width" that does not change as $n$ varies.
+proof:
+Let's assume that each r.v. has a p.d.f. $q(x)$ with c.f. $\varphi_{1}(k)$, $\varphi_{n}(k)$ is the c.f. of $Y_{n}$:
+\begin{DispWithArrows}
+    \varphi_{n}(k)=\left\langle e^{i k Y_{n}}\right\rangle=\int e^{i k \frac{\sum_{i} x_{i}-\mu n}{\sqrt{n} \sigma}} q\left(x_{1}\right) \cdots q\left(x_{n}\right) d x_{1} \cdots d x_{n}=
+\end{DispWithArrows}
+\begin{DispWithArrows}[tag=20]
+    =e^{-\frac{i k \mu \sqrt{n}}{\sigma}}\left(\int e^{\frac{i k x}{\sqrt{n} \sigma}} q(x) d x\right)^{n} = e^{-\frac{i k \mu \sqrt{n}}{\sigma}}\left(\varphi_{1}\left(\frac{k}{\sqrt{n} \sigma}\right)\right)^{n}
+\end{DispWithArrows}
+As in the previous theorem we can expand $\varphi_{1}$ as $n \rightarrow \infty$
+\begin{DispWithArrows}
+    \varphi_{1}\left(\frac{k}{\sqrt{n} \sigma}\right) = 1+\frac{i k}{\sqrt{n} \sigma}\langle x\rangle-\frac{k^{2}}{2 n \sigma^{2}}\left\langle x^{2}\right\rangle+O\left(n^{-3 / 2}ight) = e^{\frac{i k \mu}{\sqrt{n}\sigma}-\frac{k^{2}}{2n}}
+\end{DispWithArrows}
+from (20)
+\begin{DispWithArrows}
+    \varphi_{n}(k)=e^{-\frac{i k \mu}{\sigma} \sqrt{n}} e^{\frac{i k \mu}{\sigma} \sqrt{n}-\frac{k^{2}}{2}}=e^{-\frac{k^{2}}{2}}
+\end{DispWithArrows}
+As we have shown in eq. (6), this is the c.f. of $p(x)=\frac{1}{\sqrt{2 \pi}} e^{-\frac{x^{2}}{2}} \equiv N(0,1)$. Show 1) $\sum_{i=1}^{n} x_{i} \sim N\left(n \mu, n \sigma^{2}\right)$; 2) $\frac{1}{n} \sum_{i=1}^{n} x_{i} \sim N\left(\mu, \frac{\sigma^{2}}{n}\right)$

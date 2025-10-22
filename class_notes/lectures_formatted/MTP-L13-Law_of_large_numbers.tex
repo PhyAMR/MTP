@@ -1,0 +1,122 @@
+% Lecture file created by newnote
+% Class: Models of Theoretical Physics
+% Professor: Azaele Sandro
+% Date: 2025-10-07
+\lecture{13}{Law of large numbers}{2025-10-07}
+\pagelayout{margin}
+% --- Start writing here ---
+
+\section{Law of large numbers}
+If we are given 2 r.v. $x_{1}, x_{2}$ and their joint prob. $p\left(x_{1}, x_{2}\right)$, then we say that $x_{1}$ and $x_{2}$ are indep if.
+\begin{DispWithArrows}
+    p\left(x_{1}, x_{2}\right)=p\left(x_{1}\right) q\left(x_{2}\right)
+\end{DispWithArrows}
+where $x_{1} \sim p\left(x_{1}\right)$ and $x_{2} \sim q\left(x_{2}\right)$. In general $p \neq q$.
+Also, if $p=q$, then we say that $x_{1}$ and $x_{2}$ are independent and identically distributed.
+
+If we are given $x_{1}, x_{2}$ that are i.i.d. what is the distribution of
+\begin{DispWithArrows}
+    x=x_{1}+x_{2} \quad x \sim p(x)
+\end{DispWithArrows}
+\begin{DispWithArrows}[tag=15]
+    p(x)=\int \delta(x-\left(x_{1}+x_{2}\right)) p\left(x_{1}, x_{2}\right) d x_{1} d x_{2} \equiv\left\langle\delta\left(x-x_{1}-x_{2}\right)\right\rangle
+\end{DispWithArrows}
+we select all possible $x_{1}, x_{2}$ s.t. their sum is $x$.
+i.i.d.
+\begin{DispWithArrows}
+    \begin{aligned}
+    & =\int \delta\left(x-x_{1}-x_{2}\right) q\left(x_{1}\right) q\left(x_{2}\right) d x_{1} d x_{2} \\
+    & =\int q(x-y) q(y) d y \quad \text { it's a convolution. }
+    \end{aligned}
+\end{DispWithArrows}
+We can calculate the c.f. of $p(x)$:
+\begin{DispWithArrows}[tag=16]
+    \begin{aligned}
+    \varphi(k) & \equiv\left\langle e^{i k x}\right\rangle=\int e^{i k x} p(x) d x=\int d x e^{i k x} \delta\left(x-x_{1}-x_{2}\right) q\left(x_{1}\right) q\left(x_{2}\right) d x_{1} d x_{2} \\
+    & =\int e^{i k\left(x_{1}+x_{2}\right)} q\left(x_{1}\right) q\left(x_{2}\right) d x_{1} d x_{2}=\left[\varphi_{1}(k)\right]^{2}
+    \end{aligned}
+\end{DispWithArrows}
+Exerc.: What is the distribution of the sum if they are indep but not ident. distrib.?
+\begin{itemize}
+    \item What is the c.f. of distrib. of the sum of $n$ iid?
+    \item Calculate the distrib of $x=x_{1}+x_{2}$ where $x_{1}, x_{2}$ are iid drawn from
+    a) $U([0,1])$, 
+    b) $N(\mu, \sigma)$, 
+    c) $\lambda e^{-\lambda x}$.
+    \item Calculate the distribution of the product $x=x_{1} x_{2}$ where $x_{1}, x_{2}$ are positive iid.
+\end{itemize}
+
+\subsection*{The (weak) law of large numbers}
+If we are given $n$ iid rand. var. whose pdf is $q(x)$ with a c.f. $\varphi_{1}(k)$, what happens to $X=\frac{1}{n} \sum_{i} x_{i}$ as $n \rightarrow \infty$?
+
+We assume that the mean of $x_{i}$ is $\mu \quad\left(\mu=\int d x q(x) x<\infty\right)$. (See Grimmett & Stirzaker, p. 193, Prob. and Random Processes). proof:
+Let $\varphi_{n}(k)$ be the c.f. of the average of the rand. variables
+\begin{DispWithArrows}
+    \varphi_{n}(k) \equiv\left\langle e^{i k X}\right\rangle =\left\langle e^{i k \frac{1}{n} \sum_{i} x_{i}}\right\rangle=\int e^{\frac{i k}{n} \sum_{i} x_{i}} q\left(x_{1}\right) \cdots q\left(x_{n}\right) d x_{1} \cdots d x_{n}
+\end{DispWithArrows}
+\begin{DispWithArrows}[tag=17]
+    =\left(\int e^{i \frac{k}{n} x_{1}} q(x_1) d x_1\right) \cdots\left(\int e^{i k \frac{x_{n}}{n}} q\left(x_{n}\right) d x_{n}\right)=\left(\varphi_{1}\left(\frac{k}{n}\right)\right)^{n}
+\end{DispWithArrows}
+$
+\varphi_{1}\left(\frac{k}{n}\right)=\int e^{i \frac{k}{n} x} q(x) d x=1+\frac{i k}{n}\langle x\rangle+\mathcal{O}\left(\frac{1}{n^2}\right)$ as $n \rightarrow \infty$
+Taylor convergence in distribution
+from (17)
+\begin{DispWithArrows}
+    \left(1+\frac{i k}{n}\langle x\rangle+\ldots\right)^{n} \xrightarrow[n \rightarrow \infty]{} e^{i \mu k}=\int \underbrace{\delta(x-\mu)}_{p(x)=\delta(x-\mu)} e^{i k x} d x
+\end{DispWithArrows}
+
+\subsection*{The strong law of large numbers}
+Let $x_{1} \ldots x_{n}$ be a sequence of i.i.d. r.v. each with finite mean $\mu$. Then the empirical average $\frac{1}{n} \sum_{i} x_{i}$ approaches $\mu$ as $n \rightarrow \infty$ (Grimmett, p. 329).
+
+Here the convergence is almost sure.
+\begin{DispWithArrows}
+    P\left(\left\{\frac{1}{n} \sum_{i=1}^{n} x_{i} \rightarrow \mu \text { as } n \rightarrow \infty\right\}\right)=1
+\end{DispWithArrows}
+This Theorem tells us that for large $n$ the sum $\sum_{i} x_{i}$ is well approximated by $\mu n$. Of course there will be fluctuations around $\mu n$. A natural question is : what can we say about $\sum_{i} x_{i}-n \mu$? How fast do we approach the limit? What about the fluctuations around $n\mu$?
+Whenever $x_{i}$ have finite variance $\sigma^{2}$:
+\begin{enumerate}
+    \item $\sum_{i} x_{i}-\mu n$ is about as big as $\sqrt{n}$
+    \item The distribution of $\frac{\sum_{i} x_{i}-\mu n}{\sqrt{n}}$ approaches a Gaussian distribution as $n \rightarrow \infty$ IRRESPECTIVE of the distribution of $x_{i}$.
+\end{enumerate}
+
+The claims in a) and b) are the core meaning of the Central Limit Theorem
+Let $x_{1} \ldots x_{n}$ be a sequence of i.i.d. r.v. with finite mean $\mu$ and finite (non-zero) variance $\sigma^{2}$. Then the PDF of
+\begin{DispWithArrows}[tag=19]
+    Y_{n}=\frac{\sum_{i} x_{i}-\mu n}{\sqrt{n} \sigma} \xrightarrow[n \rightarrow \infty]{\text{conv. in distrib.}} N(0,1)
+\end{DispWithArrows}
+Obs:
+\begin{DispWithArrows}
+    \left\langle Y_{n}\right\rangle=\frac{1}{\sqrt{n} \sigma}\left(\sum_{i}\left\langle x_{i}\right\rangle-\mu n\right)=0
+\end{DispWithArrows}
+Ex:
+$
+\operatorname{Var}\left(Y_{n}\right)=\cdots=1$
+\begin{itemize}
+    \item Let $x_{1}, x_{2}$ be two i.i.d. Gaussian r.v. such that
+    \begin{DispWithArrows}
+        \left\langle x_{i}\right\rangle=0,\left\langle x_{i}^{2}\right\rangle=1,\left\langle x_{1} x_{2}\right\rangle=0 \quad i=1,2
+    \end{DispWithArrows}
+    Calculate $\left\langle y_{i}\right\rangle,\left\langle y_{i}^{2}\right\rangle,\left\langle y_{1} y_{2}\right\rangle \quad i=1,2$ where
+    \begin{DispWithArrows}
+        \left\{\begin{array}{l} y_{1}=\rho+\sqrt{1-\rho^{2}} x_{1} \\ y_{2}=\rho+\sqrt{1-\rho^{2}}\left(\gamma x_{1}+\sqrt{1-\gamma^{2}} x_{2}\right) \end{array}\right.
+    \end{DispWithArrows}
+    where $|\rho| \leqslant 1,|\gamma| \leqslant 1$.
+\end{itemize}
+Obs: the definition of $Y_{n}$ means that it is centered at 0 with a variance that does not depend on $n$.
+proof:
+Let's assume that each r.v. has a p.d.f. $q(x)$ with c.f. $\varphi_{1}(k)$, $\varphi_{n}(k)$ is the c.f. of $Y_{n}$:
+\begin{DispWithArrows}
+    \varphi_{n}(k)=\left\langle e^{i k Y_{n}}\right\rangle=\int e^{i k \frac{\sum_{i} x_{i}-\mu n}{\sqrt{n} \sigma}} q\left(x_{1}\right) \cdots q\left(x_{n}\right) d x_{1} \cdots d x_{n}=
+\end{DispWithArrows}
+\begin{DispWithArrows}[tag=20]
+    =e^{-\frac{i k \mu \sqrt{n}}{\sigma}}\left(\int e^{\frac{i k x}{\sqrt{n} \sigma}} q(x) d x\right)^{n} = e^{-\frac{i k \mu \sqrt{n}}{\sigma}}\left(\varphi_{1}\left(\frac{k}{\sqrt{n} \sigma}\right)\right)^{n}
+\end{DispWithArrows}
+As in the previous theorem we can expand $\varphi_{1}$ as $n \rightarrow \infty$
+\begin{DispWithArrows}
+    \varphi_{1}\left(\frac{k}{\sqrt{n} \sigma}\right) = 1+\frac{i k}{\sqrt{n} \sigma}\langle x\rangle-\frac{k^{2}}{2 n \sigma^{2}}\left\langle x^{2}\right\rangle+O\left(n^{-3 / 2}\right) = e^{\frac{i k \mu}{\sqrt{n}\sigma}-\frac{k^{2}}{2n}}
+\end{DispWithArrows}
+from (20)
+\begin{DispWithArrows}
+    \varphi_{n}(k)=e^{-\frac{i k \mu}{\sigma} \sqrt{n}} e^{\frac{i k \mu}{\sigma} \sqrt{n}-\frac{k^{2}}{2}}=e^{-\frac{k^{2}}{2}}
+\end{DispWithArrows}
+As we have shown in eq. (6), this is the c.f. of $p(x)=\frac{1}{\sqrt{2 \pi}} e^{-\frac{x^{2}}{2}} \equiv N(0,1)$. Show 1) $\sum_{i=1}^{n} x_{i} \sim N\left(n \mu, n \sigma^{2}\right)$; 2) $\frac{1}{n} \sum_{i=1}^{n} x_{i} \sim N\left(\mu, \frac{\sigma^{2}}{n}\right)$
