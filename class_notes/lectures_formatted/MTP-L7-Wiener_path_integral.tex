@@ -1,3 +1,760 @@
+% !TeX encoding = UTF-8
+% Lecture file created by newnote
+% Class: Models of Theoretical Physics
+% Professor: Azaele Sandro
+% Date: 2025-10-17
+\lecture{5}{Birth and death Markov processes}{2025-10-17}
+\pagelayout{margin}
+% --- Start writing here ---
+
+\section{Birth and death Markov processes}
+We discuss here a simple class of Markov processes, those that have a set of
+states that can be labeled with integers. We start from an even simpler
+discrete Markov process, the birth and death processes which occur in many
+applications. Then we will deduce results to more general cases.
+We start from a situation that is very similar to the random walk. We assume
+discrete times $t=0, \Delta t, 2 \Delta t, \ldots$ discrete states
+$x=0, \pm 1, \pm 2 \ldots$ and that jumps are allowed only between nearest
+neighbors, i.e. from $n$ to $n \pm 1$. For $\Delta t \ll 1$ we call
+$b_{n} \geqslant 0$ the birth rate, i.e., $b_{n} \Delta t$ is the prob. to jump
+to $n+1$ at time $t+\Delta t$, given that at time $t$ the state was $n$. (notice
+that $b_{n}$ does not depend on time, though it could in principle. If it does
+not, we say that the process is homogeneous). Analogously, $d_{n} \geqslant 0$
+is the death rate, i.e. $d_{n} \Delta t$ is the prob. to jump to $n-1$ at time
+$t+\Delta t$, given that at time $t$ the state was $n$.
+We want to calculate the prob. $p(n, t+\Delta t)$ (the propagator).
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{graphics/2025_10_17_3daf2a002a8f5936c90eg-01}
+\end{figure}
+\begin{DispWithArrows}[displaystyle, format=c]
+  p(n, t+\Delta t)=b_{n-1} \Delta t p(n-1, t)+d_{n+1} \Delta t p(n+1, t)+\left[1-\left(b_{n}+d_{n}\right) \Delta t\right] p(n, t)
+\end{DispWithArrows}
+By Taylor expansions and then taking the limit $\Delta t \rightarrow 0$ we get
+\begin{DispWithArrows}[displaystyle, format=c]
+  \frac{\partial p_{n}}{\partial t}=b_{n-1} p_{n-1}(t)+d_{n+1} p_{n+1}(t)-\left(b_{n}+d_{n}\right) p_{n}(t)
+\end{DispWithArrows}
+This is called the master equation of the birth-death process or
+generation-recombination process.
+
+A few observations:
+\begin{enumerate}
+  \item The M.E. is a gain-loss equation for the probabilities $p_{n}$;
+  \item We have to equip eq. (1) with initial conditions. If We start with
+    $P_{n, n_{0}}\(t_{0}\)=\delta_{n, n_{0}}$, then the M.E. is the
+    equation of the propagator of the Markov process, that is
+    \begin{DispWithArrows}[displaystyle, format=c]
+      P_{n}(t) \equiv P\left(n, t \mid n_{0} t_{0}\right)
+    \end{DispWithArrows}
+    So one can show (exercise) that $p_{n}(t)$ satisfies the Chapman-Kolmogorov
+    eq. in its differential form. More follows on this.
+  \item We can introduce boundary conditions as well. For instance, if $N$ is a
+    reflecting boundary,
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{graphics/2025_10_17_3daf2a002a8f5936c90eg-02}
+    \end{figure}
+    then
+    $b_{n} \equiv 0 \forall n \geqslant N, d_{n} \equiv 0 \forall n>N \quad\left(\right.$
+    for $n<N, b_{n}$ and $d_{n}$ are $\geqslant 0\right)$ therefore if the
+    state $N$ is reached, it can be left from one side only. $N$ is a reflecting
+    state.
+
+    If $N$ is an absorbing boundary,
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{graphics/2025_10_17_3daf2a002a8f5936c90eg-03}
+    \end{figure}
+    here $d_{N}=0$ which is important, because when the state $N$ is reached, it
+    can no longer be left. We say that $N$ is an absorbing state.
+\end{enumerate}
+
+\subsection*{Warning:}
+Because of the b.c. We have to be careful with eq. (1) as it holds only when
+the boundary states are not hit, otherwise it must be changed.
+\begin{enumerate}
+  \setcounter{enumi}{3}
+  \item Notice that eq. (1) is linear and deterministic; indeed we can define a
+    matrix $\mathbb{W}$ whose entries are
+    \begin{DispWithArrows}[displaystyle, format=c]
+      \mathbb{W}_{m m^{\prime}}=d_{m^{\prime}} \delta_{m, m^{\prime}-1}+b_{m^{\prime}} \delta_{m, m^{\prime}+1}-\left(d_{m}+b_{m}\right) \delta_{m, n^{\prime}}
+    \end{DispWithArrows}
+    So, if we introduce the vector notation $[\\vec{p}(t)]_{n} \equiv p_{n}(t)$
+    we can write eq. (1) as
+    \begin{DispWithArrows}[displaystyle, format=ll]
+      \left\{\begin{aligned}\dot{\\vec{P}}(t)&=\\mathbb{W} \\vec{P} \\ \\vec{P}(0)&=\\vec{P}_{0}\end{aligned}\right.
+    \end{DispWithArrows}
+    and formally the solution reads $\\vec{P}(t)=e^{\\mathbb{W} t} \\vec{P}_{0}$.
+    The master equation defined in eq. (4b) holds in general for a continuous
+    time, discrete Markov process as long as $\\mathbb{W}$ satisfies the
+    following properties:
+    \begin{enumerate}
+      \item $\\W_{n n^{\prime}} \geqslant 0$ for $n \neq n^{\prime}$
+      \item $\sum_{m} \mathbb{W}_{m n^{\prime}}=0$ for each $n^{\prime}$ (no abs.
+        bound.)
+    \end{enumerate}
+\end{enumerate}
+
+\subsection*{The equations for the mean and the variance}
+From eq. (1) one can simply derive the eqs. for the time evolution of the mean
+and the variance. We first multiply eq. (1) by $n$ and sum over $n$:
+$\\langle n\rangle \equiv \sum_{-\infty}^{+\infty} n p_{n}(t)$
+\begin{DispWithArrows}[displaystyle, format=ll]
+  \begin{aligned}
+    \frac{d}{d t}\\langle n\rangle & =\sum_{-\infty}^{+\infty}\left(n b_{n-1} p_{n-1}-n b_{n} p_{n}+n d_{n+1} p_{n+1}-n d_{n} p_{n}\right) \\    & =\sum_{n}\left[(n+1) b_{n} p_{n}-n b_{n} p_{n}+(n-1) d_{n} p_{n}-n d_{n} p_{n}\right] \\    & =\sum_{n}\left(b_{n}-d_{n}\right) p_{n}
+  \end{aligned}
+\end{DispWithArrows}
+\begin{DispWithArrows}[displaystyle, format=ll]
+  \frac{d}{d t}\\langle n\rangle=\\left\langle b_{n}\right\rangle-\\left\langle d_{n}\right\rangle \quad \begin{aligned} & \\left\langle b_{n}\right\rangle \equiv \sum_{n} b_{n} p_{n} \\ & \\left\langle d_{n}\right\rangle \equiv \sum_{n} d_{n} p_{n}\end{aligned}
+\end{DispWithArrows}
+with some initial conditions. Notice that this equation has to be equipped with
+different equations if there is an absorbing or reflecting b.c. Can you find
+them?
+
+For the evolution of the variance we have to derive an equation for the second
+moment $\\left\langle n^{2}\right\rangle$. We first multiply eq. (1) by $n^{2}$
+and then sum over $n$:
+\begin{DispWithArrows}[displaystyle, format=ll]
+  \begin{aligned}
+    \frac{d}{d t}\\left\langle n^{2}\right\rangle & =\sum_{-\infty}^{+\infty} n^{2}\left(b_{n-1} p_{n-1}+\cdots\right)=\\    & =\sum_{n}\left((n+1)^{2}-n^{2}\right) b_{n} p_{n}+\sum_{n}\left[(n-1)^{2}-n^{2}\right] d_{n} p_{n} \\    & =\sum_{n}(2 n+1) b_{n} p_{n}+\sum_{n}(-2 n+1) d_{n} p_{n} \\    & =2 \sum_{n} n\left(b_{n}-d_{n}\right) p_{n}+\sum_{n}\\left(b_{n}+d_{n}\right) p_{n}
+  \end{aligned}
+\end{DispWithArrows}
+Thus
+\begin{DispWithArrows}[displaystyle, format=c]
+  \frac{d}{d t}\\left\langle n^{2}\right\rangle=2\\left\langle n\left(b_{n}-d_{n}\right)\right\rangle+\\left\langle b_{n}+d_{n}\right\rangle
+\end{DispWithArrows}
+
+\subsection*{The equilibrium distribution}
+For birth and death process it is possible to calculate the equilibrium
+distribution of eq. (1) in general. This is not possible for more complicated
+discrete Markov processes.
+We will calculate the distribution for a b/d process defined between 0 (ref.
+b.c.) and $\infty$.
+We can define a stationary flux from $n-1$ to $n$:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{graphics/2025_10_17_3daf2a002a8f5936c90eg-05}
+\end{figure}
+From eq. (1) we get then
+\begin{DispWithArrows}[displaystyle, format=c]
+  0=\underbrace{b_{n-1} p_{n-1}^{s}-d_{n} p_{n}^{s}}_{J_{n-1}}+\underbrace{d_{n+1} p_{n+1}^{s}-b_{n} p_{n}^{s}}_{-J_{n}}
+\end{DispWithArrows}
+hence $J_{n}=J_{n-1}=\ldots=J_{0} = b_{-1} p_{-1}^{s}-d_{0} p_{0}^{s}=0$ (ref.
+b.c. at $n=0$)
+then
+\begin{DispWithArrows}[displaystyle, format=c]
+  \begin{gathered}
+    J_{n}=b_{n-1} p_{n-1}^{s}-d_{n} p_{n}^{s}=0 \Rightarrow b_{n-1} p_{n-1}^{s}=d_{n} p_{n}^{s} \quad \text { DETAILED BALANCE } \\    p_{n}^{s}=rac{b_{n-1}}{d_{n}} p_{n-1}^{s}=rac{b_{n-1}}{d_{n}} \frac{b_{n-2}}{d_{n-1}} p_{n-2}^{s}=\ldots
+  \end{gathered}
+\end{DispWithArrows}
+\begin{DispWithArrows}[displaystyle, format=c]
+  p_{n}^{s}=\prod_{i=1}^{n} \frac{b_{i-1}}{d_{i}} p_{0}^{s} \quad \text { for } n=1,2, \ldots
+\end{DispWithArrows}
+because of normalization,
+$\left(p_{0}^{s}\right)^{-1}=1+\sum_{n=1}^{\infty} \prod_{i=1}^{n} \frac{b_{i-1}}{d_{i}}$;
+$p_{n}^{s}$ exists if $p_{0}^{s}<\infty$. The same approach can be used for a
+finite number of states $n=1, \ldots, N$.
+
+\subsection*{Simple yet important birth and death processes}
+\subsubsection*{Poisson process}
+This process is defined by the rates $b_{n}=\lambda, d_{n}=0$, where
+$n=0,1, \ldots$ So the M.E. is
+\begin{DispWithArrows}[displaystyle, format=ll]
+  \left\{\begin{aligned}\dot{p}_{n}&=\lambda\left(p_{n-1}-p_{n}\right) \\ p_{n}(0)&=\delta_{n, 0}\end{aligned}\right.
+\end{DispWithArrows}
+Ex: show that the mean satisfies the eq.
+$\frac{d}{d t}\\langle n\rangle=\lambda$ and so
+$\langle n(t)\rangle=n_{0}+\lambda t$ if $p_{n}(0)=\delta_{n, n_{0}}$.
+
+We solve eq. (8) with the method of the generating function:
+\begin{DispWithArrows}[displaystyle, format=c]
+  g(z, t) \equiv \sum_{n=0}^{\infty} z^{n} p_{n}(t)
+\end{DispWithArrows}
+So from eq. (8) we get an eq. for $g$:
+\begin{DispWithArrows}[displaystyle, format=ll]
+  \left\{\begin{aligned}\frac{\partial}{\partial t} g(z, t)&=\lambda(z-1) g(z, t) \quad\left(g(1, t)=\sum_{n} p_{n}(t)=1\right) \\ g(z, 0)&=1\end{aligned}\right.
+\end{DispWithArrows}
+The solution of (9) is then
+\begin{DispWithArrows}[displaystyle, format=c]
+  g(z, t)=e^{\lambda(z-1) t}=e^{-\lambda t} \sum_{n=0}^{\infty} \frac{(\lambda t)^{n}}{n!} z^{n}
+\end{DispWithArrows}
+hence
+\begin{DispWithArrows}[displaystyle, format=c]
+  p_{n}(t)=e^{-\lambda t} \frac{(\lambda t)^{n}}{n!}
+\end{DispWithArrows}
+Show that $\operatorname{var}(n(t))=\lambda t$.
+
+\subsubsection*{Radioactive decay}
+Initially the system consists of $N_{0}$ radioactive particles which decay at
+rate $\gamma$. Therefore, if at time $t$ there are $n$ surviving particles,
+then in the following $\Delta t$ time the probability of one decay is
+$\gamma n \Delta t$ and more than one decay is $o(\Delta t)$. Thus
+$d_{n}=\gamma n$ and $b_{n}=0$ and the M.E. is
+\begin{DispWithArrows}[displaystyle, format=ll]
+  \left\{\begin{aligned}\dot{p}_{n}&=\gamma(n+1) p_{n+1}(t)-\gamma n p_{n}(t) \quad n=0,1 \ldots N_{0}-1 \quad \text { a.b.c. at } n=0 . \\ \dot{p}_{N_{0}}&=-\gamma N_{0} p_{N_{0}}(t) \\ p_{n}(0)&=\delta_{n, N_{0}}\end{aligned}\right.
+\end{DispWithArrows}
+Ex: show that $rac{d}{d t}\\langle n\rangle=-\gamma\\langle n\rangle$, so
+$\langle n(t)\rangle=N_{0} e^{-\gamma t}$.
+With the generating function $g(z, t)=\sum_{n=0}^{N_{0}} z^{n} p_{n}(t)$ we get
+\begin{DispWithArrows}[displaystyle, format=ll]
+  \frac{\partial g(z, t)}{\partial t}=\gamma(1-z) \frac{\partial}{\partial z} g(z, t) \quad \begin{aligned} & g(1, t)=1 \\ & g(z, 0)=z^{N_{0}} \end{aligned}
+\end{DispWithArrows}
+Notice that $h(z, t)=\varepsilon(t)(1-z)+1$ leads to
+$\dot{\varepsilon}=-\gamma \varepsilon$, namely
+$\varepsilon(t)=\varepsilon_{0} e^{-\gamma t}$, so $h(1, t)=1$, but
+$h(z, 0)=\varepsilon_{0}(1-z)+1 \neq z^{N_{0}}$. However, take $g$ as a function
+of $h$, i.e. $g(z, t)=f(h(z, t))$, we get from (11)
+\begin{DispWithArrows}[displaystyle, format=c]
+  \frac{\partial g}{\partial t}=\frac{d f}{d h} \frac{\partial h}{\partial t} \quad , \quad \frac{\partial g}{\partial z}=\frac{d f}{d h} \frac{\partial h}{\partial z}
+\end{DispWithArrows}
+and $rac{d f}{d h}$ simplifies, because it occurs on both sides of eq. (11).
+We can then use $f$ to satisfy the i.c.: $f(a)=a^{N_{0}}$ does the job. We take
+$g=\left(\varepsilon_{0} e^{-\gamma t}(1-z)+1\right)^{N_{0}}$ where
+$\varepsilon_{0}=-1$. Eventually, the sol, is
+\begin{DispWithArrows}[displaystyle, format=c]
+  g(z, t)=\left(e^{-\gamma t}(z-1)+1\right)^{N_{0}}
+\end{DispWithArrows}
+We have now to invert this relation to get $p_{n}(t)$
+\begin{DispWithArrows}[displaystyle, format=c]
+  g(z, t)=\left(e^{-\gamma t} z+\left(1-e^{-\gamma t}\right)\right)^{N_{0}}=\sum_{n=0}^{N_{0}}\binom{N_{0}}{n}\left(1-e^{-\gamma t}\right)^{N_{0}-n} e^{-n \gamma t} z^{n}
+\end{DispWithArrows}
+which gives
+\begin{DispWithArrows}[displaystyle, format=c]
+  p_{n}(t)=\binom{N_{0}}{n} e^{-n \gamma t}\left(1-e^{-\gamma t}\right)^{N_{0}-n}
+\end{DispWithArrows}
+We can interpret this eq. in this way: $e^{-n \gamma t}$ is the prob. that $n$
+particles have survived (i.e., not decayed yet) by time
+$t,\left(1-e^{-\gamma t}\right)^{N_{0}-n}$ is the prob. that $N_{0}-n$ particles
+have decayed by time $t$. We also need the factor $\binom{N_{0}}{n}$ because
+the specific identity of the particles is not important, then there are
+$\binom{N_{0}}{n}$ ways to select $n$ surviving particles out of $N_{0}$.
+
+\subsubsection*{Furry process}
+A cosmic electron enters an absorbing material (like lead...) and branches into
+multiple particles (an electron may emit a photon which may then produce an
+$e^{+}-e^{-}$ pair). So a cascade of secondary particles is produced which
+generates a shower of final particles. This process can be described by a birth
+and death process where $b_{n}=\gamma n$ and $d_{n}=0, n=1,2, \ldots$
+The M.E. is then
+\begin{DispWithArrows}[displaystyle, format=ll]
+  \left\{\begin{aligned}\dot{p}_{n}&=\gamma(n-1) p_{n-1}-\gamma n p_{n} \\ p_{n}(0)&=\delta_{n, 1}\end{aligned}\right.
+\end{DispWithArrows}
+Show as before that
+\begin{DispWithArrows}[displaystyle, format=ll]
+  \begin{aligned}
+    & \langle n(t)\rangle=e^{\gamma t} \\
+    & \operatorname{Var}(n(t))=e^{\gamma t}\left(e^{\gamma t}-1\right)
+  \end{aligned}
+\end{DispWithArrows}
+Finally:
+\begin{DispWithArrows}[displaystyle, format=c]
+  p_{n}(t)=e^{-\gamma t}\left(1-e^{-\gamma t}\right)^{n-1}
+\end{DispWithArrows}
+try to interpret the result.
+
+\subsubsection*{The contact process}
+Let us assume that a population of $N$ individuals can be divided into two
+categories according to whether they are infected or not (but are susceptible
+any way). If an indiv. has not yet caught the infection, may catch it from any
+of of the $n$ infected ones (uniformly at random).
+We can write down the transition rate from $n$ to $n+1$ infected individuals;
+if the number of infected ind. increases by one, then one healthy ind. must get
+in contact with an infected one:
+\begin{enumerate}
+  \item first, we have to pick one healthy indiv.
+    \begin{DispWithArrows}[displaystyle, format=c]
+      b_{n}=\tilde{\beta} \frac{N-n}{N} \frac{n}{N-1}=\frac{\beta}{N} n(N-n)
+    \end{DispWithArrows}
+  \item second, the healthy ind. have to encounter an infected one.
+\end{enumerate}
+We then assume that an infected individual recovers at rate $\gamma$. then the
+transition rate from state $n$ to $n-1$ is $d_{n}=\gamma n$. Notice that
+$b_{0}=0=d_{0}$ ($n=0$ is an absorbing state) and $b_{N}=0, d_{N} \neq 0$
+($n=N$ is a reflecting state) and we have to set $d_{N+1}=0$.
+Notice that the rates $b_{n}$ and $d_{n}$ can be written as a function of
+$x=\frac{n}{N}: b_{x}=N \beta x(1-x), d_{x}=N \gamma x$.
+As $N$ becomes large, the variations in $n$ become small and so one hopes to
+describe $x$ as a continuous variable. Making this limit rigorous is tricky
+(Kurtz's theorem), but one can anyway guess the limiting equation. the important
+assumption is the existence of a typical scale of the system (in this case $N$)
+and that the parameters (here $\beta$ and $\gamma$) scale appropriately with
+$N$.
+
+The master equation has a form
+\begin{DispWithArrows}[displaystyle, format=c]
+  \dot{q}_{n}(t)=b_{\frac{n-1}{N}} q_{n-1}+d_{\frac{n+1}{N}} q_{n+1}-\left(b_{\frac{n}{N}}+d_{\frac{n}{N}}\right) q_{n}
+\end{DispWithArrows}
+In the continuous limit $q_{n}(t)$ becomes a PDF of $x$, so we write
+\begin{DispWithArrows}[displaystyle, format=c]
+  q_{n}(t)=\frac{1}{N} p(x, t) \quad \text { for large } N
+\end{DispWithArrows}
+So eq. (15) becomes
+\begin{DispWithArrows}[displaystyle, format=c]
+  \dot{p}(x, t)=b_{x-\frac{1}{N}} p\left(x-\frac{1}{N}, tight)+d_{x+\frac{1}{N}} p\left(x+\frac{1}{N}, tight)-\left(b_{x}+d_{x}\right) p(x, t)
+\end{DispWithArrows}
+As $\frac{1}{N}$ is small, we can Taylor expand eq. (16):
+\begin{DispWithArrows}[displaystyle, format=ll]
+  \begin{aligned}
+    & b_{x-\frac{1}{N}} p\left(x-\frac{1}{N}\right)-b_{x} p(x)=-\frac{1}{N} \frac{d}{d x}\left(b_{x} p_{x}\right)+\frac{1}{2} \frac{1}{N^{2}} \frac{d^{2}}{d x^{2}}\left(b_{x} p_{x}\right)+\text { h.o.t. } \\
+    & d_{x+\frac{1}{N}} p\left(x+\frac{1}{N}\right)-d_{x} p(x)=\frac{1}{N} \frac{d}{d x}\left(d_{x} p_{x}\right)+\frac{1}{2} \frac{1}{N^{2}} \frac{d^{2}}{d x^{2}}\left(d_{x} p_{x}\right)+\text { h.o.t. }
+  \end{aligned}
+\end{DispWithArrows}
+Therefore
+\begin{DispWithArrows}[displaystyle, format=c]
+  \dot{p}(x, t)=-\frac{1}{N} \frac{\partial}{\partial x}\left[\left(b_{x}-d_{x}\right) p_{x}\right]+\frac{1}{2 N^{2}} \frac{\partial^{2}}{\partial x^{2}}\left[\left(b_{x}+d_{x}\right) p_{x}\right]+\text { h.o.t. }
+\end{DispWithArrows}
+as $b_{x}=N \beta x(1-x)$ and $d_{x}=N \gamma x$ we get the F.P. equation
+\begin{DispWithArrows}[displaystyle, format=c]
+  \dot{p}(x, t)=-\frac{\partial}{\partial x}[(\beta x(1-x)-\gamma x) p]+\frac{1}{2 N} \frac{\partial^{2}}{\partial x^{2}}[(\beta x(1-x)+\gamma x) p]
+\end{DispWithArrows}
+which corresponds to an Itô SDE: ($0<x<1$)
+\begin{DispWithArrows}[displaystyle, format=c]
+  d x=(\beta x(1-x)-\gamma x) d t+\sqrt{\frac{\beta x(1-x)+\gamma x}{N}} d B(t)
+\end{DispWithArrows}
+Fluctuations are of order $N^{-1 / 2}$.
+
+In general, although the equation and its derivation are not rigorous, a birth
+and death process may be well approximated by the F.P. equation
+\begin{DispWithArrows}[displaystyle, format=c]
+  \dot{p}(x, t)=-\frac{\partial}{\partial x}\left[\left(b_{x}-d_{x}\right) p_{x}\right]+\frac{1}{2} \frac{\partial^{2}}{\partial x^{2}}\left[\left(b_{x}+d_{x}\right) p_{x}\right]
+\end{DispWithArrows}
+at least in some region of the parameter space. It is anyway expected that eq.
+(19) is very inaccurate close to (possible) boundaries or when $N$ (or other
+typical param.) is small. This approx is called Kramers-Moyal expansion and has
+several generalizations. Other more rigorous approximations exist (like the van
+Kampen approximation (see p. 244, van Kampen) or the WKB expansion... which are
+more accurate but more difficult as well.
+
+Back to the contact process.
+The mean of the infected individuals, $\rho(t) \equiv \mathbb{E}(x(t))$,
+satisfies (see eq. (18b))
+\begin{DispWithArrows}[displaystyle, format=c]
+  \dot{\rho}=(\beta-\gamma) \rho-\beta \mathbb{E}\left(x(t)^{2}\right)
+\end{DispWithArrows}
+This equation is not closed and cannot be solved, unless we know the behavior
+of $\mathbb{E}\left(x^{2}\right)$. The mean depends on the fluctuations.
+However, the eq. for $\mathbb{E}\left(x^{2}\right)$ depends on
+$\mathbb{E}\left(x^{3}\right)$, so we obtain an infinite chain of equations
+which cannot be solved unless we solve the full F.P. equation.
+One way to obtain some information is to resort to the moment closure: if
+fluctuations are small, then
+\begin{DispWithArrows}[displaystyle, format=c]
+  \mathbb{E}\left(x^{2}(t)\right) \simeq \mathbb{E}(x(t))^{2}=\rho(t)^{2}
+\end{DispWithArrows}
+Under this approximation
+\begin{DispWithArrows}[displaystyle, format=c]
+  \dot{\rho}=(\beta-\gamma) \rho-\beta \rho^{2}
+\end{DispWithArrows}
+which is a logistic equation that can be solved as we have seen at the
+beginning of the course.
+There are two steady states ($\dot{\rho}=0$): $\rho^{*}=0$ and
+$\bar{\rho}=\frac{\beta-\gamma}{\beta}$. What is their meaning?
+Let's look at their stability:
+\begin{DispWithArrows}[displaystyle, format=ll]
+  \frac{d \dot{\rho}}{d \rho}=\beta-\gamma-\left.2 \beta \rho\right|_{\rho=\rho^{s t}}=\left\{\begin{aligned}
+      \beta-\gamma & \quad \rho=\rho^{*}=0 \\ \gamma-\beta & \quad \rho=\bar{\rho}=\frac{\beta-\gamma}{\beta}\end{aligned}\right.
+\end{DispWithArrows}
+\begin{itemize}
+  \item Therefore $\rho=0$ is stable as $\beta<\gamma$ (and $ar{\rho}$ is
+    unstable)
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.5\textwidth]{graphics/2025_10_17_3daf2a002a8f5936c90eg-12}
+    \end{figure}
+    after some time, the eq. is well approximated by
+    \begin{DispWithArrows}[displaystyle, format=c]
+      \dot{\rho}=(\beta-\gamma) \rho \quad \rightarrow \rho(t)=\tilde{\rho} e^{-|\beta-\gamma| t} \rho \rightarrow_{t}
+    \end{DispWithArrows}
+  \item Viceversa, $\bar{\rho}=\frac{\beta-\gamma}{\beta}(>0)$ is stable as
+    $\beta>\gamma$ (and $\rho=0$ is unstable)
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.5\textwidth]{graphics/2025_10_17_3daf2a002a8f5936c90eg-12(1)}
+    \end{figure}
+    after some time, the eq. is well approximated by $\rho(t)=ar{\rho}+y(t)$
+    ($y \ll \bar{\rho}$)
+    \begin{DispWithArrows}[displaystyle, format=c]
+      \dot{\rho}=-(\beta-\gamma)(ar{\rho}-\rho) \quad \rightarrow \quad \rho(t)=ar{\rho}+\tilde{\rho} e^{-|\beta-\gamma| t}
+    \end{DispWithArrows}
+\end{itemize}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{graphics/2025_10_17_3daf2a002a8f5936c90eg-12(2)}
+\end{figure}
+So the characteristic time scale is $|\beta-\gamma|^{-1}$ in both cases.
+Of course this is summarized by the full solution:
+\begin{DispWithArrows}[displaystyle, format=c]
+  \rho(t)=\frac{\bar{\rho}}{1+\left(\frac{\bar{\rho}}{\rho_{0}}-1\right) e^{(\gamma-\beta) t}}=\frac{(\beta-\gamma) \rho_{0}}{\beta \rho_{0}+\left(\beta-\gamma-\beta \rho_{0}\right) e^{(\gamma-\beta) t}}
+\end{DispWithArrows}
+where $\rho_{0}$ is the initial condition for the density ($0<\rho_{0}<1$) of
+infected individuals.
+The phase diagram of this process reads:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{graphics/2025_10_17_3daf2a002a8f5936c90eg-13}
+\end{figure}
+\begin{DispWithArrows}[displaystyle, format=c]
+  \begin{gathered}
+    \bar{\rho} \sim(\beta-\gamma)^{1} \\
+    \beta>\gamma
+  \end{gathered}
+\end{DispWithArrows}
+At the critical point $\beta=\gamma$:
+\begin{DispWithArrows}[displaystyle, format=c]
+  \dot{\rho}=-\beta \rho^{2} \quad \rightarrow \quad \rho(t)=\frac{\rho_{0}}{1+\beta t} \sim \frac{1}{t} \quad t \gg \beta^{-1}
+\end{DispWithArrows}
+the decay is no longer exponential but power law: critical slowing down.
+
+Exercise: the discrete random walk in continuous time is governed by the master
+equation (symmetric R.W.)
+\begin{DispWithArrows}[displaystyle, format=c]
+  \dot{p}_{n}=p_{n+1}+p_{n-1}-2 p_{n} \quad p_{n}(0)=\delta_{n, 0}
+\end{DispWithArrows}
+Show that the generating function $F(z, t)=\sum_{-\infty}^{+\infty} z^{n} p_{n}(t)$
+satisfies
+\begin{DispWithArrows}[displaystyle, format=c]
+  \dot{F}=\left(z+\frac{1}{z}-2ight) F
+\end{DispWithArrows}
+so the solution is $F(z, t)=\exp \left[t\left(z+z^{-1}-2\right)\right]$. From
+this find
+\begin{DispWithArrows}[displaystyle, format=c]
+  p_{n}(t)=e^{-t} \sum_{\substack{l \geqslant 0 \ l+m \geqslant 0}} \frac{t^{2 l+m}}{(l+m)!l!}
+\end{DispWithArrows}
+Find the K.M. expansion of the M.E. and find its solution.
+
+\subsection*{A simple chemical reaction}
+Consider the reaction
+\begin{DispWithArrows}[displaystyle, format=c]
+  X \underset{k_{2}}{\stackrel{k_{1}}{\rightleftarrows}} A
+\end{DispWithArrows}
+where the product $A$ is not affected by $x$ and it does not decrease its
+quantity even though it produces particles at rate $k_{2}$. We are interested
+into the stochastic evolution of $X$: the r.v. $n$. From a simple application
+of the mass action law we get the evolution of the deterministic value
+$\rho(t)=\\mathbb{E}(n(t))$:
+\begin{DispWithArrows}[displaystyle, format=c]
+  \dot{\rho}=-k_{1} \rho+k_{2} a
+\end{DispWithArrows}
+where $a$ is a constant.
+
+We want now to get information about the fluctuations: If at time $t$ there are
+$n$ particles of type $x$, then the prob. that at time $t+\Delta t$ there is
+one more is given by $k_{2} a \Delta t$, and one less is $k_{1} n \Delta t$. So
+we get a birth and death process with rates
+\begin{DispWithArrows}[displaystyle, format=ll]
+  \begin{aligned}
+    & b_{n}=k_{2} a \equiv b \quad(\text { a constant }) \\
+    & d_{n}=k_{1} n
+  \end{aligned}
+\end{DispWithArrows}
+where $n=0,1, \ldots$
+It is not difficult to find that the equilibrium distribution of $n$ (from eq.
+(7))
+\begin{DispWithArrows}[displaystyle, format=c]
+  p_{n}^{s t}=\frac{\lambda^{n}}{n!} e^{-\lambda} \quad \lambda=\frac{k_{2}a}{k_{1}}
+\end{DispWithArrows}
+what is the difference between this solution and eq. (10)?
+The average is also (from eq. (5))
+\begin{DispWithArrows}[displaystyle, format=c]
+  \frac{d}{d t}\\langle n\rangle=b-k_{1}\\langle n\rangle
+\end{DispWithArrows}
+which is like eq. 23.
+Ex: find the M.E. for the chemical reaction
+$A+x \xrightarrow{k_{1}} 2 x, x \stackrel{k_{2}}{\stackrel{k_{3}}{\rightleftarrows}} B$.
+and compare the results with those from the law of mass action.
+
+\subsection*{Exact simulation of a birth and death process: the Gillespie's algorithm}
+The M.E. in eq. (1) governs a b/d process whose trajectories can be generated
+exactly (up to machine numerical errors). The M.E. includes all the info we
+need as it defines the process itself. We know that it is a Markov process
+therefore the information that we possess at time $t$ is enough to define what
+happens in the future.
+We need two pieces of info to generate a path:
+\begin{enumerate}
+  \item What is the time of the next event (either birth or death)?
+  \item What is the nature of the event, given that it occurs? namely, what is
+    the probability that it is a birth/death?
+\end{enumerate}
+If we can answer these two questions then we know when and how the path changes.
+Let's define $q_{0}(\tau \mid n)$ as the probability that no events will occur
+within the interval $[0, \tau)$, given that the system was in the state $n$ at
+time $t=0$ (as the process is homogeneous, $t=0$ is not a restrictive
+assumption).
+Notice that if $T$ is the (random) time when the next event (birth or death)
+will occur, then $q_{0}(\tau \mid n)=P(T>\tau \mid n)$.
+We build up an equation for $q_{0}(\tau \mid n)$ by using the Markov assumption
+and that the process is a b/d process:
+The prob. that there are no events in the interval $[0, \tau+\Delta \tau)$ is
+given by the prob. that no events occur within $[0, \tau)$ and neither occur in
+$[	au, \tau+\Delta \tau)$:
+\begin{DispWithArrows}[displaystyle, format=c]
+  q_{0}(\tau+\Delta \tau \mid n)=q_{0}(\tau \mid n)\left(1-b_{n} \Delta \tau-d_{n} \Delta \tau\right)
+\end{DispWithArrows}
+Therefore as $\Delta \tau \rightarrow 0$
+\begin{DispWithArrows}[displaystyle, format=ll]
+  \left\{\begin{aligned}
+      \frac{d q_{0}(\tau \mid n)}{d \tau} & =-\left(b_{n}+d_{n}\right) q_{0}(\tau \mid n) \\
+      q_{0}(0 \mid n) & =1
+    \end{aligned}\right.
+\end{DispWithArrows}
+hence
+\begin{DispWithArrows}[displaystyle, format=c]
+  q_{0}(\tau \mid n)=e^{-\left(b_{n}+d_{n}\right) \tau}
+\end{DispWithArrows}
+Now we can calculate $q_{+}(\tau \mid n) \Delta \tau$, namely, the probability
+that a birth occurs between $\tau$ and $\tau+\Delta \tau$ if the system was in
+state $n$. This is simply
+\begin{DispWithArrows}[displaystyle, format=c]
+  q_{+}(\tau \mid n) \Delta \tau=e^{-\left(b_{n}+d_{n}\right) \tau} b_{n} \Delta \tau
+\end{DispWithArrows}
+prob. of no events up to time $\tau$ prob. of 1 birth event between $\tau$ and
+$\tau+\Delta \tau$
+
+Therefore the PDF is
+\begin{DispWithArrows}[displaystyle, format=c]
+  q_{+}(\tau \mid n)=b_{n} e^{-\left(b_{n}+d_{n}\right) \tau}
+\end{DispWithArrows}
+and for a death event
+\begin{DispWithArrows}[displaystyle, format=c]
+  q_{-}(\tau \mid n)=d_{n} e^{-\left(b_{n}+d_{n}\right) \tau}
+\end{DispWithArrows}
+and the PDF of any event (either birth or death) is therefore
+\begin{DispWithArrows}[displaystyle, format=c]
+  q_{1}(\tau \mid n)=\left(b_{n}+d_{n}\right) e^{-\left(b_{n}+d_{n}\right) \tau}
+\end{DispWithArrows}
+This means that the PDF of an event is exponentially distributed with mean time
+$\langle\tau(n)\rangle=\left(b_{n}+d_{n}\right)^{-1}$ (show this). Of course, we
+assume that the state $n$ is not absorbing, i.e. $b_{n}+d_{n}>0$.
+
+Now
+$q_{+}(\tau \mid n) \Delta \tau=\left(\begin{array}{c} \text { prob. of a birth event, } \\ \text { given that an event occurs } \\ \text { between } \tau \text { and } \tau+\Delta \tau\end{array}\right)\binom{\text { prob. that an event occurs }}{\text { between } \tau \text { and } \tau+\Delta \tau}$
+From eqs. (27) we get
+\begin{DispWithArrows}[displaystyle, format=c]
+  q_{+}(\tau \mid n) \Delta \tau=\frac{b_{n}}{b_{n}+d_{n}}\left(b_{n}+d_{n}\right) e^{-\left(b_{n}+d_{n}\right) \tau} \Delta \tau
+\end{DispWithArrows}
+prob. of a birth event, given that an event occurs between $\tau$ and
+$\tau+\Delta \tau$ when the state is $n$
+prob. that an event occurs (birth or death) between $\tau$ and
+$\tau+\Delta \tau$ when the state is $n$
+
+Eq. (30) suggests an algorithm for simulating a path from the master equation
+(1):
+
+\subsection*{Gillespie's algorithm}
+(1) Initialize the system at time $t=0$, starting at state $n_{0}$:
+(2) If $b_{n}+d_{n}>0$, generate the time $\tau$ when the next event will occur.
+So you have to draw a random number from the exponential distribution (29), or
+equivalently (show this)
+\begin{DispWithArrows}[displaystyle, format=c]
+  \tau=\frac{1}{b_{n}+d_{n}} \ln \left(\frac{1}{r}\right)
+\end{DispWithArrows}
+Where $r$ is a random number uniformly distributed in $(0,1)$. Update the time
+\begin{DispWithArrows}[displaystyle, format=c]
+  t_{\text {new }}=t_{\text {old }}+\tau
+\end{DispWithArrows}
+$t_{\text {old }}$ is the time when the state was $n$;
+
+If $b_{n}+d_{n}=0$, stop the program as $t_{\text {old }}$ is the extinction
+time and $n$ is an absorbing state.
+(3) Compute whether the next event will be a birth or a death.
+
+As before, let $n$ be the state at time $t_{\text {old }}$. If $b_{n}+d_{n}>0$,
+generate a random number $u$ uniformly distributed in $(0,1)$.
+\begin{itemize}
+  \item According to eq. (30), if $u<\frac{b_{n}}{b_{n}+d_{n}}$, then the next
+    event will be a birth. Update the state $n_{\text {new }}=n+1$
+  \item Otherwise, the next event will be a death so the update is
+    $n_{\text {new }}=n-1$.
+    Of course, if $b_{n}+d_{n}=0$ there cannot be any further update and $n$ is
+    the final absorbing state.
+\end{itemize}
+(4) Repeat the steps (2) and (3) as needed.
+
+\subsection*{More general discrete Markov processes}
+It is not difficult to generalize the considerations that we used for the birth
+and death processes to continuous time Markov processes where multiple jumps
+are allowed. Calculation are more difficult but the conceptual framework is
+similar. The M.E. can be deduced from the Chapman-Kolmogorov equation, but it
+can also be guessed as we did. Take $n \in E \subseteq \mathbb{Z}$.
+Let $T\left(n^{\prime} \mid night) \Delta t$ be the probability to jump to state $n^{\prime}(\neq n)$ at time $t+\Delta t$, given that the system was in state $n$ at time $t$.
+So $T\left(n^{\prime} \mid night) \geqslant 0$ is the corresponding jumping
+rate. $T$ could depend on time $t$, but we consider the simpler case in which it
+does not. We can visualize this as follows
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{graphics/2025_10_17_3daf2a002a8f5936c90eg-19}
+\end{figure}
+The M.E. for the propagator $p\left(n, t \mid n_{0}, t_{0}\right)$ is then
+\begin{DispWithArrows}[displaystyle, format=c]
+  P(n, t+\Delta t)=\underbrace{\sum_{m \neq n} T(n \mid m) \Delta t}_{\substack{\text { probability to } \\ \text { jump from any state } m \neq n \\ \text { into the state } n}} P(m, t)+\underbrace{\left(1-\sum_{m \neq n} T(m \mid n) \Delta t\right)}_{\substack{\text{probability to} \\ 	ext{remain in the state } n}} P(n, t)
+\end{DispWithArrows}
+Therefore as $\Delta t \rightarrow 0$ the Master Equation becomes
+\begin{DispWithArrows}[displaystyle, format=c]
+  \frac{\partial}{\partial t} p(n, t)=\sum_{m}[T(n \mid m) p(m, t)-T(m 
+mid n) p(n, t)]
+\end{DispWithArrows}
+notice that we have included the state $n$ in the sum (why?).
+
+As usual eq. (31) must be equipped with initial conditions
+$P\left(n, t_{0} \mid n_{0}, t_{0}\right)=\delta_{n, n_{0}}$ and, possibly, some
+boundary conditions.
+
+Exercise: - Show that $\sum_{n} p(n, t)=1$.
+\begin{itemize}
+  \item Define the $l$-th jump moment as
+    \begin{DispWithArrows}[displaystyle, format=c]
+      \mu_{l}(n)=\sum_{m}(m-n)^{l} T(m \mid n) \quad l \geqslant 0
+    \end{DispWithArrows}
+    Show then that
+    \begin{DispWithArrows}[displaystyle, format=c]
+      \frac{d}{d t}\\langle n\rangle=\\left\langle\mu_{1}(n)\right\rangle \rightarrow \text { is this a closed eq. for } \langle nangle \text { ? }
+    \end{DispWithArrows}
+    \begin{DispWithArrows}[displaystyle, format=c]
+      \frac{d}{d t}\\left\langle n^{2}\right\rangle=\\left\langle\mu_{2}(n)\right\rangle+2\\left\langle n \mu_{1}(n)\right\rangle
+    \end{DispWithArrows}
+    where $\\langle f(n)\\rangle \equiv \sum_{n} f(n) p(n, t)$
+\end{itemize}
+As we have seen in eq. (4a) and (4b), we can define a matrix $\\mathbb{W}$ whose
+entries are ($T(n 
+mid n)=0$)
+\begin{DispWithArrows}[displaystyle, format=c]
+  W_{n m}=T(n 
+mid m)-\sum_{l} T(l 
+mid n) \delta_{n, m}
+\end{DispWithArrows}
+which shows that $\\mathbb{W}_{n m} \geq 0$ for $n \neq m$ and
+$\sum_{n} \mathbb{W}_{n m}=0$. The M.E. eq. (31) then reads
+\begin{DispWithArrows}[displaystyle, format=c]
+  \begin{gathered}
+    \dot{\\vec{p}}=W\\vec{p} \quad \text { or } \quad \dot{p}_{n}=\sum_{m} \mathbb{W}_{n m} p_{m} \\    W=\begin{pmatrix}
+      w_{11} & T(1 
+mid 2) & T(1 
+mid 3) & \ldots \\      T(2 
+mid 1) & w_{22} & T(2 
+mid 3) & \ldots \\      T(3 
+mid 1) & T(3 
+mid 2) & w_{33} & \\      \vdots & \vdots & & \ddots
+    \end{pmatrix} \leftarrow \text { jumps from } m=2,3 \ldots \text { to } 1 \\    w_{ii} \equiv-\sum_{m} T(m 
+mid i) \\    \substack{\text { jumps from } \\      1 \text { to } m=2,3, \ldots}
+  \end{gathered}
+\end{DispWithArrows}
+We can find the stationary state by setting $\dot{P}_{n}=0$ From eq. (31):
+\begin{DispWithArrows}[displaystyle, format=c]
+  \sum_{m}\left[T(n \mid m) p_{st}(m)-T(m 
+mid n) p_{st}(n)\right]=0
+\end{DispWithArrows}
+This eq. is difficult to solve in general. However we can find the equilibrium
+solution if each and every term in the sum is zero (much stronger assumption). 
+In this latter case we get
+\begin{DispWithArrows}[displaystyle, format=c]
+  T(n 
+mid m) P_{eq}(m)=T(m 
+mid n) P_{eq}(n) \quad \text { DETAILED BALANCE }
+\end{DispWithArrows}
+This assumption means that every state $m$ is balanced only by the state $n$,
+like in the birth
+and death case, which in general is not true. All states are balanced in pairs.
+Of course, the detailed balance condition satisfies eq. (32), but eq. (32) does
+not imply eq. (33). In general one cannot impose eq. (33).
+
+We again can connect this to stat. Mech. If
+\begin{DispWithArrows}[displaystyle, format=c]
+  P_{\text {eq. }}(n)=\frac{1}{z} e^{-\beta E(n)}
+\end{DispWithArrows}
+Where $E(n)$ is the energy of state $n$, then eq. (32) is satisfied if we
+choose $T(n 
+mid m)$ and $T(m 
+mid n)$ such that
+\begin{DispWithArrows}[displaystyle, format=c]
+  \frac{T(n 
+mid m)}{T(m 
+mid n)}=e^{-\beta(E(n)-E(m))}
+\end{DispWithArrows}
+Even though other choices are possible to satisfy detailed balance, eq. (33)
+allows us to describe a physical system at equilibrium with a heat bath at
+temperature $\beta^{-1}$.
+
+--- /home/phuniverse/Desktop/master/MTP/class_notes/lectures_formatted/MTP-L6-Gaussian_Integrals.tex ---
+
+% Lecture file created by newnote
+% Class: Models of Theoretical Physics
+% Professor: Azaele Sandro
+% Date: 2025-10-01
+\lecture{6}{Gaussian Integrals}{2025-10-01}
+\pagelayout{margin}
+% --- Start writing here ---
+
+\section{Gaussian Integrals}
+Let's consider the Gaussian distribution (PDF):
+\begin{DispWithArrows}[displaystyle, format=c]
+  p(x)=c e^{-\frac{a x^{2}}{2}} \quad a>0
+\end{DispWithArrows}
+$p(x)$ must be normalized in $(-\infty,+\infty)$, so
+\begin{DispWithArrows}[displaystyle, format=c]
+  \int_{-\infty}^{+\infty} p(x) d x=1 \quad \Rightarrow \quad c \int_{-\infty}^{+\infty} e^{-\frac{a x^{2}}{2}} d x=1
+\end{DispWithArrows}
+This gives the simplest form of Gaussian integral:
+\begin{DispWithArrows}[displaystyle, format=c]
+  \int_{-\infty}^{+\infty} e^{-\frac{a x^{2}}{2}} d x=\sqrt{\frac{2 \pi}{a}} \quad a>0
+\end{DispWithArrows}
+A more general Gaussian integral:
+\begin{DispWithArrows}[displaystyle, format=c]
+  \int_{-\infty}^{+\infty} e^{-\frac{a x^{2}}{2}+b x} d x=?
+\end{DispWithArrows}
+To solve it we use a change of vars.
+Notice that the min. of the exponent has changed.
+\begin{DispWithArrows}[displaystyle, format=c]
+  \frac{d}{d x}\left(-\frac{a x^{2}}{2}+b x\right)=-a x+b=0 \quad \Rightarrow \quad x=\frac{b}{a} \quad b \in \mathbb{R}
+\end{DispWithArrows}
+We introduce the new var. $y=x-\frac{b}{a}$.
+We sub this into the exponent:
+\begin{DispWithArrows}[displaystyle, format=ll]
+  \begin{aligned}
+    &-\frac{a x^{2}}{2}+b x=-\frac{a}{2}\left(y+\frac{b}{a}\right)^{2}+b\left(y+\frac{b}{a}\right)=-\frac{a}{2}\left(y^{2}+\frac{2 b y}{a}+\left(\frac{b}{a}\right)^{2}\right)+b y+\frac{b^{2}}{a}=\\
+    &=-\frac{a}{2} y^{2}+\frac{b^{2}}{2 a} \\
+    & \int_{-\infty}^{+\infty} e^{-\frac{a x^{2}}{2}+b x} d x=\int_{-\infty}^{+\infty} e^{-\frac{a y^{2}}{2}+\frac{b^{2}}{2 a}} d y=e^{\frac{b^{2}}{2 a}} \int_{-\infty}^{+\infty} e^{-\frac{a y^{2}}{2}} d y \Rightarrow
+  \end{aligned}
+\end{DispWithArrows}
+\begin{DispWithArrows}[displaystyle, format=c]
+  \int_{-\infty}^{+\infty} e^{-\frac{a x^{2}}{2}+b x} d x=\sqrt{\frac{2 \pi}{a}} e^{\frac{b^{2}}{2 a}} \quad a>0
+\end{DispWithArrows}
+Let's calculate the integral in eq. (3) when $b=i t, t \in \mathbb{R}$.
+\begin{DispWithArrows}[displaystyle, format=c]
+  \varphi(t)=\int_{-\infty}^{+\infty} d x e^{i x t} \sqrt{\frac{a}{2 \pi} e^{-\frac{a x^{2}}{2}}}
+\end{DispWithArrows}
+This is the Fourier transform of the Gaussian PDF, which is also the
+characteristic function of the Gaussian PDF.
+
+We take the time derivative of $\varphi$:
+\begin{DispWithArrows}[displaystyle, format=c]
+  \varphi^{\prime}(t)=\sqrt{\frac{a}{2 \pi}} i \int d x \times e^{i x t} e^{-\frac{a}{2} x^{2}}
+\end{DispWithArrows}
+Why can we do this? In general,
+$\frac{d}{d t} \int f(x, t) d x=\int \frac{\partial}{\partial t} f(x, t) d x$ if
+$f, \partial_{t} f$ are continuous and uniformly bounded, which means
+$|f(x, t)|<A(x),\left|\partial_{t} f(x, t)\right|<B(x)$ where
+$\int A(x) d x<\infty \int B(x) d x<\infty$.
+\begin{DispWithArrows}[displaystyle, format=ll]
+  \begin{aligned}
+    \varphi^{\prime}(t) & =\sqrt{\frac{a}{2 \pi}} i \int d x \times e^{i x t} e^{-\frac{a}{2} x^{2}} \\
+    & =-\frac{i}{\sqrt{2 \pi a}} \int d x e^{i x t} \frac{d}{d x} e^{-\frac{a x^{2}}{2}} \quad \frac{d}{d x} e^{-\frac{a x^{2}}{2}}=-a x e^{-a x^{2}/2} \\
+    & =-\frac{t}{\sqrt{2 \pi a}} \int_{-\infty}^{+\infty} d x e^{i x t} e^{-\frac{a x^{2}}{2}} \\
+    & =-\frac{t}{a} \varphi(t)
+  \end{aligned}
+\end{DispWithArrows}
+So $\varphi^{\prime}=-\frac{t}{a} \varphi(t)$ and the solution is
+$\\varphi(t)=c e^{-\frac{t^{2}}{2 a}}$ (check this out!). However as
+$\varphi(0)=1 \Rightarrow c=1$,
+\begin{DispWithArrows}[displaystyle, format=c]
+  \varphi(t)=e^{-\frac{t^{2}}{2 a}}
+\end{DispWithArrows}
+If we set $b=it$, we get $e^{\frac{b^2}{2a}} = e^{-rac{t^2}{2a}}$, which is
+consistent.
+
+
+--- /home/phuniverse/Desktop/master/MTP/class_notes/lectures_formatted/MTP-L7-Wiener_path_integral.tex ---
+
+% !TeX encoding = UTF-8
 % Lecture file created by newnote
 % Class: Models of Theoretical Physics
 % Professor: Azaele Sandro
@@ -7,178 +764,254 @@
 % --- Start writing here ---
 
 \section{Wiener path integral}
-The Wiener measure and the Wiener path integral (Techniques and Applications of Path Integration by L.S. Schulman)
-We have seen that the propagator of the Brownian motion satisfies the Chapman-Kolmogorov eq. because it is a Markov process.
+The Wiener measure and the Wiener path integral (Techniques and Applications of
+Path Integration by L.S. Schulman)
+We have seen that the propagator of the Brownian motion satisfies the
+Chapman-Kolmogorov eq. because it is a Markov process.
 From eq. (13) and (11)
-\begin{DispWithArrows}[tag=14]
-    w\left(x_{2}, t_{2} \mid x_{0}, t_{0}\right)=\int_{-\infty}^{+\infty} w\left(x_{2}, t_{2} \mid x_{1}, t_{1}\right) w\left(x_{1}, t_{1} \mid x_{0}, t_{0}\right) d x_{1}
+\begin{DispWithArrows}[displaystyle, format=c]
+  w\left(x_{2}, t_{2} \mid x_{0}, t_{0}\right)=\int_{-\infty}^{+\infty} w\left(x_{2}, t_{2} \mid x_{1}, t_{1}ight) w\left(x_{1}, t_{1} \mid x_{0}, t_{0}\right) d x_{1}
 \end{DispWithArrows}
-Notice the analogy with QM: $\left\langle x_{2} t_{2} \mid x_{0} t_{0}\right\rangle=w\left(x_{2} t_{2} \mid x_{0} t_{0}\right)$, we insert an identity $\int d x_{1}\left|x_{1}, t_{1}\right\rangle\left\langle x_{1}, t_{1}\right|=1$ and get $\left\langle x_{2} t_{2} \mid x_{0} t_{0}\right\rangle=\int d x_{1}\left\langle x_{2} t_{2} \mid x_{1} t_{1}\right\rangle\left\langle x_{1} t_{1} \mid x_{0} t_{0}\right\rangle$
-We can also iterate eq. (14) $n$-times and get for $t_{n}>t_{n-1}>\ldots>t_{1}>t_{0}$
-\begin{DispWithArrows}[tag=14b]
-    w\left(x_{n}, t_{n} \mid x_{0}, t_{0}\right)=\int_{-\infty}^{+\infty} w\left(x_{n}, t_{n} \mid x_{n-1}, t_{n-1}\right) \cdots w\left(x_{1}, t_{1} \mid x_{0}, t_{0}\right) d x_{n-1} \cdots d x_{1}
+Notice the analogy with QM:
+$\left\langle x_{2} t_{2} \mid x_{0} t_{0}\right\rangle=w\left(x_{2} t_{2} \mid x_{0} t_{0}\right)$,
+we insert an identity
+$\int d x_{1}\left|x_{1}, t_{1}\right\rangle\left\langle x_{1}, t_{1}\right|=1$
+and get
+$\left\langle x_{2} t_{2} \mid x_{0} t_{0}\right\rangle=\int d x_{1}\left\langle x_{2} t_{2} \mid x_{1} t_{1}\right\rangle\left\langle x_{1} t_{1} \mid x_{0} t_{0}\right\rangle$
+We can also iterate eq. (14) $n$-times and get for
+$t_{n}>t_{n-1}>\ldots>t_{1}>t_{0}$
+\begin{DispWithArrows}[displaystyle, format=c]
+  w\left(x_{n}, t_{n} \mid x_{0}, t_{0}\right)=\int_{-\infty}^{+\infty} w\left(x_{n}, t_{n} \mid x_{n-1}, t_{n-1}\right) \cdots w\left(x_{1}, t_{1} \mid x_{0}, t_{0}\right) d x_{n-1} \cdots d x_{1}
 \end{DispWithArrows}
-This is an important property of the propagator, because it allows us to understand what is the probability to find a Brownian particle in different regions at different times. Indeed, if we define the Wiener measure $t_{n}>t_{n-1}>\ldots>t_{1}>t_{0}$
-\begin{DispWithArrows}
-    d \mathbb{P}_{t_{1} \ldots t_{n}}\left(x_{1} \ldots x_{n} \mid x_{0}, t_{0}\right)=\prod_{i=1}^{n} w\left(x_{i}, t_{i} \mid x_{i-1}, t_{i-1}\right) d x_{i}
+This is an important property of the propagator, because it allows us to
+understand what is the probability to find a Brownian particle in different
+regions at different times. Indeed, if we define the Wiener measure
+$t_{n}>t_{n-1}>\ldots>t_{1}>t_{0}$
+\begin{DispWithArrows}[displaystyle, format=c]
+  d \mathbb{P}_{t_{1} \ldots t_{n}}\left(x_{1} \ldots x_{n} \mid x_{0}, t_{0}\right)=\prod_{i=1}^{n} w\left(x_{i}, t_{i} \mid x_{i-1}, t_{i-1}\right) d x_{i}
 \end{DispWithArrows}
 then (interval $A_{i} \subseteq \mathbb{R}$)
-\begin{DispWithArrows}[tag=15]
-    \mathbb{P}\left(\{A\} \mid x_{0}, t_{0}\right) = \int_{A_{n}} \cdots \int_{A_{1}} w\left(x_{n} t_{n} \mid x_{n-1} t_{n-1}\right) \cdots w\left(x_{1} t_{1} \mid x_{0} t_{0}\right) d x_{n} \cdots d x_{1}
+\begin{DispWithArrows}[displaystyle, format=c]
+  \mathbb{P}\left(\{A\} \mid x_{0}, t_{0}\right) = \int_{A_{n}} \cdots \int_{A_{1}} w\left(x_{n} t_{n} \mid x_{n-1} t_{n-1}\right) \cdots w\left(x_{1} t_{1} \mid x_{0} t_{0}\right) d x_{n} \cdots d x_{1}
 \end{DispWithArrows}
-gives the joint probability to find a Brownian particle in the area $A_{1}$ at time $t_{1}$, within $A_{2}$ at time $t_{2}$ and within $A_{n}$ at time $t_{n}\left(t_{1}<t_{2} \cdots<t_{n}\right)$, given that it started off at $x_{0}$ at time $t_{0}<t_{1}$.
+gives the joint probability to find a Brownian particle in the area $A_{1}$ at
+time $t_{1}$, within $A_{2}$ at time $t_{2}$ and within $A_{n}$ at time
+$t_{n}\left(t_{1}<t_{2} \cdots<t_{n}\right)$, given that it started off at
+$x_{0}$ at time $t_{0}<t_{1}$.
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{2025_10_17_55d6813539323d2293f0g-2}
+  \centering
+  \includegraphics[width=\textwidth]{graphics/2025_10_17_55d6813539323d2293f0g-2}
 \end{figure}
 The explicit expression is $\left(\Delta t_{i}=t_{i}-t_{i-1}>0\right)$
-\begin{DispWithArrows}[tag=16]
-    d \mathbb{P}_{t_{1} \ldots t_{n}}\left(x_{1} \ldots x_{n} \mid x_{0}, t_{0}\right)=e^{-\frac{1}{2 D} \sum_{i=1}^{n} \frac{\left(x_{i}-x_{i-1}\right)^{2}}{\Delta t_{i}}} \prod_{i=1}^{n} \frac{d x_{i}}{\sqrt{2 \pi D \Delta t_{i}}}
+\begin{DispWithArrows}[displaystyle, format=c]
+  d \mathbb{P}_{t_{1} \ldots t_{n}}\left(x_{1} \ldots x_{n} \mid x_{0}, t_{0}\right)=e^{-\frac{1}{2 D} \sum_{i=1}^{n} \frac{\left(x_{i}-x_{i-1}\right)^{2}}{\Delta t_{i}}} \prod_{i=1}^{n} \frac{d x_{i}}{\sqrt{2 \pi D \Delta t_{i}}}
 \end{DispWithArrows}
-This relation is valid for any $n \in \mathbb{N}$ and we can extend the result to any subset of the $\sigma$-algebra generated by the cylindrical sets of the form $A=\left\{x(t): x\left(t_{1}\right) \in A_{1}, x\left(t_{2}\right) \in A_{2} \ldots x\left(t_{n}\right) \in A_{n}\right\}$. When we take the limit $n \rightarrow \infty$ we obtain the so called Wiener path integral. In this case
-\begin{DispWithArrows}
-    \sum_{i=1}^{n} \frac{\left(x_{i}-x_{i-1}\right)^{2}}{\Delta t_{i}}=\sum_{i=1}^{n}\left(\frac{x_{i}-x_{i-1}}{\Delta t_{i}}\right)^{2} \Delta t_{i} \xrightarrow[\substack{n \to \infty \\ \max(\Delta t_i) \to 0}]{\sum \Delta t_i = T} \int_{0}^{T}(\dot{x}(s))^{2} d s
+This relation is valid for any $n \in \mathbb{N}$ and we can extend the result
+to any subset of the $\sigma$-algebra generated by the cylindrical sets of the
+form
+$A=\left\{x(t): x\left(t_{1}\right) \in A_{1}, x\left(t_{2}\right) \in A_{2} \ldots x\left(t_{n}\right) \in A_{n}\right\}$.
+When we take the limit $n \rightarrow \infty$ we obtain the so called Wiener
+path integral. In this case
+\begin{DispWithArrows}[displaystyle, format=c]
+  \sum_{i=1}^{n} \frac{\left(x_{i}-x_{i-1}\right)^{2}}{\Delta t_{i}}=\sum_{i=1}^{n}\left(\frac{x_{i}-x_{i-1}}{\Delta t_{i}}\right)^{2} \Delta t_{i} \xrightarrow[\substack{n \to \infty \\ \max(\Delta t_i) \to 0}]{\sum \Delta t_i = T} \int_{0}^{T}(\dot{x}(s))^{2} d s
 \end{DispWithArrows}
 and eq. (16) gets the suggestive form
-\begin{DispWithArrows}[tag=17]
-    d \mathbb{P}_{w} \propto \prod_{\tau=0^{+}}^{T} d x(\tau) e^{-\frac{1}{2 D} \int_{0}^{T} \dot{x}(s)^{2} d s}
+\begin{DispWithArrows}[displaystyle, format=c]
+  d \mathbb{P}_{w} \propto \prod_{\tau=0^{+}}^{T} d x(\tau) e^{-\frac{1}{2 D} \int_{0}^{T} \dot{x}(s)^{2} d s}
 \end{DispWithArrows}
-This formula is only formal as it does not exist (it is infinite!). However, it is very useful for calculating averages of functionals which are exponentials of quadratic expressions of the trajectory $x(s)$ or for approximations with the saddle point method.
-Another way to look at eq. (14b) is the following. We fix $x_{n}=x$, $t_{n}=T$ and $x_{0}$ at $t_{0}$. Then all the integrations $x_{n-1}, x_{n-2} \ldots, x_{1}$ at the corresponding ordered times $t_{n-1}, \ldots t_{1}$ show that in the limit $n \rightarrow \infty$ (with fixed $x, T ; x_{0}, t_{0}$ ) the propagator of a Brownian particle $W\left(x, T \mid x_{0}, t_{0}\right)$ can be written as
-\begin{DispWithArrows}[tag=17b]
-    w\left(x, T \mid x_{0}, t_{0}\right)=\int_{x(0)=x_0}^{x(T)=x} \mathcal{D} x(\tau) e^{-\frac{1}{2 D} \int_{0}^{T} \dot{x}(s)^{2} d s}=\int_{x(0)=x_0}^{x(T)=x} \mathcal{D} x(\tau) e^{-S[x(s)]}
+This formula is only formal as it does not exist (it is infinite!). However, it
+is very useful for calculating averages of functionals which are exponentials
+of quadratic expressions of the trajectory $x(s)$ or for approximations with
+the saddle point method.
+Another way to look at eq. (14b) is the following. We fix $x_{n}=x$, $t_{n}=T$
+and $x_{0}$ at $t_{0}$. Then all the integrations
+$x_{n-1}, x_{n-2} \ldots, x_{1}$ at the corresponding ordered times
+$t_{n-1}, \ldots t_{1}$ show that in the limit $n \rightarrow \infty$ (with
+fixed $x, T ; x_{0}, t_{0}$ ) the propagator of a Brownian particle
+$W\left(x, T \mid x_{0}, t_{0}\right)$ can be written as
+\begin{DispWithArrows}[displaystyle, format=c]
+  w\left(x, T \mid x_{0}, t_{0}\right)=\int_{x(0)=x_0}^{x(T)=x} \mathcal{D} x(\tau) e^{-\frac{1}{2 D} \int_{0}^{T} \dot{x}(s)^{2} d s}=\int_{x(0)=x_0}^{x(T)=x} \mathcal{D} x(\tau) e^{-S[x(s)]}
 \end{DispWithArrows}
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{2025_10_17_55d6813539323d2293f0g-3}
+  \centering
+  \includegraphics[width=\textwidth]{graphics/2025_10_17_55d6813539323d2293f0g-3}
 \end{figure}
-the propagator $W$ can be written as an integral over all trajectories between ($t_0, x_{0}$) and ($T, x$) of the Brownian particle.
+the propagator $W$ can be written as an integral over all trajectories between
+($t_0, x_{0}$) and ($T, x$) of the Brownian particle.
 
-Here $S[x(s)]$ is the action and $S=\int_{0}^{T} L[x] d s$, where $L$ is the Lagrangian of the system. Here $L[x(s)]=\frac{1}{2 D}\left(\frac{d x}{d s}\right)^{2}$ which can be interpreted as the kinetic energy of a free particle. Furthermore, notice that if we change variable $s=i t / \hbar$ (as an analytic continuation), identify $D=\frac{\hbar^{2}}{m}$ and introduce the "imaginary" time $\tilde{t}=-i \hbar T$, then the propagator in (17b) becomes
-\begin{DispWithArrows}[tag=17c]
-    W\left(x, \tilde{t} \mid x_{0}, 0\right)=\int_{x(0)=x_0}^{x(\tilde{t})=x} \mathcal{D} x\left(t^{\prime}\right) e^{\frac{i}{\hbar} \int_{0}^{\tilde{t}} \frac{1}{2} m\left(\frac{d x}{d t^{\prime}}\right)^{2} d t^{\prime}}=\sqrt{\frac{m}{2 \pi i \hbar \tilde{t}}} e^{\frac{i m}{2 \hbar \tilde{t}}\left(x-x_{0}\right)^{2}}
+Here $S[x(s)]$ is the action and $S=\int_{0}^{T} L[x] d s$, where $L$ is the
+Lagrangian of the system. Here
+$L[x(s)]=\frac{1}{2 D}\left(\frac{d x}{d s}\right)^{2}$ which can be interpreted
+as the kinetic energy of a free particle. Furthermore, notice that if we change
+variable $s=i t / \hbar$ (as an analytic continuation), identify
+$D=\frac{\hbar^{2}}{m}$ and introduce the "imaginary" time $\tilde{t}=-i \hbar T$,
+then the propagator in (17b) becomes
+\begin{DispWithArrows}[displaystyle, format=c]
+  W\left(x, \tilde{t} \mid x_{0}, 0\right)=\int_{x(0)=x_0}^{x(\tilde{t})=x} \mathcal{D} x\left(t^{\prime}\right) e^{\frac{i}{\hbar} \int_{0}^{\tilde{t}} \frac{1}{2} m\left(\frac{d x}{d t^{\prime}}\right)^{2} d t^{\prime}}=\sqrt{\frac{m}{2 \pi i \hbar \tilde{t}}} e^{\frac{i m}{2 \hbar \tilde{t}}\left(x-x_{0}\right)^{2}}
 \end{DispWithArrows}
 This is the propagator (or Green's function) of the Schrödinger eq:
-\begin{DispWithArrows}
-    i \hbar \frac{\partial \psi}{\partial t}=\hat{H} \psi \quad \text { where } \quad \hat{H}=-\frac{\hbar^{2}}{2 m} \frac{\partial^{2}}{\partial x^{2}}
+\begin{DispWithArrows}[displaystyle, format=c]
+  i \hbar \frac{\partial \psi}{\partial t}=\hat{H} \psi \quad \text { where } \quad \hat{H}=-\frac{\hbar^{2}}{2 m} \frac{\partial^{2}}{\partial x^{2}}
 \end{DispWithArrows}
-we can write $W\left(x, \tilde{t} \mid x_{0}, 0\right)=\langle x| e^{-\frac{i}{\hbar} \tilde{t} \hat{H}}\left|x_{0}\right\rangle$
-and correspondingly we can also write $\hat{H}|k\rangle=\frac{\hbar^{2}}{2 m} k^{2}|k\rangle=\frac{D k^{2}}{2}|k\rangle$
-\begin{DispWithArrows}
-    \begin{aligned}
-    W\left(x, T \mid x_{0}, 0\right) & =\langle x| e^{-T H}\left|x_{0}\right\rangle=\int d k \int d k^{\prime}\left\langle x \mid k^{\prime}\right\rangle\left\langle k^{\prime}\right| e^{-T H}|k\rangle\langle k \mid x_0\rangle=\\\n    = & \frac{1}{2 \pi} \int d k e^{-\frac{D}{2} T k^{2}} e^{i k\left(x-x_{0}\right)}=\frac{1}{\sqrt{2 \pi D T}} e^{-\frac{\left(x-x_{0}\right)^{2}}{2 D T}} \quad\left\langle x \mid k^{\prime}\right\rangle=\frac{1}{\sqrt{2 \pi}} e^{i k^{\prime} x}
-    \end{aligned}
+we can write
+$W\left(x, \tilde{t} \mid x_{0}, 0\right)=\\langle x| e^{-\frac{i}{\hbar} \tilde{t} \hat{H}}\left|x_{0}\right\rangle$
+and correspondingly we can also write
+$\hat{H}|k\rangle=\frac{\hbar^{2}}{2 m} k^{2}|k\rangle=\frac{D k^{2}}{2}|k\rangle$
+\begin{DispWithArrows}[displaystyle, format=ll]
+  \begin{aligned}
+    W\left(x, T \mid x_{0}, 0\right) & =\langle x| e^{-T H}\left|x_{0}\right\rangle=\int d k \int d k^{\prime}\left\langle x \mid k^{\prime}\right\rangle\left\langle k^{\prime}\right| e^{-T H}|k\rangle\langle k \mid x_0\rangle=\\
+    = & \frac{1}{2 \pi} \int d k e^{-\frac{D}{2} T k^{2}} e^{i k\left(x-x_{0}\right)}=\frac{1}{\sqrt{2 \pi D T}} e^{-\frac{\left(x-x_{0}\right)^{2}}{2 D T}} \quad\left\langle x \mid k^{\prime}\right\rangle=\frac{1}{\sqrt{2 \pi}} e^{i k^{\prime} x}
+  \end{aligned}
 \end{DispWithArrows}
-This can be generalized to the case of $\hat{H}=-\frac{\hbar^{2}}{2 m} \frac{\partial^{2}}{\partial x^{2}}+V(x)$ (Schulman, Ch.9). Similar connections to statistical mechanics as $T \rightarrow \beta$ (Ch. 26).
+This can be generalized to the case of
+$\hat{H}=-\frac{\hbar^{2}}{2 m} \frac{\partial^{2}}{\partial x^{2}}+V(x)$
+(Schulman, Ch.9). Similar connections to statistical mechanics as
+$T \rightarrow \beta$ (Ch. 26).
 
 \subsection*{Two-point correlation function (exercise)}
-With the help of eq. (16) it is easy to calculate the 2-point correlation function which is defined as $\left\langle x\left(t_{1}\right) x\left(t_{2}\right)\right\rangle$ for $t_{0}<t_{1}<t_{2}$. We assume that the particle starts at $x_{0}=x\left(t_{0}\right)$.
+With the help of eq. (16) it is easy to calculate the 2-point correlation
+function which is defined as $\\left\langle x\left(t_{1}\right) x\left(t_{2}\right)\right\rangle$
+for $t_{0}<t_{1}<t_{2}$. We assume that the particle starts at
+$x_{0}=x\left(t_{0}\right)$.
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{2025_10_17_55d6813539323d2293f0g-4}
+  \centering
+  \includegraphics[width=\textwidth]{graphics/2025_10_17_55d6813539323d2293f0g-4}
 \end{figure}
-Average over Brownian trajectories, all starting at $x_{0}$ at time $t=t_{0}$, when looking at the trajectories at times $t=t_{1}$ and $t=t_{2}$.
-\begin{DispWithArrows}[tag=18]
-    \left\langle x\left(t_{1}\right) x\left(t_{2}\right)\right\rangle_{w}=\iint d \mathbb{P}_{t_{1} t_{2}}\left(x_{1}, x_{2} \mid x_{0}, t_{0}\right) x_{1} x_{2}
+Average over Brownian trajectories, all starting at $x_{0}$ at time $t=t_{0}$,
+when looking at the trajectories at times $t=t_{1}$ and $t=t_{2}$.
+\begin{DispWithArrows}[displaystyle, format=c]
+  \left\langle x\left(t_{1}\right) x\left(t_{2}\right)\right\rangle_{w}=\iint d \mathbb{P}_{t_{1} t_{2}}\left(x_{1}, x_{2} \mid x_{0}, t_{0}\right) x_{1} x_{2}
 \end{DispWithArrows}
-\begin{DispWithArrows}
-    =\int_{-\infty}^{+\infty} d x_{2} \int_{-\infty}^{+\infty} d x_{1} \frac{1}{\sqrt{2 \pi D\left(t_{2}-t_{1}\right)}} e^{-\frac{1}{2 D} \frac{\left(x_{2}-x_{1}\right)^{2}}{t_{2}-t_{1}}} \frac{1}{\sqrt{2 \pi D\left(t_{1}-t_{0}\right)}} e^{-\frac{1}{2 D} \frac{\left(x_{1}-x_{0}\right)^{2}}{t_{1}-t_{0}}} x_{2} x_{1}
+\begin{DispWithArrows}[displaystyle, format=c]
+  =\int_{-\infty}^{+\infty} d x_{2} \int_{-\infty}^{+\infty} d x_{1} \frac{1}{\sqrt{2 \pi D\left(t_{2}-t_{1}\right)}} e^{-\frac{1}{2 D} \frac{\left(x_{2}-x_{1}\right)^{2}}{t_{2}-t_{1}}} \frac{1}{\sqrt{2 \pi D\left(t_{1}-t_{0}\right)}} e^{-\frac{1}{2 D} \frac{\left(x_{1}-x_{0}\right)^{2}}{t_{1}-t_{0}}} x_{2} x_{1}
 \end{DispWithArrows}
 We change variables: $x=x_{1}-x_{0}, y=x_{2}-x_{1}$
-\begin{DispWithArrows}
-    x_{2}=x_{0}+x+y \quad x_{1}=x+x_{0} \quad\left(x_{0} \text { is a const. }\right)
+\begin{DispWithArrows}[displaystyle, format=c]
+  x_{2}=x_{0}+x+y \quad x_{1}=x+x_{0} \quad\left(x_{0} \text { is a const. }\right)
 \end{DispWithArrows}
 Remember the Jacobian in the transformation:
-\begin{DispWithArrows}
-    p\left(x_{1}, x_{2}\right) d x_{1} d x_{2}=p\left(x_{1}(x, y), x_{2}(x, y)\right)|J| d x d y \\
-    J=\left(\begin{array}{cc}
-    \frac{\partial x_{1}}{\partial x} & \frac{\partial x_{1}}{\partial y} \\
-    \frac{\partial x_{2}}{\partial x} & \frac{\partial x_{2}}{\partial y}
-\end{array}\right)=\left(\begin{array}{cc}1 & 0 \\ 1 & 1\end{array}\right) \Rightarrow|J|=1
+\begin{DispWithArrows}[displaystyle, format=ll]
+  p\left(x_{1}, x_{2}\right) d x_{1} d x_{2}=p\left(x_{1}(x, y), x_{2}(x, y)\right)|J| d x d y \\ J=\begin{pmatrix}
+    \frac{\partial x_{1}}{\partial x} & \frac{\partial x_{1}}{\partial y} \\    \frac{\partial x_{2}}{\partial x} & \frac{\partial x_{2}}{\partial y}\end{pmatrix}=\begin{pmatrix}1 & 0 \\ 1 & 1\end{pmatrix} \Rightarrow|J|=1
 \end{DispWithArrows}
 From eq. (18) we get
-\begin{DispWithArrows}
-    \begin{aligned}
+\begin{DispWithArrows}[displaystyle, format=ll]
+  \begin{aligned}
     & =\int_{-\infty}^{+\infty} d x \int_{-\infty}^{+\infty} d y \frac{1}{\sqrt{2 \pi D\left(t_{2}-t_{1}\right)}} e^{-\frac{1}{2 D} \frac{y^{2}}{t_{2}-t_{1}}} \frac{1}{\sqrt{2 \pi D\left(t_{1}-t_{0}\right)}} e^{-\frac{1}{2 D} \frac{x^{2}}{t_{1}-t_{0}}}\left(x_{0}+x+y\right)\left(x+x_{0}\right) \\
     & =\int_{-\infty}^{+\infty} d x \frac{e^{-\frac{x^{2}}{2 D\left(t_{1}-t_{0}\right)}}}{\sqrt{2 \pi D\left(t_{1}-t_{0}\right)}} (x^2+x_0^2) \\
     & =D\left(t_{1}-t_{0}\right)+x_{0}^{2}
-    \end{aligned}
+  \end{aligned}
 \end{DispWithArrows}
 Thus for a generic pair of times $t_{1}, t_{2}>t_{0}$:
-\begin{DispWithArrows}[tag=19]
-    \left\langle x\left(t_{1}\right) x\left(t_{2}\right)\right\rangle_{w}=D \min \left\{t_{1}-t_0, t_{2}-t_0\right\}+x_{0}^{2}
+\begin{DispWithArrows}[displaystyle, format=c]
+  \left\langle x\left(t_{1}\right) x\left(t_{2}\right)\right\rangle_{w}=D \min \left\{t_{1}-t_0, t_{2}-t_0\right\}+x_{0}^{2}
 \end{DispWithArrows}
-Exercise: calculate $\left\langle x\left(t_{1}\right) x\left(t_{2}\right)\right\rangle_{w}$ for a generic initial distribution $g\left(x_{0}\right)$.
+Exercise: calculate
+$\left\langle x\left(t_{1}\right) x\left(t_{2}\right)\right\rangle_{w}$ for a
+generic initial distribution $g\left(x_{0}\right)$.
 
 \subsection*{Averaging a functional with the Wiener path integral}
-Functionals of trajectories (say, position of a particle in time) occur many times in Physics. For example, one may want to calculate the average of $F\left(\int_{0}^{T} a(s) x(s) d s\right)$, where $x(s)$ is the value of the Brownian trajectory at time $s$, $a(s)$ is a smooth function of time and $F$ is another smooth function.
+Functionals of trajectories (say, position of a particle in time) occur many
+times in Physics. For example, one may want to calculate the average of
+$F\left(\int_{0}^{T} a(s) x(s) d s\right)$, where $x(s)$ is the value of the
+Brownian trajectory at time $s$, $a(s)$ is a smooth function of time and $F$ is
+another smooth function.
 
-For any specific calculation we will rely on the discrete, finite $n$, formula in eq. (16). Namely, if we wish to find the expected value of a functional such as $F\left(\int_{0}^{T} a(t) x(t) d t\right)$, we first take its discrete version, $\sum_{i} \Delta t_{i} a\left(t_{i}ight) x\left(t_{i}\right)$, use eq. (16) for the calculations and only at the end we take the limit $n \rightarrow \infty, \Delta t \rightarrow 0$.
+For any specific calculation we will rely on the discrete, finite $n$, formula
+in eq. (16). Namely, if we wish to find the expected value of a functional such
+as $F\left(\int_{0}^{T} a(t) x(t) d t\right)$, we first take its discrete
+version, $\sum_{i} \Delta t_{i} a\left(t_{i}\right) x\left(t_{i}\right)$, use eq.
+(16) for the calculations and only at the end we take the limit
+$n \rightarrow \infty, \Delta t \rightarrow 0$.
 
-In the following we will also use the function $A(s)=\int_{s}^{T} a(\tau) d \tau$ which satisfies $\dot{A}(s)=-a(s)$ and $A(T)=0$. Now, $x(0)=0$
-\begin{DispWithArrows}
-    \int_{0}^{T} a(s) x(s) d s=-\left.x(s) \int_{s}^{T} a(\tau) d \tau\right|_{s=0} ^{s=T}+\int_{0}^{T} \dot{x}(s) \left(\int_{s}^{T} a(\tau) d \tau\right) d s=\int_{0}^{T} \dot{x}(s) A(s) d s
+In the following we will also use the function $A(s)=\int_{s}^{T} a(\tau) d \tau$
+which satisfies $\dot{A}(s)=-a(s)$ and $A(T)=0$. Now, $x(0)=0$
+\begin{DispWithArrows}[displaystyle, format=c]
+  \int_{0}^{T} a(s) x(s) d s=-\left.x(s) \int_{s}^{T} a(\tau) d \tau\right|_{s=0} ^{s=T}+\int_{0}^{T} \dot{x}(s) \left(\int_{s}^{T} a(\tau) d \tau\right) d s=\int_{0}^{T} \dot{x}(s) A(s) d s
 \end{DispWithArrows}
 This can be written down in the discrete form as
-\begin{DispWithArrows}
-    \int_{0}^{T} A(s) \dot{x}(s) d s=\int_{0}^{x(T)} A(s(x)) d x=\lim _{\substack{n \rightarrow \infty \\ \max _{i}\left(\Delta x_{i}\right) \rightarrow 0}} \sum_{i=1}^{n} A_{i} \underbrace{\left(x_{i}-x_{i-1}\right)}_{\equiv \Delta x_{i}}
+\begin{DispWithArrows}[displaystyle, format=c]
+  \int_{0}^{T} A(s) \dot{x}(s) d s=\int_{0}^{x(T)} A(s(x)) d x=\lim _{\substack{n \rightarrow \infty \\ \max _{i}\left(\Delta x_{i}\right) \rightarrow 0}} \sum_{i=1}^{n} A_{i} \underbrace{\left(x_{i}-x_{i-1}\right)}_{\equiv \Delta x_{i}}
 \end{DispWithArrows}
-From now on we set $2 D=1$ (in the end we replace $t \rightarrow 2 D t$). We use the Wiener measure in eq. (16) and calculate the average of the discretized functional $F,\left\langle I_{n}\right\rangle$, for a fixed $n$:
-\begin{DispWithArrows}[tag=20]
-    \left\langle I_{n}\right\rangle=\int_{\mathbb{R}^{n}} \prod_{i=1}^{n} \frac{d x_{i}}{\sqrt{\pi \Delta t_{i}}} F\left(\sum_{i=1}^{n} A_{i} \Delta x_{i}\right) e^{-\sum_{i=1}^{n} \frac{\left(\Delta x_{i}\right)^{2}}{\Delta t_{i}}}
+From now on we set $2 D=1$ (in the end we replace $t \rightarrow 2 D t$). We use
+the Wiener measure in eq. (16) and calculate the average of the discretized
+functional $F,\left\langle I_{n}\right\rangle$, for a fixed $n$:
+\begin{DispWithArrows}[displaystyle, format=c]
+  \left\langle I_{n}\right\rangle=\int_{\mathbb{R}^{n}} \prod_{i=1}^{n} \frac{d x_{i}}{\sqrt{\pi \Delta t_{i}}} F\left(\sum_{i=1}^{n} A_{i} \Delta x_{i}\right) e^{-\sum_{i=1}^{n} \frac{\left(\Delta x_{i}\right)^{2}}{\Delta t_{i}}}
 \end{DispWithArrows}
-Now we change variables: $y_{i}=\Delta x_{i}$, so $x_{i}=\sum_{k=1}^{i} y_{k}+x_{0}$ for $i=1,2 \ldots, n$
-Remember: $\quad q(\{y\})=p(\{x(y)\})\left|\frac{\partial x}{\partial y}\right|$
+Now we change variables: $y_{i}=\Delta x_{i}$, so
+$x_{i}=\sum_{k=1}^{i} y_{k}+x_{0}$ for $i=1,2 \ldots, n$
+Remember:
+$\quad q(\{y\})=p(\{x(y)\})\left|\frac{\partial x}{\partial y}\right|$
 
 We have to be careful about the jacobian $J$:
-\begin{DispWithArrows}
-    J=\left(\begin{array}{cccc}\frac{\partial x_{1}}{\partial y_{1}} & \frac{\partial x_{1}}{\partial y_{2}} & \cdots & \frac{\partial x_{1}}{\partial y_{n}} \\ \vdots & \vdots & \ddots & \vdots \\ \frac{\partial x_{n}}{\partial y_{1}} & \frac{\partial x_{n}}{\partial y_{2}} & \cdots & \frac{\partial x_{n}}{\partial y_{n}}\end{array}\right)=\left(\begin{array}{cccc}1 & 0 & \cdots & 0 \\ 1 & 1 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 1 & 1 & \cdots & 1\end{array}\right) \Rightarrow \operatorname{det} J=1
+\begin{DispWithArrows}[displaystyle, format=c]
+  J=\begin{pmatrix}\frac{\partial x_{1}}{\partial y_{1}} & \frac{\partial x_{1}}{\partial y_{2}} & \cdots & \frac{\partial x_{1}}{\partial y_{n}} \\ \vdots & \vdots & \ddots & \vdots \\ \frac{\partial x_{n}}{\partial y_{1}} & \frac{\partial x_{n}}{\partial y_{2}} & \cdots & \frac{\partial x_{n}}{\partial y_{n}}\end{pmatrix}=\begin{pmatrix}1 & 0 & \cdots & 0 \\ 1 & 1 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 1 & 1 & \cdots & 1\end{pmatrix} \Rightarrow \operatorname{det} J=1
 \end{DispWithArrows}
 hence
-\begin{DispWithArrows}[tag=21]
-    \left\langle I_{n}\right\rangle=\int_{\mathbb{R}^{n}} \prod_{i=1}^{n} \frac{d y_{i}}{\sqrt{\pi \Delta t_{i}}} F\left(\sum_{i} A_{i} y_{i}\right) e^{-\sum_{i} \frac{y_{i}^{2}}{\Delta t_{i}}}
+\begin{DispWithArrows}[displaystyle, format=c]
+  \left\langle I_{n}\right\rangle=\int_{\mathbb{R}^{n}} \prod_{i=1}^{n} \frac{d y_{i}}{\sqrt{\pi \Delta t_{i}}} F\left(\sum_{i} A_{i} y_{i}\right) e^{-\sum_{i} \frac{y_{i}^{2}}{\Delta t_{i}}}
 \end{DispWithArrows}
-Now we use a little trick. As $\delta(z)=\frac{1}{2 \pi} \int_{-\infty}^{+\infty} e^{i k z} d k$ and $F\left(\sum_{i} A_{i} y_{i}\right)=\int F(z) \delta\left(z-\sum_{i} A_{i} y_{i}\right) d z$, we can write eq. (21) as
-\begin{DispWithArrows}
-    \begin{aligned}
+Now we use a little trick. As
+$\delta(z)=\frac{1}{2 \pi} \int_{-\infty}^{+\infty} e^{i k z} d k$ and
+$F\left(\sum_{i} A_{i} y_{i}\right)=\int F(z) \delta\left(z-\sum_{i} A_{i} y_{i}\right) d z$,
+we can write eq. (21) as
+\begin{DispWithArrows}[displaystyle, format=ll]
+  \begin{aligned}
     \left\langle I_{n}\right\rangle & =\int \prod_{i} \frac{d y_{i}}{\sqrt{\pi \Delta t_{i}}} \int \frac{d k d z}{2 \pi} F(z) e^{i k\left(z-\sum_{j} A_{j} y_{j}\right)} e^{-\sum_{i} \frac{y_{i}^{2}}{\Delta t_{i}}} \\
     & =\int_{-\infty}^{+\infty} \frac{d k d z}{2 \pi} e^{i k z} F(z) \int_{\mathbb{R}^{n}} \prod_{i} \frac{d y_{i}}{\sqrt{\pi \Delta t_{i}}} e^{-\sum_{j}\left(\frac{y_{j}^{2}}{\Delta t_{j}}+i A_{j} y_{j} k\right)} \\
     & =\int_{-\infty}^{+\infty} \frac{d k d z}{2 \pi} e^{i k z} F(z) e^{-\frac{k^{2}}{4} \sum_{i} A_{i}^{2} \Delta t_{i}}=\int d z F(z) \int \frac{d k}{2 \pi} e^{-\frac{k^{2}}{4} \sum_{i} A_{i}^{2} \Delta t_{i}+i k z} \\
     & =\int d z F(z) \frac{e^{-\frac{z^{2}}{\sum_{i} A_{i}^{2} \Delta t_{i}}}}{\left(\pi \sum_{i} A_{i}^{2} \Delta t_{i}\right)^{1 / 2}}=\int_{-\infty}^{+\infty} d z F(z) N_{z}\left(0, \frac{1}{2}\sum_{i} A_{i}^{2} \Delta t_{i}\right)
-    \end{aligned}
+  \end{aligned}
 \end{DispWithArrows}
 Hence
-\begin{DispWithArrows}[tag=22]
-    \left\langle F\left(\sum_{i} A_{i} \Delta x_{i}\right)\right\rangle_{BM}=\int_{-\infty}^{+\infty} d z F(z) N_{z}(0, \frac{1}{2}\sum_{i} A_{i}^{2} \Delta t_{i})
+\begin{DispWithArrows}[displaystyle, format=c]
+  \left\langle F\left(\sum_{i} A_{i} \Delta x_{i}\right)\right\rangle_{BM}=\int_{-\infty}^{+\infty} d z F(z) N_{z}(0, \frac{1}{2}\sum_{i} A_{i}^{2} \Delta t_{i})
 \end{DispWithArrows}
-Where $N_{z}\left(\mu, \sigma^{2}\right)$ is the Normal distribution with mean $\mu$ and variance $\sigma^{2}$. We can now take the limit $n \rightarrow \infty, \Delta t_{i} \rightarrow 0$:
-\begin{DispWithArrows}[tag=23]
-    \sum_{i} A_{i}^{2} \Delta t_{i} \longrightarrow \int_{0}^{T} A^{2}(s) d s=\int_{0}^{T}\left(\int_{s}^{T} a(\tau) d \tau\right)^{2} d s \equiv R(T)
+Where $N_{z}\left(\mu, \sigma^{2}\right)$ is the Normal distribution with mean
+$\mu$ and variance $\sigma^{2}$. We can now take the limit
+$n \rightarrow \infty, \Delta t_{i} \rightarrow 0$:
+\begin{DispWithArrows}[displaystyle, format=c]
+  \sum_{i} A_{i}^{2} \Delta t_{i} \longrightarrow \int_{0}^{T} A^{2}(s) d s=\int_{0}^{T}\left(\int_{s}^{T} a(\tau) d \tau\right)^{2} d s \equiv R(T)
 \end{DispWithArrows}
 Thus the continuum formulation gives:
-\begin{DispWithArrows}[tag=24]
-    \left\langle F\left(\int_{0}^{T} a(s) x(s) d s\right)\right\rangle_{BM}=\int_{-\infty}^{+\infty} d z F(z) N_{z}(0, D R(T))
+\begin{DispWithArrows}[displaystyle, format=c]
+  \left\langle F\left(\int_{0}^{T} a(s) x(s) d s\right)\right\rangle_{BM}=\int_{-\infty}^{+\infty} d z F(z) N_{z}(0, D R(T))
 \end{DispWithArrows}
 where $R(T)$ is defined in (23). If we introduce $2D$, we get
-\begin{DispWithArrows}
-    N_{z}(0, 2DR(T))=\frac{1}{\sqrt{4 \pi D R(T)}} e^{-\frac{z^{2}}{4 D R(T)}}
+\begin{DispWithArrows}[displaystyle, format=c]
+  N_{z}(0, 2DR(T))=\frac{1}{\sqrt{4 \pi D R(T)}} e^{-\frac{z^{2}}{4 D R(T)}}
 \end{DispWithArrows}
 Example:
-If $F(z)=e^{h z}$ we obtain the moment generating function of $\int_{0}^{T} a(s) x(s) d s$, namely
-\begin{DispWithArrows}
-    \left\langle e^{h \int_{0}^{T} a(s) x(s) d s}\right\rangle_{BM}=e^{D R(T) h^{2}}
+If $F(z)=e^{h z}$ we obtain the moment generating function of
+$\int_{0}^{T} a(s) x(s) d s$, namely
+\begin{DispWithArrows}[displaystyle, format=c]
+  \left\langle e^{h \int_{0}^{T} a(s) x(s) d s}\right\rangle_{BM}=e^{D R(T) h^{2}}
 \end{DispWithArrows}
-Exercise: Take $F(z)=e^{z}, a(s)=h_{1} \delta\left(t_{1}-s\right)+h_{2} \delta\left(t_{2}-s\right)$ for $0<t_{1}, t_{2}<T$. Calculate $A(s)$ and $R(T)$. Since $\int_{0}^{T} a(s) x(s) d s=h_{1} x\left(t_{1}\right)+h_{2} x\left(t_{2}\right)$, calculate $z\left(h_{1}, h_{2}\right)=\left\langle e^{h_{1} x\left(t_{1}\right)+h_{2} x\left(t_{2}\right)}\right\rangle_{w}$ and finally show that
-\begin{DispWithArrows}[tag=19]
-    \left.\frac{\partial^{2} z}{\partial h_{1} \partial h_{2}}\right|_{h_{1}=0=h_{2}}=\left\langle x\left(t_{1}\right) x\left(t_{2}\right)\right\rangle_{BM}=2D \min \left\{t_{1}, t_{2}\right\}
+Exercise: Take $F(z)=e^{z}, a(s)=h_{1} \delta\left(t_{1}-s\right)+h_{2} \delta\left(t_{2}-s\right)$
+for $0<t_{1}, t_{2}<T$. Calculate $A(s)$ and $R(T)$. Since
+$\int_{0}^{T} a(s) x(s) d s=h_{1} x\left(t_{1}\right)+h_{2} x\left(t_{2}\right)$,
+calculate
+$z\left(h_{1}, h_{2}\right)=\left\langle e^{h_{1} x\left(t_{1}\right)+h_{2} x\left(t_{2}\right)}\right\rangle_{w}$
+and finally show that
+\begin{DispWithArrows}[displaystyle, format=c]
+  \left.\frac{\partial^{2} z}{\partial h_{1} \partial h_{2}}\right|_{h_{1}=0=h_{2}}=\left\langle x\left(t_{1}\right) x\left(t_{2}\right)\right\rangle_{BM}=2D \min \left\{t_{1}, t_{2}\right\}
 \end{DispWithArrows}
 
 \subsection*{A brief summary of what we have done:}
 We have learnt some properties of the Brownian process:
 \begin{enumerate}
-    \item It is the most important continuous stochastic process, which is tightly linked to the diffusion equation. It is a Markov process with continuous paths, but very irregular ones as it is nowhere differentiable.
-    \item We know how to simulate it.
-    \item It can be used to define a path integral, an object that is not very well defined but (at least in its discrete form) it can be used to calculate some functionals that are useful in Physics and beyond.
+  \item It is the most important continuous stochastic process, which is tightly
+    linked to the diffusion equation. It is a Markov process with continuous
+    paths, but very irregular ones as it is nowhere differentiable.
+  \item We know how to simulate it.
+  \item It can be used to define a path integral, an object that is not very
+    well defined but (at least in its discrete form) it can be used to calculate
+    some functionals that are useful in Physics and beyond.
 \end{enumerate}
 
-At this point we want to use the Brownian motion to build up new continuous stochastic processes. We will do that by defining stochastic differential equations (SDEs). This needs a lot of care because there are many subtleties with continuous stochastic processes. We will look into the main features. There are many books which develop SDEs rigorously.
+At this point we want to use the Brownian motion to build up new continuous
+stochastic processes. We will do that by defining stochastic differential
+equations (SDEs). This needs a lot of care because there are many subtleties
+with continuous stochastic processes. We will look into the main features. There
+are many books which develop SDEs rigorously.

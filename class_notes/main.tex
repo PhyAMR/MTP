@@ -1,42 +1,91 @@
 \documentclass[
-	a4paper, 
+	a4paper,
 	fontsize=10pt,
-	twoside=true, 
+	twoside=true,
+	open=any,
+	%chapterentrydots=true,
 	numbers=noenddot,
 ]{kaobook}
-
+\newcommand{\CourseSemester}{First Semester}  % fill <<<<<<<<<<<<<<<<<<<<<<<
+\newcommand{\CourseInstructor}{ Azaele Sandro}
 \input{preamble}
 
 \begin{document}
 
+\titlehead{ Models of Theoretical Physics}
+\subject{Notes for Models of Theoretical Physics}
+
+\title[]{
+Models of Theoretical Physics}
+\subtitle{Professor Azaele Sandro}
+
+\author[]{}
+
+\date{\today}
+
+\publishers{}
+
 \frontmatter
-\tableofcontents
-%\listof{lec}
 
-\mainmatter
-\setchapterstyle{kao}
+    \makeatletter
+    \uppertitleback{\@titlehead}
+    \makeatother
 
-% Input lecture files here
-\input{lectures_formatted/Models-of-Theoretical-Physics-2025-10-20.tex}
-\input{lectures_formatted/MTP-L1-ODEs_from_reaction_rates.tex}
-\input{lectures_formatted/MTP-L2-Fokker-Planck_equation.tex}
-\input{lectures_formatted/MTP-L3-Fokker-Planck_equation_derivation.tex}
-\input{lectures_formatted/MTP-L4-Turing_Pattern_Formation.tex}
-\input{lectures_formatted/MTP-L5-Birth_and_death_Markov_processes.tex}
-\input{lectures_formatted/MTP-L6-Gaussian_Integrals.tex}
-\input{lectures_formatted/MTP-L7-Wiener_path_integral.tex}
-\input{lectures_formatted/MTP-L8-Introduction_to_Stochastic_Processes.tex}
-\input{lectures_formatted/MTP-L9-Wick_theorem.tex}
-\input{lectures_formatted/MTP-L10-Introduction_to_Stochastic_Differential_Equations.tex}
-\input{lectures_formatted/MTP-L11-Gaussian_Integrals_continued.tex}
-\input{lectures_formatted/MTP-L12-Laplace_method.tex}
-\input{lectures_formatted/MTP-L13-Law_of_large_numbers.tex}
-\input{lectures_formatted/MTP-L14-Dynamical_Systems.tex}
-\input{lectures_formatted/MTP-L15-Laplace_method_continued.tex}
+    \maketitle
+\begingroup % Local scope for the following commands
+
+% Define the style for the TOC, LOF, and LOT
 
 
-\backmatter
-% Bibliography, index, etc.
-\printbibliography
+\setlength{\textheight}{230\hscale} % Manually adjust the height of the ToC pages
+
+% Turn on compatibility mode for the etoc package
+\etocstandarddisplaystyle % "toc display" as if etoc was not loaded
+\etocstandardlines % "toc lines" as if etoc was not loaded
+
+\tableofcontents % Output the table of contents
+\listoflecture
+\listoffigures % Output the list of figures
+
+% Comment both of the following lines to have the LOF and the LOT on different pages
+\let\cleardoublepage\bigskip
+\let\clearpage\bigskip
+
+\listoftables % Output the list of tables
+
+
+
+\endgroup
+
+%----------------------------------------------------------------------------------------
+% MAIN BODY
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Denotes the start of the main document content, resets page numbering and uses arabic numbers
+\setchapterstyle{kao} % Choose the default chapter heading style
+\pagelayout{wide}
+
+% ======= LECTURE INPUTS START =======
+% (the script will add \input{...} lines here)
+    \input{lectures/Models-of-Theoretical-Physics-2025-10-22}
+    \pagelayout{wide}
+    \addpart{Last year notes}
+    \input{lectures_formatted/MTP-L1-ODEs_from_reaction_rates}
+    \input{lectures_formatted/MTP-L2-Fokker-Planck_equation}
+    \input{lectures_formatted/MTP-L3-Fokker-Planck_equation_derivation}
+    \input{lectures_formatted/MTP-L4-Turing_Pattern_Formation}
+    \input{lectures_formatted/MTP-L5-Birth_and_death_Markov_processes}
+    \input{lectures_formatted/MTP-L6-Gaussian_Integrals}
+    \input{lectures_formatted/MTP-L7-Wiener_path_integral}
+    \input{lectures_formatted/MTP-L8-Introduction_to_Stochastic_Processes}
+    \input{lectures_formatted/MTP-L9-Wick_theorem}
+    \input{lectures_formatted/MTP-L10-Introduction_to_Stochastic_Differential_Equations}
+    \input{lectures_formatted/MTP-L11-Gaussian_Integrals_continued}
+    \input{lectures_formatted/MTP-L12-Laplace_method}
+    \input{lectures_formatted/MTP-L13-Law_of_large_numbers}
+    \input{lectures_formatted/MTP-L14-Dynamical_Systems}
+   % \input{lectures_formatted/MTP-L15-Laplace_method_continued}
+    \input{lectures_formatted/Models-of-Theoretical-Physics-2025-10-20}
+% ======= LECTURE INPUTS END =======
 
 \end{document}
