@@ -55,21 +55,21 @@ distrib.?
 
 \subsection*{The (weak) law of large numbers}
 If we are given $n$ iid rand. var. whose pdf is $q(x)$ with a c.f.
-$\varphi_{1}(k)$, what happens to $X=\frac{1}{n} \sum_{i} x_{i}$ as
+$\\varphi_{1}(k)$, what happens to $X=\frac{1}{n} \sum_{i} x_{i}$ as
 $n \rightarrow \infty$?
 
 We assume that the mean of $x_{i}$ is
-($\mu=\int d x q(x) x<\infty$). (See Grimmett \& Stirzaker,
+($\mu=\int d x q(x) x<\infty$). (See Grimmett & Stirzaker,
 p. 193, Prob. and Random Processes). proof:
-Let $\varphi_{n}(k)$ be the c.f. of the average of the rand. variables
+Let $\\varphi_{n}(k)$ be the c.f. of the average of the rand. variables
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\varphi_{n}(k) \equiv\left\langle e^{i k X}\right\rangle =\left\langle e^{i k \frac{1}{n} \sum_{i} x_{i}}\right\rangle=\int e^{\frac{i k}{n} \sum_{i} x_{i}} q\left(x_{1}\right) \cdots q\left(x_{n}\right) d x_{1} \cdots d x_{n}$
+  \\varphi_{n}(k) \equiv\left\langle e^{i k X}\right\rangle=\left\langle e^{i k \frac{1}{n} \sum_{i} x_{i}}\right\rangle=\int e^{\frac{i k}{n} \sum_{i} x_{i}} q\left(x_{1}\right) \cdots q\left(x_{n}\right) d x_{1} \cdots d x_{n}
 \end{DispWithArrows}
 \begin{DispWithArrows}[displaystyle, format=c]
   =\left(\int e^{i \frac{k}{n} x_{1}} q(x_1) d x_1\right) \cdots\left(\int e^{i k \frac{x_{n}}{n}} q\left(x_{n}\right) d x_{n}\right)=\left(\varphi_{1}\left(\frac{k}{n}\right)\right)^{n}
 \end{DispWithArrows}
 \begin{DispWithArrows}[displaystyle, format=c]
-  \varphi_{1}\left(\frac{k}{n}\right)=\int e^{i \frac{k}{n} x} q(x) d x=1+\frac{i k}{n}\langle x\rangle+\mathcal{O}\left(\frac{1}{n^2}\right) \text { as } n \rightarrow \infty
+  \\varphi_{1}\left(\frac{k}{n}\right)=\int e^{i \frac{k}{n} x} q(x) d x=1+\frac{i k}{n}\\langle x\rangle+\mathcal{O}\left(\frac{1}{n^2}\right) \text { as } n \rightarrow \infty
 \end{DispWithArrows}
 Taylor convergence in distribution
 from (17)
@@ -79,21 +79,21 @@ from (17)
 
 \subsection*{The strong law of large numbers}
 Let $x_{1} \ldots x_{n}$ be a sequence of i.i.d. r.v. each with finite mean
-$\\mu$. Then the empirical average $\\frac{1}{n} \sum_{i} x_{i}$ approaches $\\mu$
+$\\mu$. Then the empirical average $\frac{1}{n} \sum_{i} x_{i}$ approaches $\\mu$
 as $n \rightarrow \infty$ (Grimmett, p. 329).
 
 Here the convergence is almost sure.
 \begin{DispWithArrows}[displaystyle, format=c]
-  P\left(\left\{\\frac{1}{n} \sum_{i=1}^{n} x_{i} \rightarrow \mu \text { as } n \rightarrow \infty\right\}\right)=1
+  P\left(\left\{\frac{1}{n} \sum_{i=1}^{n} x_{i} \rightarrow \mu \text { as } n \rightarrow \infty\right\}\right)=1
 \end{DispWithArrows}
-This Theorem tells us that for large $n$ the sum $\\sum_{i} x_{i}$ is well
+This Theorem tells us that for large $n$ the sum $\sum_{i} x_{i}$ is well
 approximated by $\\mu n$. Of course there will be fluctuations around $\\mu n$. A
-natural question is : what can we say about $\\sum_{i} x_{i}-n \mu$? How fast do
-we approach the limit? What about the fluctuations around $n\\mu$?
+natural question is : what can we say about $\sum_{i} x_{i}-n \mu$? How fast do
+we approach the limit? What about the fluctuations around $n\\mu$? 
 Whenever $x_{i}$ have finite variance $\\sigma^{2}$:
 \begin{enumerate}
-  \item $\\sum_{i} x_{i}-\\mu n$ is about as big as $\\sqrt{n}$
-  \item The distribution of $\\frac{\\sum_{i} x_{i}-\\mu n}{\\sqrt{n}}$ approaches a
+  \item $\sum_{i} x_{i}-\\mu n$ is about as big as $\sqrt{n}$
+  \item The distribution of $\frac{\sum_{i} x_{i}-\\mu n}{\sqrt{n}}$ approaches a
     Gaussian distribution as $n \rightarrow \infty$ IRRESPECTIVE of the
     distribution of $x_{i}$.
 \end{enumerate}
@@ -102,11 +102,11 @@ The claims in a) and b) are the core meaning of the Central Limit Theorem
 Let $x_{1} \ldots x_{n}$ be a sequence of i.i.d. r.v. with finite mean $\\mu$ and
 finite (non-zero) variance $\\sigma^{2}$. Then the PDF of
 \begin{DispWithArrows}[displaystyle, format=c]
-  $Y_{n}=\\frac{\\sum_{i} x_{i}-\\mu n}{\\sqrt{n} \sigma} \xrightarrow[n \rightarrow \infty]{\text{conv. in distrib.}} N(0,1)$
+  Y_{n}=\frac{\sum_{i} x_{i}-\\mu n}{\sqrt{n} \sigma} \xrightarrow[n \rightarrow \infty]{\text{conv. in distrib.}} N(0,1)
 \end{DispWithArrows}
 Obs:
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\left\langle Y_{n}\right\rangle=\frac{1}{\sqrt{n} \sigma}\left(\sum_{i}\left\langle x_{i}\right\rangle-\mu n\right)=0$
+  \left\langle Y_{n}\right\rangle=\frac{1}{\sqrt{n} \sigma}\left(\sum_{i}\left\langle x_{i}\right\rangle-\\mu n\right)=0
 \end{DispWithArrows}
 Ex:
 \begin{DispWithArrows}[displaystyle, format=c]
@@ -115,16 +115,16 @@ Ex:
 \begin{itemize}
   \item Let $x_{1}, x_{2}$ be two i.i.d. Gaussian r.v. such that
     \begin{DispWithArrows}[displaystyle, format=c]
-      $\left\langle x_{i}\right\rangle=0,\left\langle x_{i}^{2}\right\rangle=1,\left\langle x_{1} x_{2}\right\rangle=0 \quad i=1,2$
+      \left\langle x_{i}\right\rangle=0,\left\langle x_{i}^{2}\right\rangle=1,\left\langle x_{1} x_{2}\right\rangle=0 \quad i=1,2
     \end{DispWithArrows}
     Calculate
-    $\left\langle y_{i}\right\rangle,\left\langle y_{i}^{2}\right\rangle,\left\langle y_{1} y_{2}\right\rangle \quad i=1,2$
+    $\\left\langle y_{i}\right\rangle,\left\langle y_{i}^{2}\right\rangle,\left\langle y_{1} y_{2}\right\rangle \quad i=1,2$
     where
     \begin{DispWithArrows}[displaystyle, format=ll]
-      $\left\{\begin{aligned}
-          y_{1}&=\rho+\sqrt{1-\rho^{2}} x_{1} \\
-          y_{2}&=\rho+\sqrt{1-\rho^{2}}\left(\gamma x_{1}+\sqrt{1-\gamma^{2}} x_{2}\right)
-        \end{aligned}\right.$
+      \left\{\begin{aligned}
+          y_{1}&=\\rho+\\sqrt{1-\\rho^{2}} x_{1} \\
+          y_{2}&=\\rho+\\sqrt{1-\\rho^{2}}\left(\gamma x_{1}+\sqrt{1-\\gamma^{2}} x_{2}\right)
+        \end{aligned}\right.
     \end{DispWithArrows}
     where $|\rho| \leqslant 1,|\gamma| \leqslant 1$.
 \end{itemize}
@@ -134,22 +134,22 @@ proof:
 Let's assume that each r.v. has a p.d.f. $q(x)$ with c.f. $\\varphi_{1}(k)$,
 $\\varphi_{n}(k)$ is the c.f. of $Y_{n}$:
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\varphi_{n}(k)=\left\langle e^{i k Y_{n}}\right\rangle=\int e^{i k \frac{\sum_{i} x_{i}-\mu n}{\sqrt{n} \sigma}} q\left(x_{1}\right) \cdots q\left(x_{n}\right) d x_{1} \cdots d x_{n}=$
+  \\varphi_{n}(k)=\left\langle e^{i k Y_{n}}\right\rangle=\int e^{i k \frac{\sum_{i} x_{i}-\\mu n}{\sqrt{n} \sigma}} q\left(x_{1}\right) \cdots q\left(x_{n}\right) d x_{1} \cdots d x_{n}=
 \end{DispWithArrows}
 \begin{DispWithArrows}[displaystyle, format=c]
-  $=e^{-\frac{i k \mu \sqrt{n}}{\sigma}}\left(\int e^{\frac{i k x}{\sqrt{n} \sigma}} q(x) d x\right)^{n} = e^{-\frac{i k \mu \sqrt{n}}{\sigma}}\left(\\varphi_{1}\left(\frac{k}{\\sqrt{n} \sigma}\right)\right)^{n}$
+  =e^{-\frac{i k \mu \sqrt{n}}{\sigma}}\left(\int e^{\frac{i k x}{\sqrt{n} \sigma}} q(x) d x\right)^{n} = e^{-\frac{i k \mu \sqrt{n}}{\sigma}}\left(\varphi_{1}\left(\frac{k}{\sqrt{n} \sigma}\right)\right)^{n}
 \end{DispWithArrows}
 As in the previous theorem we can expand $\\varphi_{1}$ as $n \rightarrow \infty$
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\varphi_{1}\left(\frac{k}{\sqrt{n} \sigma}\right) = 1+\frac{i k}{\sqrt{n} \sigma}\langle x\rangle-\frac{k^{2}}{2 n \sigma^{2}}\left\langle x^{2}\right\rangle+O\left(n^{-3 / 2}\right) = e^{\frac{i k \mu}{\sqrt{n}\sigma}-\frac{k^{2}}{2n}}$
+  \\varphi_{1}\left(\frac{k}{\sqrt{n} \sigma}\right) = 1+\frac{i k}{\sqrt{n} \sigma}\\langle x\rangle-\frac{k^{2}}{2 n \sigma^{2}}\\left\langle x^{2}\right\rangle+O\left(n^{-3 / 2}\right) = e^{\frac{i k \mu}{\sqrt{n}\\sigma}-\frac{k^{2}}{2n}}
 \end{DispWithArrows}
 from (20)
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\varphi_{n}(k)=e^{-\frac{i k \mu}{\sigma} \sqrt{n}} e^{\frac{i k \mu}{\sigma} \sqrt{n}-\frac{k^{2}}{2}}=e^{-\frac{k^{2}}{2}}$
+  \\varphi_{n}(k)=e^{-\frac{i k \mu}{\sigma} \sqrt{n}} e^{\frac{i k \mu}{\sigma} \sqrt{n}-\frac{k^{2}}{2}}=e^{-\frac{k^{2}}{2}}
 \end{DispWithArrows}
 As we have shown in eq. (6), this is the c.f. of
 \begin{DispWithArrows}[displaystyle, format=c]
   p(x)=\frac{1}{\sqrt{2 \pi}} e^{-\frac{x^{2}}{2}} \equiv N(0,1)
 \end{DispWithArrows}. Show 1)
-$\sum_{i=1}^{n} x_{i} \sim N\left(n \mu, n \sigma^{2}\right)$; 2)
-$\frac{1}{n} \sum_{i=1}^{n} x_{i} \sim N\left(\mu, \frac{\sigma^{2}}{n}\right)$
+$\\sum_{i=1}^{n} x_{i} \sim N\left(n \mu, n \sigma^{2}\right)$; 2)
+$\\frac{1}{n} \sum_{i=1}^{n} x_{i} \sim N\left(\\mu, \frac{\\sigma^{2}}{n}\right)$

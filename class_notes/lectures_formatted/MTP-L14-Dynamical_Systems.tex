@@ -32,7 +32,7 @@ of paths from time $t=0$ to $t=T>0$. How can we calculate the probability that
 $x(t)$ gets a value between $x$ and $x+\Delta x$ (a PDF) at time $t$?
 
 From the computational point of view this is relatively easy:
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{graphics/2025_10_17_15d569b79a40ed74679eg-02}
 \end{figure}
@@ -114,20 +114,20 @@ As $f \in C_{c}^{2}(\mathbb{R})$ we can integrate by parts and safely assume
 that $f, f^{\prime}$ and $f^{\prime \prime} \rightarrow 0$ as $|x|$ is large
 enough. Hence
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\int d x p(x, t) \mu(x, t) \frac{\partial f}{\partial x} \stackrel{\downarrow}{=}-\int d x f(x) \frac{\partial}{\partial x}(p \mu)$
+  \int d x p(x, t) \mu(x, t) \frac{\partial f}{\partial x} \stackrel{\downarrow}{=}-\int d x f(x) \frac{\partial}{\partial x}(p \mu)
 \end{DispWithArrows}
 twice integrated by parts
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\int d x p(x, t) \frac{\sigma^{2}(x, t)}{2} \frac{\partial^{2} f}{\partial x^{2}}=\frac{1}{2} \int d x f(x) \frac{\partial^{2}}{\partial x^{2}}\left(\sigma^{2}(x) p\right)$
+  \int d x p(x, t) \frac{\sigma^{2}(x, t)}{2} \frac{\partial^{2} f}{\partial x^{2}}=\frac{1}{2} \int d x f(x) \frac{\partial^{2}}{\partial x^{2}}\left(\sigma^{2}(x) p\right)
 \end{DispWithArrows}
 and
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\frac{d}{d t}\langle f(x)\rangle=\int d x f(x) \frac{\partial}{\partial t} p(x, t)$
+  \frac{d}{d t}\langle f(x)\rangle=\int d x f(x) \frac{\partial}{\partial t} p(x, t)
 \end{DispWithArrows}
 Thus from eqs. (9) and (10) and because $f \in C_{c}^{2}(\mathbb{R})$ but
 arbitrary we end up with
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\frac{\partial}{\partial t} p(x, t)=-\frac{\partial}{\partial x}[\mu(x, t) p(x, t)]+\frac{1}{2} \frac{\partial^{2}}{\partial x^{2}}\left[\sigma^{2}(x, t) p(x, t)\right]$
+  \frac{\partial}{\partial t} p(x, t)=-\frac{\partial}{\partial x}[\mu(x, t) p(x, t)]+\frac{1}{2} \frac{\partial^{2}}{\partial x^{2}}\left[\sigma^{2}(x, t) p(x, t)\right]
 \end{DispWithArrows}
 This is the forward Fokker-Planck equation corresponding to the process defined
 in eq. (1) with the Itô prescription. The FP eq. (11) can be used to derive the
@@ -140,15 +140,15 @@ and linear PDE for $p(x, t)$.
 
 Eq. (11) can also be written as
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\frac{\partial p}{\partial t}=-\frac{\partial J}{\partial x}(x, t)$
+  \frac{\partial p}{\partial t}=-\frac{\partial J}{\partial x}(x, t)
 \end{DispWithArrows}
 \begin{DispWithArrows}[displaystyle, format=c]
-  $J(x, t) \equiv \mu(x, t) p(x, t)-\frac{1}{2} \frac{\partial}{\partial x} \sigma(x, t) p(x, t)$
+  J(x, t) \equiv \mu(x, t) p(x, t)-\frac{1}{2} \frac{\partial}{\partial x} \sigma(x, t) p(x, t)
 \end{DispWithArrows}
 where $J(x, t)$ is the flux at $x$ at time $t$. This form shows that, if the
 process $x(t)$ is defined in the domain $D \subseteq \mathbb{R}$, then
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\frac{\partial}{\partial t} \int_{D} p(x, t) d x=-\int_{D} \frac{\partial J}{\partial x} d x=-\left.J\right|_{x \in \partial D}$
+  \frac{\partial}{\partial t} \int_{D} p(x, t) d x=-\int_{D} \frac{\partial J}{\partial x} d x=-\left.J\right|_{x \in \partial D}
 \end{DispWithArrows}
 where $\partial D$ is the boundary of $D$. If there is no "leakage" of
 probability, then $\left.J\right|_{x \in \partial D}=0$ and we can set
@@ -169,16 +169,17 @@ the propagator defined by eq. (11) reaches an equilibrium solution, namely
 \end{DispWithArrows}
 what is the form of $p^{s t}(x)$? From. eq. (11) $\partial_{t} p^{s t}=0$ implies
 \begin{DispWithArrows}[displaystyle, format=c]
-  $-\frac{\partial}{\partial x}\left(\mu(x) p^{s t}-\frac{1}{2} \frac{\partial}{\partial x} \sigma^{2}(x) p^{s t}\right)=0$
+  -\frac{\partial}{\partial x}\left(\mu(x) p^{s t}-\frac{1}{2} \frac{\partial}{\partial x} \sigma^{2}(x) p^{s t}\right)=0
 \end{DispWithArrows}
 hence
 \begin{DispWithArrows}[displaystyle, format=c]
-  $J^{s t}(x)=\mu(x) p^{s t}-\frac{1}{2} \frac{\partial}{\partial x} \sigma^{2}(x) p^{s t}=\text { const } \text { for any } x \text { . }$
+  J^{s t}(x)=\mu(x) p^{s t}-\frac{1}{2} \frac{\partial}{\partial x} \sigma^{2}(x) p^{s t}=\text { const } \text { for any } x \text { .
+}
 \end{DispWithArrows}
 If there is no current at any point $x \in D$, we obtain the equilibrium
 solution (with reflecting boundary conditions at $\partial D$)
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\mu(x) p^{s t}(x)=\frac{1}{2} \frac{\partial}{\partial x}\left(\sigma^{2}(x) p^{s t}(x)\right)$
+  \mu(x) p^{s t}(x)=\frac{1}{2} \frac{\partial}{\partial x}\left(\sigma^{2}(x) p^{s t}(x)\right)
 \end{DispWithArrows}
 Since
 \begin{DispWithArrows}[displaystyle, format=ll]
@@ -189,7 +190,7 @@ Since
 \end{DispWithArrows}
 hence the equilibrium solution has the form (ref.bound. at $x_{m}, x_{M}$)
 \begin{DispWithArrows}[displaystyle, format=c]
-  $p^{s t}(x)=\frac{1}{Z} \frac{1}{\sigma^{2}(x)} e^{2 \int_{x_{m}}^{x} \frac{\mu(y)}{\sigma^{2}(y)} d y} \quad x_{m} \leq x \leq x_{M}$
+  p^{s t}(x)=\frac{1}{Z} \frac{1}{\sigma^{2}(x)} e^{2 \int_{x_{m}}^{x} \frac{\mu(y)}{\sigma^{2}(y)} d y} \quad x_{m} \leq x \leq x_{M}
 \end{DispWithArrows}
 where
 $Z \equiv \int_{x_{m}}^{x_{M}} \frac{d x}{\sigma^{2}(x)} e^{2 \int_{x_{m}}^{x} \frac{\mu(y)}{\sigma^{2}(y)} d y}<\infty$,
@@ -215,14 +216,14 @@ process. From previous lectures we know that it is defined by the SDE
 Where $\mu, \sigma$ are positive constants and $B$ is the B.m. From e. (11) we
 obtain the F.P. equation for the PDF:
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\dot{p}=-\frac{\partial}{\partial x}[(-\mu x) p]+\frac{\sigma^{2}}{2} \frac{\partial^{2}}{\partial x^{2}} p$
+  \dot{p}=-\frac{\partial}{\partial x}[(-\mu x) p]+\frac{\sigma^{2}}{2} \frac{\partial^{2}}{\partial x^{2}} p
 \end{DispWithArrows}
 The equilibrium distribution of (15) (from eq. (13)) is
 \begin{DispWithArrows}[displaystyle, format=c]
-  $p^{s t}(x) \propto e^{-\frac{2}{\sigma^{2}} \int^{x} \mu y d y}=e^{-\frac{\mu}{\sigma^{2}} x^{2}}$
+  p^{s t}(x) \propto e^{-\frac{2}{\sigma^{2}} \int^{x} \mu y d y}=e^{-\frac{\mu}{\sigma^{2}} x^{2}}
 \end{DispWithArrows}
 \begin{DispWithArrows}[displaystyle, format=c]
-  $p^{s t}(x)=\sqrt{\frac{\mu}{\pi \sigma^{2}}} e^{-\frac{\mu}{\sigma^{2}} x^{2}}$
+  p^{s t}(x)=\sqrt{\frac{\mu}{\pi \sigma^{2}}} e^{-\frac{\mu}{\sigma^{2}} x^{2}}
 \end{DispWithArrows}
 which is a Gaussian distribution with mean 0 and variance
 $\frac{\sigma^{2}}{2 \mu}$.
@@ -236,9 +237,9 @@ By taking the Fourier transform of eq. (15) (which gives you the time evolution
 of the characteristic function of the process) one finds the full solution
 (which is the propagator of the O.-U. process)
 \begin{DispWithArrows}[displaystyle, format=c]
-  $p\left(x, t \mid x_{0}, sight)=\sqrt{\frac{\mu}{\pi \sigma^{2}\left(1-e^{-\mu(t-s)}\right)}} e^{-\frac{\mu}{\sigma^{2}} \frac{\left(x-x_{0} e^{-\mu(t-s)}ight)^{2}}{1-e^{-\mu(t-s)}}}$
+  $p\left(x, t \mid x_{0}, s\right)=\sqrt{\frac{\mu}{\pi \sigma^{2}\left(1-e^{-\mu(t-s)}\right)}} e^{-\frac{\mu}{\sigma^{2}} \frac{\left(x-x_{0} e^{-\mu(t-s)}\right)^{2}}{1-e^{-\mu(t-s)}}}$
 \end{DispWithArrows}
-for which $P\left(x, s \mid x_{0}, sight)=\delta\left(x-x_{0}\right)$. Another
+for which $P\left(x, s \mid x_{0}, s\right)=\delta\left(x-x_{0}\right)$. Another
 way to find the solution is to start from the ansatz
 \begin{DispWithArrows}[displaystyle, format=c]
   $p(x, t) \propto e^{-A x^{2}+x B+C}$
@@ -260,7 +261,7 @@ surrounding medium is a heat bath at thermal equilibrium with a const.
 temperature $T$ (homogeneous and isotropic).
 If we had to account for all interactions of the suspended (mesoscopic) particle
 of mass $m$, we would write
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.5\textwidth]{graphics/2025_10_17_15d569b79a40ed74679eg-10}
 \end{figure}
@@ -421,7 +422,7 @@ The corresponding Fokker-Planck equation of eq. (27) is
   $\frac{\partial}{\partial t} p(x, t)=-\frac{\partial}{\partial x}\left[-\frac{1}{\gamma}\left(\partial_{x} U\right) p\right]+D \frac{\partial^{2}}{\partial x^{2}} p$
 \end{DispWithArrows}
 You can check that the equilibrium distribution of eq. (28) is given by (see
-eq eq. (13))
+eq eq eq. (13))
 \begin{DispWithArrows}[displaystyle, format=c]
   $P_{\text {eq }}(x) \propto e^{-\frac{1}{D \gamma} \int^{x} \partial_{y} U(y) d y} \propto e^{-\frac{1}{D \gamma} U(x)}$
 \end{DispWithArrows}
@@ -430,14 +431,14 @@ exactly the same.
 
 \subsection*{Obs:}
     * Notice that we could have fixed $D=\frac{k_{B} T}{\gamma}$ by imposing that
-eq eq. (29) and (25) are the same! This is remarkable and shows that the value of
+eq eq eq. (29) and (25) are the same! This is remarkable and shows that the value of
 $D$ does not depend on the potential $U$, which is somehow unexpected and
 confirms the universality of Einstein's relation in eq. (23).
     * Notice that if $U(x)=\frac{1}{2} k x^{2}$, then eq. (27) reads
 \begin{DispWithArrows}[displaystyle, format=c]
   $d x=-\frac{k}{\gamma} x d t+\sqrt{2 \frac{k_{B} T}{\gamma}} d B(t)$
 \end{DispWithArrows}
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{graphics/2025_10_17_15d569b79a40ed74679eg-15}
 \end{figure}
@@ -467,7 +468,7 @@ Show that
 \end{DispWithArrows}
 where $A, B$ are arbitrary constants and
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\gamma_{0}=\frac{\gamma}{2 m}, \quad \Omega=\omega_{0}^{2}-\gamma_{0}^{2}, \quad \omega_{0}^{2}=\frac{k}{m} ;$
+  $\gamma_{0}=\frac{\gamma}{2 m}, \quad \Omega=\omega_{0}^{2}-\gamma_{0}^{2}, \quad \omega_{0}^{2}=\frac{k}{m} ;
 \end{DispWithArrows}
 and
 \begin{DispWithArrows}[displaystyle, format=c]

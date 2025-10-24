@@ -147,7 +147,7 @@ the interval $\left\{t_{0}=0<t_{1}<t_{2} \cdots<t_{n}=t\right\}$ such that
 $\left|\mathcal{P}_{n}\right| \equiv \max _{i}\left|t_{i}-t_{i-1}\right| \rightarrow 0$
 as $n \rightarrow \infty$. Then
 \begin{DispWithArrows}[displaystyle, format=c]
-  \operatorname{ms-lim}_{\substack{n \rightarrow \infty \\ \left|\mathcal{P}_{n}\right| \rightarrow 0}} \sum_{i=0}^{n-1} \underbrace{\left[B\left(t_{i+1}\right)-B\left(t_{i}\right)\right]^{2}}_{\text{quadratic variation}}}=t
+  \operatorname{ms-lim}_{\substack{n \rightarrow \infty \\ \left|\mathcal{P}_{n}\right| \rightarrow 0}} \sum_{i=0}^{n-1} \underbrace{\left[B\left(t_{i+1}\right)-B\left(t_{i}\right)\right]^{2}}_{\text{quadratic variation}}=t
 \end{DispWithArrows}
 Reminder: $\underset{n \rightarrow \infty}{m s-\lim } x_{n}=x$ means
 $\lim _{n \rightarrow \infty}\left\langle\left(x_{n}-xight)^{2}\right\rangle=0$
@@ -163,12 +163,12 @@ and take
 Hence we have to evaluate as
 $n \rightarrow \infty \quad\left(B\left(t_{i}\right) \equiv B_{i}\right)$
 \begin{DispWithArrows}[displaystyle, format=c]
-  \mathbb{E}\left[\left(Q_{n}-tight)^{2}\right]=\sum_{i=0}^{n-1} \sum_{j=0}^{n-1} \mathbb{E}\left[\left\{\left(B_{i+1}-B_{i}\right)^{2}-\left(t_{i+1}-t_{i}\right)\right\}\left\{\left(B_{j+1}-B_{j}\right)^{2}-\left(t_{j+1}-t_{j}\right)\right\}\right]
+  \mathbb{E}\left[\left(Q_{n}-t\right)^{2}\right]=\sum_{i=0}^{n-1} \sum_{j=0}^{n-1} \mathbb{E}\left[\left\{\left(B_{i+1}-B_{i}\right)^{2}-\left(t_{i+1}-t_{i}\right)\right\}\left\{\left(B_{j+1}-B_{j}\right)^{2}-\left(t_{j+1}-t_{j}\right)\right\}\right]
 \end{DispWithArrows}
 For $i \neq j$
 \begin{DispWithArrows}[displaystyle, format=c]
   \begin{aligned}
-    & \mathbb{E}\left[\left\{\left(B_{i+1}-B_{i}\right)^{2}-\left(t_{i+1}-t_{i}\right)\right\}\left\{\left(B_{j+1}-B_{j}\right)^{2}-\left(t_{j+1}-t_{j}\right)\right\}ight] \\
+    & \mathbb{E}\left[\left\{\left(B_{i+1}-B_{i}\right)^{2}-\left(t_{i+1}-t_{i}\right)\right\}\left\{\left(B_{j+1}-B_{j}\right)^{2}-\left(t_{j+1}-t_{j}\right)\right\}\right] \\
     &= \mathbb{E}\left[\left\{\left(B_{i+1}-B_{i}\right)^{2}-\left(t_{i+1}-t_{i}\right)\right\}\right] \mathbb{E}\left[\left\{\left(B_{j+1}-B_{j}\right)^{2}-\left(t_{j+1}-t_{j}\right)\right\}\right]=0
   \end{aligned}
 \end{DispWithArrows}
@@ -211,7 +211,7 @@ then
   \operatorname{ms-lim}_{\substack{n \rightarrow
       \infty \\ \left|\mathcal{P}_{n}\right| \rightarrow 0}} X_{n}=\frac{[B(t)]^{2}}{2}+\left(\lambda-\frac{1}{2}\right) t
 \end{DispWithArrows}
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.5\textwidth]{graphics/2025_10_17_a59e220b8a74630d2381g-07}
 \end{figure}

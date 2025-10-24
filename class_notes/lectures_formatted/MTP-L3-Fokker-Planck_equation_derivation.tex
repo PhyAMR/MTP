@@ -70,24 +70,24 @@ twice-differentiable, namely $f \in C_{c}^{2}(\mathbb{R})$.
 Then we can calculate $\langle f(x(t))\rangle$, average of $f$ over the process.
 If we are given $N$ indep. realizations of $x(t)$, then as $N \rightarrow \infty$
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\langle f(x(t))\rangle=\lim _{N} \frac{1}{N} \sum_{i}^{N} f\left(x_{i}(t)\right)=\lim _{N} \frac{1}{N} \sum_{i}^{N} \int d x f(x) \delta\left(x-x_{i}(t)\right) = \int d x f(x) \lim _{N} \frac{1}{N} \sum_{i}^{N} \delta\left(x-x_{i}(t)\right) \stackrel{\downarrow}{=} \int d x f(x) p(x, t)$
+  \langle f(x(t))\rangle=\lim _{N} \frac{1}{N} \sum_{i}^{N} f\left(x_{i}(t)\right)=\lim _{N} \frac{1}{N} \sum_{i}^{N} \int d x f(x) \delta\left(x-x_{i}(t)\right) = \int d x f(x) \lim _{N} \frac{1}{N} \sum_{i}^{N} \delta\left(x-x_{i}(t)\right) \stackrel{\downarrow}{=} \int d x f(x) p(x, t)
 \end{DispWithArrows}
 Hence
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\frac{d}{d t}\langle f(x(t))\rangle \equiv \int \dot{p}(x, t) f(x) d x$
+  \frac{d}{d t}\langle f(x(t))\rangle \equiv \int \dot{p}(x, t) f(x) d x
 \end{DispWithArrows}
 Here $\langle\cdots\rangle$ means that the average of $f$ has to be calculated
 over the whole set of trajectories of the process $x(t)$. We now discretize the
 process in time and Taylor-expand the function $f(x)$:
 \begin{DispWithArrows}[displaystyle, format=c]
-  $f(x(t+\Delta t))=f(x(t))+\Delta x f^{\prime}(x(t))+\frac{\Delta x^{2}}{2} f^{\prime \prime}(x(t))+\text { h.o.t. }$
+  f(x(t+\Delta t))=f(x(t))+\Delta x f^{\prime}(x(t))+\frac{\Delta x^{2}}{2} f^{\prime \prime}(x(t))+\text { h.o.t. }
 \end{DispWithArrows}
 where from eq. (1) we get
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\Delta x \equiv x(t+\Delta t)-x(t)=\mu(x(t), t) \Delta t+\sigma(x(t), t) \Delta B(t)$ 
+  \Delta x \equiv x(t+\Delta t)-x(t)=\mu(x(t), t) \Delta t+\sigma(x(t), t) \Delta B(t) 
 \end{DispWithArrows}
 Therefore from (6) $\Delta f \equiv f(x(t+\Delta t))-f(x(t))$
-\begin{DispWithArrows}[displaystyle, format=ll]
+\begin{DispWithArrows}[displaystyle, format=l]
   \begin{aligned}
     &\Delta f &=f^{\prime}(\mu \Delta t+\sigma \Delta B)+\frac{1}{2} f^{\prime \prime}(\mu \Delta t+\sigma \Delta B)^{2}+\text { h.o.t. } \\
     & &=f^{\prime}(\mu \Delta t+\sigma \Delta B)+\frac{1}{2} f^{\prime \prime}\left(\mu^2\Delta t^2+2 \mu \sigma \Delta t \Delta B+\sigma^{2} \Delta B^{2}\right)+\text { h.o.t. }
@@ -105,26 +105,26 @@ $\frac{1}{2}\left\langle f^{\prime \prime} \sigma^{2} \Delta B^{2}\right\rangle=
 all remaining terms are $O\left(\Delta t^{2}\right)$.
 Therefore eq. (5) can be re-written as limit
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\lim _{\Delta t \rightarrow 0}\left\langle\frac{\Delta f}{\Delta t}\right\rangle=\left\langle f^{\prime} \mu\right\rangle+\frac{1}{2}\left\langle f^{\prime \prime} \sigma^{2}\right\rangle = \int d x p(x, t)\left[f^{\prime}(x) \mu(x, t)+\frac{1}{2} f^{\prime \prime}(x) \sigma^{2}(x, t)\right]$
+  \lim _{\Delta t \rightarrow 0}\left\langle\frac{\Delta f}{\Delta t}\right\rangle=\left\langle f^{\prime} \mu\right\rangle+\frac{1}{2}\left\langle f^{\prime \prime} \sigma^{2}\right\rangle = \int d x p(x, t)\left[f^{\prime}(x) \mu(x, t)+\frac{1}{2} f^{\prime \prime}(x) \sigma^{2}(x, t)\right]
 \end{DispWithArrows}
 As $f \in C_{c}^{2}(\mathbb{R})$ we can integrate by parts and safely assume
 that $f, f^{\prime}$ and $f^{\prime \prime} \rightarrow 0$ as $|x|$ is large
 enough. Hence
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\int d x p(x, t) \mu(x, t) \frac{\partial f}{\partial x} \stackrel{\downarrow}{=}-\int d x f(x) \frac{\partial}{\partial x}(p \mu)$
+  \int d x p(x, t) \mu(x, t) \frac{\partial f}{\partial x} \stackrel{\downarrow}{=}-\int d x f(x) \frac{\partial}{\partial x}(p \mu)
 \end{DispWithArrows}
 twice integrated by parts
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\int d x p(x, t) \frac{\sigma^{2}(x, t)}{2} \frac{\partial^{2} f}{\partial x^{2}}=\frac{1}{2} \int d x f(x) \frac{\partial^{2}}{\partial x^{2}}\left(\sigma^{2}(x) p\right)$
+  \int d x p(x, t) \frac{\sigma^{2}(x, t)}{2} \frac{\partial^{2} f}{\partial x^{2}}=\frac{1}{2} \int d x f(x) \frac{\partial^{2}}{\partial x^{2}}\left(\sigma^{2}(x) p\right)
 \end{DispWithArrows}
 and
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\frac{d}{d t}\langle f(x)\rangle=\int d x f(x) \frac{\partial}{\partial t} p(x, t)$
+  \frac{d}{d t}\langle f(x)\rangle=\int d x f(x) \frac{\partial}{\partial t} p(x, t)
 \end{DispWithArrows}
 Thus from eqs. (9) and (10) and because $f \in C_{c}^{2}(\mathbb{R})$ but
 arbitrary we end up with
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\frac{\partial}{\partial t} p(x, t)=-\frac{\partial}{\partial x}[\mu(x, t) p(x, t)]+\frac{1}{2} \frac{\partial^{2}}{\partial x^{2}}\left[\sigma^{2}(x, t) p(x, t)\right]$
+  \frac{\partial}{\partial t} p(x, t)=-\frac{\partial}{\partial x}[\mu(x, t) p(x, t)]+\frac{1}{2} \frac{\partial^{2}}{\partial x^{2}}\left[\sigma^{2}(x, t) p(x, t)\right]
 \end{DispWithArrows}
 This is the forward Fokker-Planck equation corresponding to the process defined
 in eq. (1) with the Itô prescription. The FP eq. (11) can be used to derive the
@@ -137,15 +137,15 @@ and linear PDE for $p(x, t)$.
 
 Eq. (11) can also be written as
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\frac{\partial p}{\partial t}=-\frac{\partial J}{\partial x}(x, t)$
+  \frac{\partial p}{\partial t}=-\frac{\partial J}{\partial x}(x, t)
 \end{DispWithArrows}
 \begin{DispWithArrows}[displaystyle, format=c]
-  $J(x, t) \equiv \mu(x, t) p(x, t)-\frac{1}{2} \frac{\partial}{\partial x} \sigma(x, t) p(x, t)$
+  J(x, t) \equiv \mu(x, t) p(x, t)-\frac{1}{2} \frac{\partial}{\partial x} \sigma(x, t) p(x, t)
 \end{DispWithArrows}
 where $J(x, t)$ is the flux at $x$ at time $t$. This form shows that, if the
 process $x(t)$ is defined in the domain $D \subseteq \mathbb{R}$, then
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\frac{\partial}{\partial t} \int_{D} p(x, t) d x=-\int_{D} \frac{\partial J}{\partial x} d x=-\left.J\right|_{x \in \partial D}$
+  \frac{\partial}{\partial t} \int_{D} p(x, t) d x=-\int_{D} \frac{\partial J}{\partial x} d x=-\left.J\right|_{x \in \partial D}
 \end{DispWithArrows}
 where $\partial D$ is the boundary of $D$. If there is no "leakage" of
 probability, then $\left.J\right|_{x \in \partial D}=0$ and we can set
@@ -168,23 +168,23 @@ $D=\mathbb{R}^{+}$one has to define what happens at $x=0$ at any time $t>0$.
 Let us assume that $\mu(x, t)=\mu(x)$ and $\sigma(x, t)=\sigma(x)$ and also that
 the propagator defined by eq. (11) reaches an equilibrium solution, namely
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\lim _{t \rightarrow \infty} p\left(x, t \mid x_{0}, t_{0}\right)=p^{s t}(x)$
+  \lim _{t \rightarrow \infty} p\left(x, t \mid x_{0}, t_{0}\right)=p^{s t}(x)
 \end{DispWithArrows}
 what is the form of $p^{s t}(x)$? From. eq. (11) $\partial_{t} p^{s t}=0$ implies
 \begin{DispWithArrows}[displaystyle, format=c]
-  $-\frac{\partial}{\partial x}\left(\mu(x) p^{st}-\frac{1}{2} \frac{\partial}{\partial x} \sigma^{2}(x) p^{s t}\right)=0$
+  -\frac{\partial}{\partial x}\left(\mu(x) p^{st}-\frac{1}{2} \frac{\partial}{\partial x} \sigma^{2}(x) p^{s t}\right)=0
 \end{DispWithArrows}
 hence
 \begin{DispWithArrows}[displaystyle, format=c]
-  $J^{s t}(x)=\mu(x) p^{s t}-\frac{1}{2} \frac{\partial}{\partial x} \sigma^{2}(x) p^{s t}=\text { const } \text { for any } x \text { . }$
+  J^{s t}(x)=\mu(x) p^{s t}-\frac{1}{2} \frac{\partial}{\partial x} \sigma^{2}(x) p^{s t}=\text { const } \text { for any } x \text { . }
 \end{DispWithArrows}
 If there is no current at any point $x \in D$, we obtain the equilibrium
 solution (with reflecting boundary conditions at $\partial D$)
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\mu(x) p^{s t}(x)=\frac{1}{2} \frac{\partial}{\partial x}\left(\sigma^{2}(x) p^{s t}(x)\right)$
+  \mu(x) p^{s t}(x)=\frac{1}{2} \frac{\partial}{\partial x}\left(\sigma^{2}(x) p^{s t}(x)\right)
 \end{DispWithArrows}
 Since
-\begin{DispWithArrows}[displaystyle, format=ll]
+\begin{DispWithArrows}[displaystyle, format=l]
   \begin{aligned}
     & \frac{2 \mu}{\sigma^{2}}\left(\sigma^{2} p^{s t}\right)=\frac{\partial}{\partial x}\left(\sigma^{2} p^{s t}\right) \\
     & \sigma^{2} p^{s t}=\text { const } e^{\int^{x} \frac{2 \mu}{\sigma^{2}} d y}
@@ -192,7 +192,7 @@ Since
 \end{DispWithArrows}
 hence the equilibrium solution has the form (ref.bound. at $x_{m}, x_{M}$)
 \begin{DispWithArrows}[displaystyle, format=c]
-  $p^{s t}(x)=\frac{1}{Z} \frac{1}{\sigma^{2}(x)} e^{2 \int_{x_{m}}^{x} \frac{\mu(y)}{\sigma^{2}(y)} d y} \quad x_{m} \leq x \leq x_{M}$
+  p^{s t}(x)=\frac{1}{Z} \frac{1}{\sigma^{2}(x)} e^{2 \int_{x_{m}}^{x} \frac{\mu(y)}{\sigma^{2}(y)} d y} \quad x_{m} \leq x \leq x_{M}
 \end{DispWithArrows}
 where
 $Z \equiv \int_{x_{m}}^{x_{M}} \frac{d x}{\sigma^{2}(x)} e^{2 \int_{x_{m}}^{x} \frac{\mu(y)}{\sigma^{2}(y)} d y}<\infty$,
@@ -209,7 +209,7 @@ system.
 \subsection*{The Ornstein-Uhlenbeck process}
 As a simple application of what we have studied we investigate the O-U process.
 From previous lectures we know that it is defined by the SDE
-\begin{DispWithArrows}[displaystyle, format=ll]
+\begin{DispWithArrows}[displaystyle, format=l]
   \left\{\begin{array}{ll}
       d x=-\mu x d t+\sigma d B(t) & \text { or } \quad \dot{x}=-\mu x+\sigma \xi_{t} \\
       x(0)=x_{0} & \left(\left\langle\xi_{t}\right\rangle=0,\left\langle\xi_{t} \xi_{t^{\prime}}\right\rangle=\delta\left(t-t^{\prime}\right)\right)
@@ -218,14 +218,14 @@ From previous lectures we know that it is defined by the SDE
 Where $\mu, \sigma$ are positive constants and $B$ is the B.m. From e. (11) we
 obtain the F.P. equation for the PDF:
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\dot{p}=-\frac{\partial}{\partial x}[(-\mu x) p]+\frac{\sigma^{2}}{2} \frac{\partial^{2}}{\partial x^{2}} p$
+  \dot{p}=-\frac{\partial}{\partial x}[(-\mu x) p]+\frac{\sigma^{2}}{2} \frac{\partial^{2}}{\partial x^{2}} p
 \end{DispWithArrows}
 The equilibrium distribution of (15) (from eq. (13)) is
 \begin{DispWithArrows}[displaystyle, format=c]
-  $p^{s t}(x) \propto e^{-\frac{2}{\sigma^{2}} \int^{x} \mu y d y}=e^{-\frac{\mu}{\sigma^{2}} x^{2}}$
+ p^{s t}(x) \propto e^{-\frac{2}{\sigma^{2}} \int^{x} \mu y d y}=e^{-\frac{\mu}{\sigma^{2}} x^{2}}
 \end{DispWithArrows}
 \begin{DispWithArrows}[displaystyle, format=c]
-  $p^{s t}(x)=\sqrt{\frac{\mu}{\pi \sigma^{2}}} e^{-\frac{\mu}{\sigma^{2}} x^{2}}$
+  p^{s t}(x)=\sqrt{\frac{\mu}{\pi \sigma^{2}}} e^{-\frac{\mu}{\sigma^{2}} x^{2}}
 \end{DispWithArrows}
 which is a Gaussian distribution with mean 0 and variance
 $\frac{\sigma^{2}}{2 \mu}$.
@@ -239,19 +239,19 @@ By taking the Fourier transform of eq. (15) (which gives you the time evolution
 of the characteristic function of the process) one finds the full solution
 (which is the propagator of the O.-U. process)
 \begin{DispWithArrows}[displaystyle, format=c]
-  $p\left(x, t \mid x_{0}, s\right)=\sqrt{\frac{\mu}{\pi \sigma^{2}\left(1-e^{-\mu(t-s)}\right)}} e^{-\frac{\mu}{\sigma^{2}} \frac{\left(x-x_{0} e^{-\mu(t-s)}\right)^{2}}{1-e^{-\mu(t-s)}}}$
+  p\left(x, t \mid x_{0}, s\right)=\sqrt{\frac{\mu}{\pi \sigma^{2}\left(1-e^{-\mu(t-s)}\right)}} e^{-\frac{\mu}{\sigma^{2}} \frac{\left(x-x_{0} e^{-\mu(t-s)}\right)^{2}}{1-e^{-\mu(t-s)}}}
 \end{DispWithArrows}
 for which $P\left(x, s \mid x_{0}, s\right)=\delta\left(x-x_{0}\right)$. Another
 way to find the solution is to start from the ansatz
 \begin{DispWithArrows}[displaystyle, format=c]
-  $p(x, t) \propto e^{-A x^{2}+x B+C}$
+  p(x, t) \propto e^{-A x^{2}+x B+C}
 \end{DispWithArrows}
 sub this into eq. (15) and find $A, B$ and $C$ as a function of $t$ and $x_{0}$. The
 normalization and the initial condition finally give eq.(17).
 
 All these findings can be generalized to the case
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\dot{p}=-\frac{\partial}{\partial x}[(\alpha-\mu x) p]+\frac{\sigma^{2}}{2} \frac{\partial^{2}}{\partial x^{2}} p$
+  \dot{p}=-\frac{\partial}{\partial x}[(\alpha-\mu x) p]+\frac{\sigma^{2}}{2} \frac{\partial^{2}}{\partial x^{2}} p
 \end{DispWithArrows}
 and also to the multidimensional O.-U. process (Gardiner, p. 105).
 
@@ -272,7 +272,7 @@ of mass $m$, we would write
   \item mesoscopic particle
 \end{itemize}
 \begin{DispWithArrows}[displaystyle, format=c]
-  $m \ddot{\vec{x}}(t)=\vec{F}_{\text { ext }}(\vec{x}(t))+\sum_{i}^{N} i \vec{F}\left(\vec{x}(t)-\vec{x}_{i}(t)\right)$
+  m \ddot{\vec{x}}(t)=\vec{F}_{\text { ext }}(\vec{x}(t))+\sum_{i}^{N} i \vec{F}\left(\vec{x}(t)-\vec{x}_{i}(t)\right)
 \end{DispWithArrows}
 where $\vec{F}_{\text { ext }}$ is an external force that may (or not) be
 described by a potential, where the i-th particle exerts on susp. particle a
@@ -281,7 +281,7 @@ force $\bar{F}\left(\bar{x}-\overline{x_{i}}\right)$. As $N \simeq N_{A}$
 to treat the medium particles in an effective way, like an effective force
 acting on the susp. particle. Thus
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\sum_{i}^{N} i \vec{F}\left(\vec{x}(t)-\vec{x}_{i}(t)\right) \simeq \vec{F}_{\text { aver }}+\vec{F}_{\text { noise }}$
+  \sum_{i}^{N} i \vec{F}\left(\vec{x}(t)-\vec{x}_{i}(t)\right) \simeq \vec{F}_{\text { aver }}+\vec{F}_{\text { noise }}
 \end{DispWithArrows}
 As the mesoscopic particle collides with the smaller fluid particles there is
 viscous damping generated by the collisions in the fluid. If the velocity of the
@@ -301,35 +301,35 @@ stochastic process that is proportional to a Brownian motion.
 For simplicity, let's consider the 1-d case with no external forces. So from
 (18)
 \begin{DispWithArrows}[displaystyle, format=c]
-  $m \ddot{x}=-\gamma \dot{x}+\sigma \xi(t)$
+  m \ddot{x}=-\gamma \dot{x}+\sigma \xi(t)
 \end{DispWithArrows}
 where $\langle\xi\rangle=0$ and
 $\left\langle\xi(t) \xi\left(t^{\prime}\right)\right\rangle=\delta\left(t-t^{\prime}\right)$.
 Notice that this process is non-Markovian. Let's multiply both sides by $x$,
 then
 \begin{DispWithArrows}[displaystyle, format=c]
-  $m x \frac{d}{d t} \dot{x}=-\gamma x \dot{x}+\sigma x \xi_{t}$
+  m x \frac{d}{d t} \dot{x}=-\gamma x \dot{x}+\sigma x \xi_{t}
 \end{DispWithArrows}
 Since $\frac{d^{2}}{d t^{2}} x^{2}=2\left(\dot{x}^{2}+x \ddot{x}\right)$, then
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\frac{m}{2} \frac{d^{2}}{d t^{2}}\left(x^{2}\right)-m \dot{x}^{2}=-\frac{\gamma}{2} \frac{d}{d t}\left(x^{2}\right)+\sigma x \xi_{t}$
+  \frac{m}{2} \frac{d^{2}}{d t^{2}}\left(x^{2}\right)-m \dot{x}^{2}=-\frac{\gamma}{2} \frac{d}{d t}\left(x^{2}\right)+\sigma x \xi_{t}
 \end{DispWithArrows}
 Take the average of both sides and use Itô prescription:
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\frac{m}{2} \frac{d^{2}}{d t^{2}}\left\langle x^{2}\right\rangle-m\left\langle\dot{x}^{2}\right\rangle=-\frac{\gamma}{2} \frac{d}{d t}\left\langle x^{2}\right\rangle$
+  \frac{m}{2} \frac{d^{2}}{d t^{2}}\left\langle x^{2}\right\rangle-m\left\langle\dot{x}^{2}\right\rangle=-\frac{\gamma}{2} \frac{d}{d t}\left\langle x^{2}\right\rangle
 \end{DispWithArrows}
 Because of the equipartition theorem in classical mechanics
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\frac{m}{2}\left\langle\dot{x}^{2}\right\rangle=\frac{1}{2} k_{B} T$
+  \frac{m}{2}\left\langle\dot{x}^{2}\right\rangle=\frac{1}{2} k_{B} T
 \end{DispWithArrows}
 $k_{B}$ : Boltzmann's constant
 hence T: absolute temperature
 \begin{DispWithArrows}[displaystyle, format=c]
-  $m \frac{d^{2}}{d t^{2}}\left\langle x^{2}\right\rangle+\gamma \frac{d}{d t}\left\langle x^{2}\right\rangle=2 k_{B} T$
+  m \frac{d^{2}}{d t^{2}}\left\langle x^{2}\right\rangle+\gamma \frac{d}{d t}\left\langle x^{2}\right\rangle=2 k_{B} T
 \end{DispWithArrows}
 Define $y(t)=\frac{d}{d t}\left\langle x^{2}\right\rangle$, then (19b) becomes
 \begin{DispWithArrows}[displaystyle, format=c]
-  $m \dot{y}+\gamma y=2 k_{B} T$
+  m \dot{y}+\gamma y=2 k_{B} T
 \end{DispWithArrows}
 Whose solution is
 $y(t)=c e^{-\frac{\gamma}{m} t}+\frac{2 k_{B} T}{\gamma}$ and $c$ is an
@@ -338,30 +338,30 @@ In suspended particles $\frac{m}{\gamma} \simeq 10^{-8} \mathrm{sec}$, which on
 temporal scales of observation is a tiny time. Hence for
 $t \gg 10^{-8} \mathrm{sec}, y \simeq \frac{2 k_{B} T}{\gamma}$ and
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\frac{d}{d t}\left\langle x^{2}\right\rangle \simeq \frac{2 k_{B} T}{\gamma}$
+  \frac{d}{d t}\left\langle x^{2}\right\rangle \simeq \frac{2 k_{B} T}{\gamma}
 \end{DispWithArrows}
 so
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\left\langle x^{2}(t)\right\rangle-\left\langle x_{0}^{2}\right\rangle=\frac{2 k_{B} T}{\gamma} t \text { for } t \gg 10^{-8} \mathrm{sec}$
+  \left\langle x^{2}(t)\right\rangle-\left\langle x_{0}^{2}\right\rangle=\frac{2 k_{B} T}{\gamma} t \text { for } t \gg 10^{-8} \mathrm{sec}
 \end{DispWithArrows}
 linear increase of the mean square deviation.
 This reminds us of the simple Brownian motion. Indeed, let's start from
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\dot{x}=\sqrt{2 D} \xi_{t} \text { or } d x=\sqrt{2 D} d B(t)$
+  \dot{x}=\sqrt{2 D} \xi_{t} \text { or } d x=\sqrt{2 D} d B(t)
 \end{DispWithArrows}
 which leads to the diffusive equation
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\frac{\partial}{\partial t} p(x, t)=D \frac{\partial^{2}}{\partial x^{2}} p(x, t) \quad D \text { is diffusivity }$
+  \frac{\partial}{\partial t} p(x, t)=D \frac{\partial^{2}}{\partial x^{2}} p(x, t) \quad D \text { is diffusivity }
 \end{DispWithArrows}
 From (21) $x(t)=x_{0}+\sqrt{2 D} B(t)$ and
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\left\langle x^{2}\right\rangle=\left\langle x_{0}^{2}+2 x_{0} \sqrt{2 D} B(t)+2 D B(t)^{2}\right\rangle=x_{0}^{2}+2 D t$
+  \left\langle x^{2}\right\rangle=\left\langle x_{0}^{2}+2 x_{0} \sqrt{2 D} B(t)+2 D B(t)^{2}\right\rangle=x_{0}^{2}+2 D t
 \end{DispWithArrows}
 diffusion law
 
 By comparing eq. (20) and (22), we obtain
 \begin{DispWithArrows}[displaystyle, format=c]
-  $D=\frac{k_{B} T}{\gamma}$
+  D=\frac{k_{B} T}{\gamma}
 \end{DispWithArrows}
 Einstein's relation
 
@@ -386,6 +386,6 @@ is the gas constant). This is what Einstein suggested in his 1905 pioneering
     $\frac{m}{\gamma} \rightarrow 0$ which is called the overdamped limit:
 \end{enumerate}
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\frac{m}{\gamma} \ddot{x}=-\dot{x}+\frac{\sqrt{2 \gamma k_{B} T}}{\gamma} \xi_{t} \xrightarrow{m / \gamma \rightarrow 0} \quad \dot{x}=\sqrt{2 \frac{k_{B} T}{\gamma}} \xi_{t}$
+  \frac{m}{\gamma} \ddot{x}=-\dot{x}+\frac{\sqrt{2 \gamma k_{B} T}}{\gamma} \xi_{t} \xrightarrow{m / \gamma \rightarrow 0} \quad \dot{x}=\sqrt{2 \frac{k_{B} T}{\gamma}} \xi_{t}
 \end{DispWithArrows}
 overdamped Langevin equation

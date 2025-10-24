@@ -53,7 +53,7 @@ variable as before. We can also define the expectation as
 When $\Omega$ is an uncountable set, the definition of r.v. needs much care,
 because we have to make sure that $x$ is still a measurable function. In simple
 terms $x$ is a real-valued random variable when we can assign probabilities to
-sets (called events) of the form {x \leq c} and {a<x \leq b} for $x, a, b \in \mathbb{R}$.
+sets (called events) of the form $\{x \leq c\}$ and $\{a<x \leq b\}$ for $x, a, b \in \mathbb{R}$.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{graphics/2025_10_17_79731b7d4e7690819b81g-02}
@@ -63,7 +63,7 @@ preimage of any Borel set in $\mathbb{R}$ is a measurable set in $\Omega$.
 
 \subsection*{Definition of stochastic process}
 A stochastic process is a collection of random variables
-{x(t, $\omega$), t \in T, $\omega$ \in $\Omega$}, where T is an ordered set
+$\{x(t, \omega), t \in T, \omega \in \Omega\}$, where T is an ordered set
 ("time") (it can be either discrete, $T=\mathbb{Z}_{+}$, or continuous,
 $T=\mathbb{R}^{+}$). For each fixed time $t \in T, x(t, \omega)$ indicates a
 random variable from $\Omega$ (rigorously, from the probability space
@@ -127,50 +127,50 @@ A standard Brownian motion in 1-d, $B(t)$, is a real-valued stoch. process
 $B(t)-B(s) \sim N(0, t-s)=\frac{1}{\sqrt{2 \pi(t-s)}} e^{-\frac{\Delta x^{2}}{2(t-s)}}$
 (mean 0 and variance $t-s$)
 (C) For all times $0=t_{0}<t_{1}<t_{2}<\ldots<t_{n}$ the increments
-$\\Delta B_{i}:=B\left(t_{i}ight)-B\left(t_{i-1}ight)$ are independent (of each
+$\Delta B_{i}:=B\left(t_{i}\right)-B\left(t_{i-1}\right)$ are independent (of each
 other)
 
 Some important properties:
 \begin{enumerate}
-  \item Stationarity of increments: notice that, if we write $t=s+\\Delta t$, then
+  \item Stationarity of increments: notice that, if we write $t=s+\Delta t$, then
     from (B) we get
     \begin{DispWithArrows}[displaystyle, format=c]
-      B(s+\\Delta t)-B(s) \sim N(0, \\Delta t)
+      B(s+\\Delta t)-B(s) \sim N(0, \Delta t)
     \end{DispWithArrows}
-    which means that the distribution of $B(s+\\Delta t)-B(s)$ does not depend on
+    which means that the distribution of $B(s+\Delta t)-B(s)$ does not depend on
     $s$. This means that the increments are not only independent, but also
     stationary, namely they depend only on
-    $\\Delta t: \\Delta B=B(s+\\Delta t)-B(s) \sim B(\\Delta t)$.
+    $\Delta t: \Delta B=B(s+\Delta t)-B(s) \sim B(\Delta t)$.
 
-    Since $\operatorname{Var}[B(\\Delta t)]=\\Delta t$, we expect that $| 
-    \Delta B|=|B(\\Delta t)| \simeq \sqrt{\\Delta t}$ as $\\Delta t \rightarrow 0^{+}$.
+    Since $\operatorname{Var}[B(\Delta t)]=\Delta t$, we expect that $| 
+    \Delta B|=|B(\Delta t)| \simeq \sqrt{\Delta t}$ as $\Delta t \rightarrow 0^{+}$.
     This will be crucial in the future, in many calculations.
   \item Connection with the diffusion equation
 
     We have seen that the fundamental solution of the diffusion eq. ($D=1$)
-    \begin{DispWithArrows}[displaystyle, format=ll]
+    \begin{DispWithArrows}[displaystyle, format=l]
       \left\{\begin{aligned}
           \partial_{t} w(x, t)&=\frac{1}{2} \partial_{x}^{2} w(x, t) & x \in \mathbb{R}, t>t_{0} \\
-          w(x, t_{0})&=\delta\left(x-x_{0}ight) & t=t_{0}
+          w(x, t_{0})&=\delta\left(x-x_{0}\right) & t=t_{0}
         \end{aligned}\right.
     \end{DispWithArrows}
     is the propagator of the Brownian motion:
     \begin{DispWithArrows}[displaystyle, format=c]
-      w\left(x, t \mid x_{0}, t_{0}ight)=\frac{1}{\sqrt{2 \pi\left(t-t_{0}ight)}} e^{-\frac{\left(x-x_{0}ight)^{2}}{2\left(t-t_{0}ight)}}
+      w\left(x, t \mid x_{0}, t_{0}\right)=\frac{1}{\sqrt{2 \pi\left(t-t_{0}\right)}} e^{-\frac{\left(x-x_{0}\right)^{2}}{2\left(t-t_{0}\right)}}
     \end{DispWithArrows}
     which is the one we use in (B). So from time to time the process evolves
     with the propagator (1) and with stationary independent increments.
   \item Correlation function
 
     The average will be indicated either with $\langle\cdots\rangle$ or with
-    $\\mathbb{E}(\cdots)$. Let $0 \leqslant s \leqslant t:$ from (B)
-    $\\mathbb{E}[B(s)]=0, \\mathbb{E}\\left[B(s)^{2}ight]=s$. Then
-    \begin{DispWithArrows}[displaystyle, format=ll]
+    $\mathbb{E}(\cdots)$. Let $0 \leqslant s \leqslant t:$ from (B)
+    $\mathbb{E}[B(s)]=0, \mathbb{E}\left[B(s)^{2}\right]=s$. Then
+    \begin{DispWithArrows}[displaystyle, format=l]
       \begin{aligned}
         \mathbb{E}[B(t) B(s)] & =\mathbb{E}[(B(s)+B(t)-B(s)) B(s)]=\
-        & =\mathbb{E}\\left[B(s)^{2}+(B(t)-B(s)) B(s)\right]=\
-        & =\mathbb{E}\\left[B(s)^{2}\right]+\\mathbb{E}[(B(t)-B(s)) B(s)]=\
-        & =s+\\mathbb{E}[(B(t)-B(s))] \\mathbb{E}[B(s)]=s
+        & =\mathbb{E}\left[B(s)^{2}+(B(t)-B(s)) B(s)\right]=\
+        & =\mathbb{E}\left[B(s)^{2}\right]+\mathbb{E}[(B(t)-B(s)) B(s)]=\
+        & =s+\mathbb{E}[(B(t)-B(s))] \mathbb{E}[B(s)]=s
       \end{aligned}
     \end{DispWithArrows}
     Thus for $s, t \geqslant 0$
@@ -178,31 +178,31 @@ Some important properties:
       \mathbb{E}[B(t) B(s)]=\min (t, s)
     \end{DispWithArrows}
     Exercises:
-    i) (Ornstein-Uhlenbeck process). Define $V(t)=e^{-t} B\left(e^{2 t}ight)$
-    where $B(t)$ is a Brownian process. Show that $\\mathbb{E}[V(t)]=0$ and
-    $\\mathbb{E}[V(t) V(s)]=e^{-|t-s|}$.
+    i) (Ornstein-Uhlenbeck process). Define $V(t)=e^{-t} B\left(e^{2 t}\right)$
+    where $B(t)$ is a Brownian process. Show that $\mathbb{E}[V(t)]=0$ and
+    $\mathbb{E}[V(t) V(s)]=e^{-|t-s|}$.
     ii) (Brownian bridge). Define $V(t)=B(t) - (t/T)B(T)$ for any $t \in[0, T]$,
-    where $B(t)$ is a Brownian process. Show that $\\mathbb{E}[V(t)]=0$ and
-    $\\mathbb{E}[V(t) V(s)]=\min(t,s) - ts/T$ for any $t, s \in[0, T]$.
+    Where $B(t)$ is a Brownian process. Show that $\mathbb{E}[V(t)]=0$ and
+    $\mathbb{E}[V(t) V(s)]=\min(t,s) - ts/T$ for any $t, s \in[0, T]$.
     iii) Show that
-    $\\mathbb{E}\\left[e^{i \lambda B(t)}ight]=e^{-\frac{\lambda^{2} t}{2}}$ for
+    $\mathbb{E}\left[e^{i \lambda B(t)}\right]=e^{-\frac{\lambda^{2} t}{2}}$ for
     $t \geqslant 0, B(t)$ B.m.
     iv) With the help of the Law of large numbers and
     $B(t)=\sum_{i=1}^{t/\Delta t} \Delta B_{i}$, show that
-    $\\lim _{t \rightarrow \infty} \frac{B(t)}{t}=0$.
+    $\lim _{t \rightarrow \infty} \frac{B(t)}{t}=0$.
   \item Rescaling. The process $z(t)=\frac{1}{\sqrt{c}} B(c t), c>0$, is a
     Brownian motion that is distributed like $B(t)$, another Brownian motion.
     (Verify $(A),(B)$ and $(C)$ ). Also:
     \begin{DispWithArrows}[displaystyle, format=c]
-      $\mathbb{E}\\left[e^{i \lambda z(t)}\right]=\\mathbb{E}\\left[e^{i \lambda \frac{1}{\sqrt{c}}} B(c t)\right]=e^{-\frac{\lambda^{2}}{2 c} t c}=e^{-\frac{\lambda^{2} t}{2}}=\\mathbb{E}\\left[e^{i \lambda B(t)}\right]$
+      \mathbb{E}\left[e^{i \lambda z(t)}\right]=\mathbb{E}\left[e^{i \lambda \frac{1}{\sqrt{c}}} B(c t)\right]=e^{-\frac{\lambda^{2}}{2 c} t c}=e^{-\frac{\lambda^{2} t}{2}}=\mathbb{E}\left[e^{i \lambda B(t)}\right]
     \end{DispWithArrows}
-  \item Inversion. The process $z(t)=t B\left(\frac{1}{t}ight)$ for $t>0$ and
+  \item Inversion. The process $z(t)=t B\left(\frac{1}{t}\right)$ for $t>0$ and
     $z(0)=0$ is distributed like $B(t)$, another B.m.
     \begin{DispWithArrows}[displaystyle, format=c]
-      $\mathbb{E}\\left[e^{i \lambda z(t)}\right]=\\mathbb{E}\\left[e^{i \lambda t B\left(\frac{1}{t}ight)}\right]=e^{-\frac{\lambda^{2}}{2} t^{2} \cdot \frac{1}{t}}=e^{-\frac{\lambda^{2} t}{2}}=\\mathbb{E}\\left[e^{i \lambda B(t)}\right]$
+      \mathbb{E}\left[e^{i \lambda z(t)}\right]=\mathbb{E}\left[e^{i \lambda t B\left(\frac{1}{t}\right)}\right]=e^{-\frac{\lambda^{2}}{2} t^{2} \cdot \frac{1}{t}}=e^{-\frac{\lambda^{2} t}{2}}=\mathbb{E}\left[e^{i \lambda B(t)}\right]
     \end{DispWithArrows}
     Notice that
-    $\\lim _{t \to \infty} \frac{z(t)}{t}=\\lim _{t \to \infty} B\left(\frac{1}{t}ight)=0$
+    $\lim _{t \to \infty} \frac{z(t)}{t}=\lim _{t \to \infty} B\left(\frac{1}{t}\right)=0$
     as in (iv).
   \item Time reversal. Define $z(t)=B(T)-B(T-t)$ for any $t \in[0, T]$. Then
     $Z(t)$ and $B(t)$ have the same distrib.
@@ -211,36 +211,36 @@ Some important properties:
 \subsection*{Properties of the trajectories of the Brownian motion}
 These are hard to prove rigorously, but somehow easy to guess. Let's consider
 the ratio $ 
-rac{\\Delta B}{(\\Delta t)^{\\alpha}}$ where
-$\\Delta t=t_{2}-t_{1}>0, \\alpha>0$ and
-$\\Delta B=B\left(t_{2}ight)-B\left(t_{1}ight)$. What happens to this ratio as
-$\\Delta t \rightarrow 0^{+}$? Take some $k \in \mathbb{R}^{+}$:
-\begin{DispWithArrows}[displaystyle, format=ll]
+\frac{\Delta B}{(\Delta t)^{\alpha}}$ where
+$\Delta t=t_{2}-t_{1}>0, \alpha>0$ and
+$\Delta B=B\left(t_{2}\right)-B\left(t_{1}\right)$. What happens to this ratio as
+$\Delta t \rightarrow 0^{+}$? Take some $k \in \mathbb{R}^{+}$:
+\begin{DispWithArrows}[displaystyle, format=l]
   \begin{aligned}
-    P\left(\left|\frac{\\Delta B}{\\Delta t^{\\alpha}}\right| \leqslant k\right) & =P\left(| 
-    \Delta B| \leqslant k \\Delta t^{\\alpha}\right)=\int_{-k(\\Delta t)^{\\alpha}}^{k(\\Delta t)^{\\alpha}} d x \frac{e^{-\frac{x^{2}}{2 \\Delta t}}}{\sqrt{2 \pi \\Delta t}}}=\
-    & =\frac{2}{\sqrt{2 \pi \\Delta t}} \int_{0}^{k(\\Delta t)^{\\alpha}} d x e^{-\frac{x^{2}}{2 \\Delta t}}=\frac{2}{\sqrt{2 \pi}} \int_{0}^{k(\\Delta t)^{\\alpha-1 / 2}} d z e^{-z^{2} / 2}
+    P\left(\left|\frac{\Delta B}{\Delta t^{\alpha}}\right| \leqslant k\right) & =P\left(| 
+    \Delta B| \leqslant k \Delta t^{\alpha}\right)=\int_{-k(\Delta t)^{\alpha}}^{k(\Delta t)^{\alpha}} d x \frac{e^{-\frac{x^{2}}{2 \Delta t}}}{\sqrt{2 \pi \Delta t}}=\
+    & =\frac{2}{\sqrt{2 \pi \Delta t}} \int_{0}^{k(\Delta t)^{\alpha}} d x e^{-\frac{x^{2}}{2 \Delta t}}=\frac{2}{\sqrt{2 \pi}} \int_{0}^{k(\Delta t)^{\alpha-1 / 2}} d z e^{-z^{2} / 2}
   \end{aligned}
 \end{DispWithArrows}
 Here are the consequences:
 \begin{enumerate}
-  \item $0<\\alpha<\frac{1}{2}$, as
-    $\\Delta t \rightarrow 0^{+}, \quad P\left(\left|\frac{\\Delta B}{\\Delta t^{\\alpha}}\right| \leqslant k\right) \rightarrow 1$
+  \item $0<\alpha<\frac{1}{2}$, as
+    $\Delta t \rightarrow 0^{+}, \quad P\left(\left|\frac{\Delta B}{\Delta t^{\alpha}}\right| \leqslant k\right) \rightarrow 1$
     regardless of $k$. This tells us that as $|t-s| \rightarrow 0^{+}$
     \begin{DispWithArrows}[displaystyle, format=c]
-      $|B(t)-B(s)| \leqslant \text { const }|t-s|^{\\alpha}$
+      |B(t)-B(s)| \leqslant \text { const }|t-s|^{\alpha}
     \end{DispWithArrows}
     which means that Brownian trajectories are Hölder continuous for any
-    $0<\\alpha<\frac{1}{2}$. This can be proven rigorously.
-  \item $\\alpha=1$ (or $\frac{1}{2}<\\alpha \leqslant 1$), as
-    $\\Delta t \rightarrow 0^{+}, P\left(\left|\frac{\\Delta B}{\\Delta t}\\right| \leqslant k\right) \rightarrow 0 \quad \forall k \in \mathbb{R}^{+}$
+    $0<\alpha<\frac{1}{2}$. This can be proven rigorously.
+  \item $\alpha=1$ (or $\frac{1}{2}<\alpha \leqslant 1$), as
+    $\Delta t \rightarrow 0^{+}, P\left(\left|\frac{\Delta B}{\Delta t}\right| \leqslant k\right) \rightarrow 0 \quad \forall k \in \mathbb{R}^{+}$
 \end{enumerate}
 This tells us that the Brownian trajectories are nowhere differentiable. This is
 expected because if $| 
 \Delta B| \sim \sqrt{\\Delta t}$, then $\frac{| 
-\Delta B|}{\\Delta t} \sim \frac{1}{\sqrt{\\Delta t}}$ and hence
-$\\lim _{\\Delta t \rightarrow 0^{+}} \frac{| 
-\Delta B|}{\\Delta t} \rightarrow \infty$.
+\Delta B|}{\Delta t} \sim \frac{1}{\sqrt{\Delta t}}$ and hence
+$\lim _{\Delta t \rightarrow 0^{+}} \frac{| 
+\Delta B|}{\Delta t} \rightarrow \infty$.
 This is related to the fact that B.m. has no memory of the past (see the Markov
 property below).
 
@@ -250,27 +250,27 @@ variance $D$ the process
 \begin{DispWithArrows}[displaystyle, format=c]
   x(t)=x_{0}+\mu t+\sqrt{2D} B(t)
 \end{DispWithArrows}
-Verify that $\\mathbb{E}[x(t)]=x_{0}+\mu t$ and
-$\\operatorname{Var}[x(t)] \equiv \mathbb{E}\\left[(x(t)-\\mathbb{E}[x(t)])^{2}\right]=2Dt$.
+Verify that $\mathbb{E}[x(t)]=x_{0}+\mu t$ and
+$\operatorname{Var}[x(t)] \equiv \mathbb{E}\left[(x(t)-\mathbb{E}[x(t)])^{2}\right]=2Dt$.
 Notice that $x(t)$ satisfies the stochastic differential equation:
 \begin{DispWithArrows}[displaystyle, format=c]
-  d x(t)=\\mu d t+\sqrt{2D} d B(t)
+  d x(t)=\mu d t+\sqrt{2D} d B(t)
 \end{DispWithArrows}
 How to simulate a very simple SDE (including B.m.) We wish to generate a path
 of eq. (5), starting from $x(0)=x_{0}$. Because
-$\\Delta B \sim B(\\Delta t) \sim \sqrt{\\Delta t} B(1)$ for finite times
+$\Delta B \sim B(\Delta t) \sim \sqrt{\Delta t} B(1)$ for finite times
 $t_{0}=0<t_{1} \cdots <t_{n-1}<t_{n}$ we can write (5) as
-($\\Delta t=t_{i}-t_{i-1}$)
+($\Delta t=t_{i}-t_{i-1}$)
 \begin{DispWithArrows}[displaystyle, format=ll]
   \begin{aligned}
-    x\left(t_{i}\right) & =x\left(t_{i-1}ight)+\\mu \\Delta t+\sqrt{2D \\Delta t} \varepsilon_{i} \\
+    x\left(t_{i}\right) & =x\left(t_{i-1}\right)+\mu \Delta t+\sqrt{2D \Delta t} \varepsilon_{i} \\
     x(0) & =x_{0}
   \end{aligned} \quad i=1,2, \ldots, n
 \end{DispWithArrows}
-where $\\varepsilon_{i} \sim N(0,1)$. Notice that we use a sequence of $n$
-independent and identically distributed random variables {$\\varepsilon_{i}$} drawn from $N(0,1)$ because at every time step we add a random value that is
+where $\varepsilon_{i} \sim N(0,1)$. Notice that we use a sequence of $n$
+independent and identically distributed random variables {$\varepsilon_{i}$} drawn from $N(0,1)$ because at every time step we add a random value that is
 independent of all values that were calculated before (indep. of
-$x, t, \mu, D \ldots$). Of course, $\\mu=0, D=1/2$ and $x_{0}=0$ generate a
+$x, t, \mu, D \ldots$). Of course, $\mu=0, D=1/2$ and $x_{0}=0$ generate a
 standard Brownian motion as defined in $(A),(B)$ and $(C)$.
 
 \subsection*{Markov processes}
@@ -278,7 +278,7 @@ Let us focus on a stochastic process for which we can take a set of ordered
 times, i.e. $t_{0}<t_{1}<t_{2} \cdots<t_{n}$ and there exists a conditional
 prob. density funct. at time $t_{n}$, namely $p_{1|n-1}
 \left(x_{n}, t_{n}
-\mid x_{n-1}, t_{n-1} ; \ldots ; x_{1}, t_{1} ; x_{0}, t_{0}ight)$.
+\mid x_{n-1}, t_{n-1} ; \ldots ; x_{1}, t_{1} ; x_{0}, t_{0}\right)$.
 This PDF tells us what is the prob. of observing $x_{n}$ at time $t_{n}$, if we
 know what happened to the process at previous times; we really know the actual
 values that occurred, not only their probabilities. This is quite a lot of
@@ -287,11 +287,11 @@ is going to happen in the future, we have to know all that happened in the past.
 However, in some situations the effect of the past can be neglected. In
 particular, if it happens that for any $n=1,2 \ldots$
 \begin{DispWithArrows}[displaystyle, format=c]
-  $p_{1|n-1}
+  p_{1|n-1}
   \left(x_{n}, t_{n}
-  \mid x_{n-1}, t_{n-1} ; \ldots ; x_{1}, t_{1} ; x_{0}, t_{0}ight)=p_{1|1}
+  \mid x_{n-1}, t_{n-1} ; \ldots ; x_{1}, t_{1} ; x_{0}, t_{0}\right)=p_{1|1}
   \left(x_{n}, t_{n}
-  \mid x_{n-1}, t_{n-1}ight)$
+  \mid x_{n-1}, t_{n-1}\right)
 \end{DispWithArrows}
 Then we say that the stochastic process is a Markov process. This means that
 predictions at time $t_{n}$ only depend on what happened at time $t_{n-1}$ and
@@ -300,35 +300,35 @@ probability or propagator.
 
 A Markov process can be fully defined by two functions: the propagator $p_{1|1}$
 and the initial distribution $p_{1}
-\left(x_{0}, t_{0}ight)$.
+\left(x_{0}, t_{0}\right)$.
 
 Indeed the 3-point joint PDF for a Markov process is ($t_{0}<t_{1}<t_{2}$):
-\begin{DispWithArrows}[displaystyle, format=ll]
+\begin{DispWithArrows}[displaystyle, format=l]
   \begin{aligned}
     P_{3}
-    \left(x_{2} t_{2} ; x_{1} t_{1} ; x_{0} t_{0}ight) & =P_{1|2}
+    \left(x_{2} t_{2} ; x_{1} t_{1} ; x_{0} t_{0}\right) & =P_{1|2}
     \left(x_{2} t_{2}
-    \mid x_{1} t_{1} ; x_{0} t_{0}ight) P_{2}
-    \left(x_{1} t_{1} ; x_{0} t_{0}ight)=\
+    \mid x_{1} t_{1} ; x_{0} t_{0}\right) P_{2}
+    \left(x_{1} t_{1} ; x_{0} t_{0}\right)=\
     & =p_{1|1}
     \left(x_{2} t_{2}
-    \mid x_{1} t_{1}ight) P_{2}
-    \left(x_{1} t_{1} ; x_{0} t_{0}ight) \\
+    \mid x_{1} t_{1}\right) P_{2}
+    \left(x_{1} t_{1} ; x_{0} t_{0}\right) \\
     & =P_{1|1}
     \left(x_{2} t_{2}
-    \mid x_{1} t_{1}ight) P_{1|1}
+    \mid x_{1} t_{1}\right) P_{1|1}
     \left(x_{1} t_{1}
-    \mid x_{0} t_{0}ight) P_{1}
-    \left(x_{0} t_{0}ight)
+    \mid x_{0} t_{0}\right) P_{1}
+    \left(x_{0} t_{0}\right)
   \end{aligned}
 \end{DispWithArrows}
 Therefore we can find iteratively
 \begin{DispWithArrows}[displaystyle, format=c]
   p_{n}
-  \left(x_{n} t_{n} ; x_{n-1} t_{n-1} ; \ldots ; x_{1} t_{1} ; x_{0} t_{0}ight)=\prod_{i=1}^{n} p_{1|1}
+  \left(x_{n} t_{n} ; x_{n-1} t_{n-1} ; \ldots ; x_{1} t_{1} ; x_{0} t_{0}\right)=\prod_{i=1}^{n} p_{1|1}
   \left(x_{i} t_{i}
-  \mid x_{i-1} t_{i-1}ight) p_{1}
-  \left(x_{0} t_{0}ight)
+  \mid x_{i-1} t_{i-1}\right) p_{1}
+  \left(x_{0} t_{0}\right)
 \end{DispWithArrows}
 this property makes Markov processes much more amenable to analytical
 calculations than non-Markov ones.
@@ -340,70 +340,70 @@ two identities, one of which is the C-K. equation.
 
 From the L.H.S. of eq. (8), if we integrate wrt $x_1$,
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\int d x_{1} p_{3}
-  \left(x_{2} t_{2} ; x_{1} t_{1} ; x_{0} t_{0}ight)=p_{2}
-  \left(x_{2} t_{2} ; x_{0} t_{0}ight)$
+  \int d x_{1} p_{3}
+  \left(x_{2} t_{2} ; x_{1} t_{1} ; x_{0} t_{0}\right)=p_{2}
+  \left(x_{2} t_{2} ; x_{0} t_{0}\right)
 \end{DispWithArrows}
 from the R.H.S., instead
 \begin{DispWithArrows}[displaystyle, format=c]
-  $=\int d x_{1} p_{1|1}
+  =\int d x_{1} p_{1|1}
   \left(x_{2} t_{2}
-  \mid x_{1} t_{1}ight) p_{1|1}
+  \mid x_{1} t_{1}\right) p_{1|1}
   \left(x_{1} t_{1}
-  \mid x_{0} t_{0}ight) p_{1}
-  \left(x_{0} t_{0}ight)$
+  \mid x_{0} t_{0}\right) p_{1}
+  \left(x_{0} t_{0}\right)
 \end{DispWithArrows}
 but $p_{2}
-\left(x_{2} t_{2} ; x_{0} t_{0}ight)=p_{1|1}
+\left(x_{2} t_{2} ; x_{0} t_{0}\right)=p_{1|1}
 \left(x_{2} t_{2}
-  \mid x_{0} t_{0}ight) p_{1}
-  \left(x_{0} t_{0}ight)$, because of the Markov property, so
+  \mid x_{0} t_{0}\right) p_{1}
+  \left(x_{0} t_{0}\right)$, because of the Markov property, so
 \begin{DispWithArrows}[displaystyle, format=c]
-  $p_{1|1}
+  p_{1|1}
   \left(x_{2} t_{2}
-  \mid x_{0} t_{0}ight) p_{1}
-  \left(x_{0} t_{0}ight)=\int d x_{1} p_{1|1}
+  \mid x_{0} t_{0}\right) p_{1}
+  \left(x_{0} t_{0}\right)=\int d x_{1} p_{1|1}
   \left(x_{2} t_{2}
-  \mid x_{1} t_{1}ight) p_{1|1}
+  \mid x_{1} t_{1}\right) p_{1|1}
   \left(x_{1} t_{1}
-  \mid x_{0} t_{0}ight) p_{1}
-  \left(x_{0} t_{0}ight)$
+  \mid x_{0} t_{0}\right) p_{1}
+  \left(x_{0} t_{0}\right)
 \end{DispWithArrows}
 hence, for any $t_{2}>t_{1}>t_{0}$
 \begin{DispWithArrows}[displaystyle, format=c]
-  $p_{1|1}
+  p_{1|1}
   \left(x_{2} t_{2}
-  \mid x_{0} t_{0}ight)=\int d x_{1} p_{1|1}
+  \mid x_{0} t_{0}\right)=\int d x_{1} p_{1|1}
   \left(x_{2} t_{2}
-  \mid x_{1} t_{1}ight) p_{1|1}
+  \mid x_{1} t_{1}\right) p_{1|1}
   \left(x_{1} t_{1}
-  \mid x_{0} t_{0}ight)$
+  \mid x_{0} t_{0}\right)
 \end{DispWithArrows}
 this is the Chapman-Kolmogorov equation (actually, identity), which must be
 satisfied by any propagator/transition probab. If we further integrate eq. (10)
  w.r.t. $x_{0}$ we get
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\int d x_{0} p_{1|1}
+  \int d x_{0} p_{1|1}
   \left(x_{2} t_{2}
-  \mid x_{0} t_{0}ight) p_{1}
-  \left(x_{0} t_{0}ight)=p_{1}
-  \left(x_{2} t_{2}ight)$
+  \mid x_{0} t_{0}\right) p_{1}
+  \left(x_{0} t_{0}\right)=p_{1}
+  \left(x_{2} t_{2}\right)
 \end{DispWithArrows}
 and
 \begin{DispWithArrows}[displaystyle, format=c]
-  $\int d x_{0} p_{1|1}
+  \int d x_{0} p_{1|1}
   \left(x_{1} t_{1}
-  \mid x_{0} t_{0}ight) p_{1}
-  \left(x_{0} t_{0}ight)=p_{1}
-  \left(x_{1} t_{1}ight)$
+  \mid x_{0} t_{0}\right) p_{1}
+  \left(x_{0} t_{0}\right)=p_{1}
+  \left(x_{1} t_{1}\right)
 \end{DispWithArrows}
 we obtain, for $t_{2}>t_{1}$,
 \begin{DispWithArrows}[displaystyle, format=c]
-  $p_{1}
-  \left(x_{2} t_{2}ight)=\int d x_{1} p_{1|1}
+  p_{1}
+  \left(x_{2} t_{2}\right)=\int d x_{1} p_{1|1}
   \left(x_{2} t_{2}
-  \mid x_{1} t_{1}ight) p_{1}
-  \left(x_{1} t_{1}ight)$
+  \mid x_{1} t_{1}\right) p_{1}
+  \left(x_{1} t_{1}\right)
 \end{DispWithArrows}
 this is the $2^{\text {nd }}$ eq. (identity) for a Markov process. Therefore
 $p_{1}$ and $p_{1|1}$ are connected to each other.
@@ -420,44 +420,44 @@ This property essentially follows from the independence of the increments and it
 can be proven in different ways. In our context, we can use eq. (1), i.e. the
 propagator
 \begin{DispWithArrows}[displaystyle, format=c]
-  $P_{1|1}
+  P_{1|1}
   \left(x_{1}, t_{1}
-  \mid x_{0}, t_{0}ight) \equiv W\left(x_{1}, t_{1}
-  \mid x_{0}, t_{0}ight)=\frac{1}{\sqrt{2 \pi D\left(t_{1}-t_{0}ight)}} e^{-\frac{\left(x_{1}-x_{0}ight)^{2}}{2D\left(t_{1}-t_{0}ight)}}$
+  \mid x_{0}, t_{0}\right) \equiv W\left(x_{1}, t_{1}
+  \mid x_{0}, t_{0}\right)=\frac{1}{\sqrt{2 \pi D\left(t_{1}-t_{0}\right)}} e^{-\frac{\left(x_{1}-x_{0}\right)^{2}}{2D\left(t_{1}-t_{0}\right)}}
 \end{DispWithArrows}
 and show that eq. (11) is satisfied by direct integration. Also, if you take
 $P_{1}
-\left(y_{1}, t_{1}=0ight)=\delta\left(y_{1}ight)$ you get from eq. (12) $p_{1}
-\left(y_{2}, t_{2}ight)=\frac{1}{\sqrt{2 \pi D t_{2}}} e^{-y_{2}^{2} / 2D t_{2}}$.
+\left(y_{1}, t_{1}=0\right)=\delta\left(y_{1}\right)$ you get from eq. (12) $p_{1}
+\left(y_{2}, t_{2}\right)=\frac{1}{\sqrt{2 \pi D t_{2}}} e^{-y_{2}^{2} / 2D t_{2}}$.
 These generate a non-stationary Markov process.
 
 \subsection*{Exercises:}
 \begin{enumerate}
   \item Show that the Poisson process defined by
     \begin{DispWithArrows}[displaystyle, format=c]
-      $P_{1|1}
+      P_{1|1}
       \left(x_{2} t_{2}
-      \mid x_{1} t_{1}ight)=\frac{\left(\lambda\left(t_{2}-t_{1}ight)ight)^{x_{2}-x_{1}}}{\left(x_{2}-x_{1}ight)!} e^{-\lambda\left(t_{2}-t_{1}ight)} \quad t_{2}>t_{1}$
+      \mid x_{1} t_{1}\right)=\frac{\left(\lambda\left(t_{2}-t_{1}\right)\right)^{x_{2}-x_{1}}}{\left(x_{2}-x_{1}\right)\!} e^{-\lambda\left(t_{2}-t_{1}\right)} \quad t_{2}>t_{1}
     \end{DispWithArrows}
     and
-    $P_{1}(n, 0)=\delta_{n, 0} \Rightarrow P_{1}(n, t)=\frac{(\\lambda t)^{n}}{n!} e^{-\\lambda t}$
+    $P_{1}(n, 0)=\delta_{n, 0} \Rightarrow P_{1}(n, t)=\frac{(\lambda t)^{n}}{n!} e^{-\lambda t}$
     is a (non-stationary) Markov process.
   \item Show that for $x, y= \pm 1$ the function
     \begin{DispWithArrows}[displaystyle, format=c]
-      $P_{1|1}
+      P_{1|1}
       \left(x t
-      \mid y t^{\prime}ight)=\frac{1}{2}
-      \left[1+\e^{-2 \gamma\left(t-t^{\prime}ight)}\right] \delta_{x y}+\frac{1}{2}
-      \left[1-e^{-2 \gamma\left(t-t^{\prime}ight)}\right] \delta_{x,-y}$
+      \mid y t^{\prime}\right)=\frac{1}{2}
+      \left[1+e^{-2 \gamma\left(t-t^{\prime}\right)}\right] \delta_{x y}+\frac{1}{2}
+      \left[1-e^{-2 \gamma\left(t-t^{\prime}\right)}\right] \delta_{x,-y}
     \end{DispWithArrows}
     satisfies eq. (11).
   \item Show that the process defined by
     \begin{DispWithArrows}[displaystyle, format=c]
-      $P_{1}(x)=\frac{1}{\sqrt{2 \pi}} e^{-x^{2} / 2}$
+      P_{1}(x)=\frac{1}{\sqrt{2 \pi}} e^{-x^{2} / 2}
     \end{DispWithArrows}
     $p_{1|1}
     \left(x t
-    \mid y, t^{\prime}ight)=\frac{1}{\sqrt{2 \pi\left(1-e^{-2\left|t-t^{\prime}ight|}ight)}} \exp
-    \left[-\frac{\left(x-y e^{-\left|t-t^{\prime}ight|}ight)^{2}}{2\left(1-e^{-2\left|t-t^{\prime}ight|}ight)}\right]$
+    \mid y, t^{\prime}\right)=\frac{1}{\sqrt{2 \pi\left(1-e^{-2\left|t-t^{\prime}\right|}\right)}} \exp
+    \left[-\frac{\left(x-y e^{-\left|t-t^{\prime}\right|}\right)^{2}}{2\left(1-e^{-2\left|t-t^{\prime}\right|}\right)}\right]$
     is a stationary Markov process. This is called the O.U. proc.
 \end{enumerate}

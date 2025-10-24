@@ -8,6 +8,7 @@
 % --- Start writing here ---
 
 \section{Turing Pattern Formation}
+
 Nature offers a wide range of examples of biological patterns, from animal
 pigmentation to shells, skin, wings and skeletal structures. Patterns are
 composed of spatially heterogeneous structures which may emerge owing to several
@@ -37,7 +38,7 @@ instability), if some conditions are met.
 \subsection*{One chemical species}
 Let us consider the case with one chemical species, diffusing in a
 one-dimensional space. We could consider the reactions
-\begin{DispWithArrows}[displaystyle, format=ll]
+\begin{DispWithArrows}[displaystyle, format=l]
   \left.\begin{aligned}
       3 U &\underset{k_{-}}{\stackrel{k_{+}}{\rightleftarrows}} 2 U \      \phi &\underset{\mu_{-}}{\stackrel{\mu_{+}}{\rightleftarrows}} U
     \end{aligned}\right\} \rightarrow \dot{u}=-k_{+} u^{3}+k_{-} u^{2}-\mu_{-} u+\mu_{+1}
@@ -57,42 +58,42 @@ We also assume that $U$ diffuses in a domain $(0,L)$ and that
 \end{DispWithArrows}
 These are called Dirichlet boundary conditions. If there is a spatially uniform
 stationary state $u_0$ for $u$, then we also have
-$\lim_{t \to \infty} u(x, t)=u_{0}$ and $f\left(u_{0}ight)=0$.
+$\lim_{t \to \infty} u(x, t)=u_{0}$ and $f\left(u_{0}\right)=0$.
 Is this state stable? In general this is a hard question, but we can check
 whether $u_{0}$ is linearly stable. To check this we have to determine the
 effect of a small perturbation.
 $\hat{u}(x, t)=u(x, t)-u_{0} \quad\left(|\hat{u}| \ll u_{0}\right)$. Expanding
 $f$ in a Taylor series we get (only linear terms) from eq. (1)
 \begin{DispWithArrows}[displaystyle, format=c]
-  \frac{\partial \hat{u}}{\partial t}=D \frac{\partial^{2} \hat{u}}{\partial x^{2}}+f^{\prime}\left(u_{0}ight) \hat{u} \quad \hat{u}(0, t)=0=\hat{u}(L, t)
+  \frac{\partial \hat{u}}{\partial t}=D \frac{\partial^{2} \hat{u}}{\partial x^{2}}+f^{\prime}\left(u_{0}\right) \hat{u} \quad \hat{u}(0, t)=0=\hat{u}(L, t)
 \end{DispWithArrows}
-where we assumed $f\left(u_{0}ight)=0$ and $f^{\prime}\left(u_{0}ight) \neq 0$.
+where we assumed $f\left(u_{0}\right)=0$ and $f^{\prime}\left(u_{0}\right) \neq 0$.
 Without space ($D=0$) we get
 \begin{DispWithArrows}[displaystyle, format=c]
-  \hat{u}(x, t)=\hat{u}_{0} e^{f^{\prime}\left(u_{0}ight) t}
+  \hat{u}(x, t)=\hat{u}_{0} e^{f^{\prime}\left(u_{0}\right) t}
 \end{DispWithArrows}
 $\hat{u}_{0}$ is the initial perturbation. Of course, the steady state is
-stable if $f^{\prime}\left(u_{0}ight)<0$. If $D>0$, then eq. (3) can be solved
+stable if $f^{\prime}\left(u_{0}\right)<0$. If $D>0$, then eq. (3) can be solved
 via separation of variables: $\hat{u}(x, t)=h(x) k(t)$. Thus we get from eq. (3)
-\begin{DispWithArrows}[displaystyle, format=ll]
+\begin{DispWithArrows}[displaystyle, format=l]
   \begin{aligned}
-    \left(\partial_{t} k\right) h & =D k\left(\partial_{x}^{2} h\right)+f^{\prime}\left(u_{0}ight) k h \    \frac{\partial_{t} k}{k} & =D \frac{\partial_{x}^{2} h}{h}+f^{\prime}\left(u_{0}ight)
+    \left(\partial_{t} k\right) h & =D k\left(\partial_{x}^{2} h\right)+f^{\prime}\left(u_{0}\right) k h \    \frac{\partial_{t} k}{k} & =D \frac{\partial_{x}^{2} h}{h}+f^{\prime}\left(u_{0}\right)
   \end{aligned}
 \end{DispWithArrows}
 because the l.h.s. depends on $t$ only and the r.h.s. on $x$ only, it must be
 \begin{DispWithArrows}[displaystyle, format=c]
-  \underbrace{\frac{\partial_{t} k}{k}}_{a}=\lambda=\overbrace{D \frac{\partial_{x}^{2} h}{h}+f^{\prime}\left(u_{0}ight)}^{b}
+  \underbrace{\frac{\partial_{t} k}{k}}_{a}=\lambda=\overbrace{D \frac{\partial_{x}^{2} h}{h}+f^{\prime}\left(u_{0}\right)}^{b}
 \end{DispWithArrows}
 Where $\lambda$ is constant independent of time and space
 a) $\partial_{t} k=\lambda k \Rightarrow k(t)=k_{0} e^{\lambda t}$
 b)
-$\partial_{x x}^{2} h=\underbrace{\frac{\lambda-f^{\prime}\left(u_{0}ight)}{D}}_{-\rho^{2}} h \Rightarrow h(x)=A \sin (\rho x)+B \cos (\rho x)$
+$\partial_{x x}^{2} h=\underbrace{\frac{\lambda-f^{\prime}\left(u_{0}\right)}{D}}_{-\rho^{2}} h \Rightarrow h(x)=A \sin (\rho x)+B \cos (\rho x)$
 
 From the B.C. in eq. (2) we obtain $h(0)=0 \Rightarrow B=0$ and also
 $h(L)=0 \Rightarrow \rho=\frac{n \pi}{L}$ for any $n=1,2 \ldots$
 Hence the modes
 \begin{DispWithArrows}[displaystyle, format=c]
-  \lambda_{n}=f^{\prime}\left(u_{0}ight)-D\left(\frac{n \pi}{L}\right)^{2} \quad n=1,2, \cdots
+  \lambda_{n}=f^{\prime}\left(u_{0}\right)-D\left(\frac{n \pi}{L}\right)^{2} \quad n=1,2, \cdots
 \end{DispWithArrows}
 Because the eq. is linear, we can sum all the modes and get the final solution
 as a Fourier series:
@@ -100,15 +101,15 @@ as a Fourier series:
   \hat{u}(x, t)=\sum_{n=1}^{\infty} a_{n} \sin \left(\frac{n \pi x}{L}\right) e^{\lambda_{n} t} \quad \hat{u}(0, t)=0=\hat{u}(L, t)
 \end{DispWithArrows}
 where $a_{n}$ are determined to satisfy the initial condition for the pert.
-Note from (5) that, even if $f^{\prime}\left(u_{0}ight)>0$ ($u_{0}$ is
-unstable), then $D>f^{\prime}\left(u_{0}ight)\left(\frac{L}{\pi}\right)^{2}$ (for
+Note from (5) that, even if $f^{\prime}\left(u_{0}\right)>0$ ($u_{0}$ is
+unstable), then $D>f^{\prime}\left(u_{0}\right)\left(\frac{L}{\pi}\right)^{2}$ (for
 fixed domain size L) implies $\lambda_{n}<0$. Therefore, all terms in eq. (6)
 with $a_{n} \neq 0$ have an expon. decay, hence $\hat{u} \rightarrow 0$ as
 $t \rightarrow \infty$.
 In this case the state $u_{0}$ is stabilized by diffusion, even when it is
 unstable, if $D$ is sufficiently large. D cannot destabilize the solution.
 
-\subsection*{Exercise:}
+\subsection{Exercise:}
 If B.C. are zero-flux at the boundaries
 $\left(\frac{\partial u}{\partial x}(0)=0=\frac{\partial u}{\partial x}(L)\right.$,
 Neumann B.C.) the zeroth mode could still grow, but all the others decay
@@ -116,12 +117,12 @@ exponentially so there cannot be any spatial heterogeneity for large $D$. Same
 arguments still hold for periodic B.C.
 
 Obs: Notice that diffusivity is not always able to stabilize.
-If we fix $D$ and increase $L$ when $f^{\prime}\left(u_{0}ight)>0$, then for
+If we fix $D$ and increase $L$ when $f^{\prime}\left(u_{0}\right)>0$, then for
 sufficiently large domain sizes
-$\left(L>\sqrt{\frac{D \pi^{2}}{f^{\prime}\left(u_{0}ight)}}\\right)$ we still get
+$\left(L>\sqrt{\frac{D \pi^{2}}{f^{\prime}\left(u_{0}\right)}}\right)$ we still get
 $\lambda_{n}>0$. The effect of diffusion depends on the domain.
 
-\subsection*{Two or more chemical species}
+\subsection{Two or more chemical species}
 From the previous section we have learnt that diffusion is able to smooth out
 inhomogeneities, thus stabilizing processes. This agrees with other phenomena,
 e.g., diffusion of heat within a finite domain.
@@ -141,13 +142,13 @@ the boundaries we impose zero-flux conditions (Neumann b.c.).
 
 Let us assume that eq. (7) admits a spatially uniform steady state, hence there
 exist $u_{0}$ and $v_{0}$ such that
-$f\left(u_{0}, v_{0}ight)=0=g\left(u_{0}, v_{0}ight)$. We now wish to derive
+$f\left(u_{0}, v_{0}\right)=0=g\left(u_{0}, v_{0}\right)$. We now wish to derive
 conditions of linear stability for the state $\left(u_{0}, v_{0}\right)$. For
 this we introduce small (spatially-dependent) perturbations
 $\hat{u}(x, t)=u(x, t)-u_{0}$ and $\hat{v}(x, t)=v(x, t)-v_{0}$ into eq. (7) and
 expand $f$ and $g$ in Taylor series. We arrive at (recall that
 $f\left(u_{0}, v_{0}\right)=0, g\left(u_{0}, v_{0}\right)=0$)
-\begin{DispWithArrows}[displaystyle, format=ll]
+\begin{DispWithArrows}[displaystyle, format=l]
   \left.\begin{aligned}
       \dot{\hat{u}}&=\left.\frac{\partial f}{\partial u}\right|_{0} \hat{u}+\left.\frac{\partial f}{\partial v}\right|_{0} \hat{v}+D_{1} \frac{\partial^{2} \hat{u}}{\partial x^{2}} \      \dot{\hat{v}}&=\left.\frac{\partial g}{\partial u}\right|_{0} \hat{u}+\left.\frac{\partial g}{\partial v}\right|_{0} \hat{v}+D_{2} \frac{\partial^{2} \hat{v}}{\partial x^{2}}
     \end{aligned}\right.
@@ -286,12 +287,12 @@ or
 From $d_{c}$ we can calculate the critical wavenumber $k_{c}^{2}$. Indeed from
 eq eq eq. (19)
 \begin{DispWithArrows}[displaystyle, format=c]
-  k_{\text {min }}^{2}=\frac{D_{2} \partial_{u} f+D_{1} \partial_{v} g}{2 D_{1} D_{2}}=\frac{1}{D_{1}} \frac{d \partial_{u} f+\partial_{v} g}{2 d}=\frac{1}{D_{1}} \sqrt{\frac{\operatorname{det}\left(J_{0}ight)}{d}}
+  k_{\text {min }}^{2}=\frac{D_{2} \partial_{u} f+D_{1} \partial_{v} g}{2 D_{1} D_{2}}=\frac{1}{D_{1}} \frac{d \partial_{u} f+\partial_{v} g}{2 d}=\frac{1}{D_{1}} \sqrt{\frac{\operatorname{det}\left(J_{0}\right)}{d}}
 \end{DispWithArrows}
 from eq. (18) with $c_{\text {min }}=0$
 from which we obtain (when $c_{\text {min }}=0, k_{\text {min }}=k_{c}$ ):
 \begin{DispWithArrows}[displaystyle, format=c]
-  k_{c}^{2}=\frac{1}{D_{1}} \sqrt{\frac{\operatorname{det}\left(J_{0}ight)}{d_{c}}}
+  k_{c}^{2}=\frac{1}{D_{1}} \sqrt{\frac{\operatorname{det}\left(J_{0}\right)}{d_{c}}}
 \end{DispWithArrows}
 where $d_{c}$ is from (21).
 

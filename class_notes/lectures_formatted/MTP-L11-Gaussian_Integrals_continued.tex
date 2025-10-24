@@ -69,8 +69,8 @@ $O \quad\left(\Rightarrow O O^{\top}=O^{\top} O=\mathbb{1}\right)$ such that we
 can define $\vec{y}=O \vec{x}$ and $O A O^{\top}=\Lambda$
 \begin{DispWithArrows}[displaystyle, format=c]
   \Lambda=\begin{pmatrix}
-    \lambda_{1} & & 0 \\ \nonumber
-    & \ddots & \\ \nonumber
+    \lambda_{1} & & 0 \\ 
+    & \ddots & \\ 
     0 & & \lambda_{m}
   \end{pmatrix} \quad \lambda_{i}>0 \quad i=1,2, \ldots m
 \end{DispWithArrows}
@@ -153,7 +153,9 @@ $A^{-1}$ is the 2-point correlation function between a pair of Gauss. r.v. When
 $A^{-1}$ is a diagonal matrix, we say that the vars are uncorrelated.
 
 In the previous example:
-$A=\begin{pmatrix}3 & -1 \\ -1 & 3\end{pmatrix} \quad A^{-1}=\frac{1}{8}\begin{pmatrix}3 & 1 \\ 1 & 3\end{pmatrix}$
+\begin{DispWithArrows}[displaystyle, format=c]
+  A=\begin{pmatrix}3 & -1 \\ -1 & 3\end{pmatrix} \quad A^{-1}=\frac{1}{8}\begin{pmatrix}3 & 1 \\ 1 & 3\end{pmatrix}
+\end{DispWithArrows}
 hence
 \begin{DispWithArrows}[displaystyle, format=c]
   \left\langle x_{1}^{2}\right\rangle=\frac{3}{8}=\left\langle x_{2}^{2}\right\rangle \quad\left\langle x_{1} x_{2}\right\rangle=\frac{1}{8}=\left\langle x_{2} x_{1}\right\rangle
@@ -172,7 +174,9 @@ Any correlation between an even number of zero-mean Gaussian r.v. can be
 written down as a sum of products of 2-point correlation functions
 $\left(A^{-1}\right)$.
 For instance:
-$\left\langle x_{a} x_{b} x_{c} x_{d}\right\rangle=\left\langle x_{a} x_{b}\right\rangle\left\langle x_{c} x_{d}\right\rangle+\left\langle x_{a} x_{c}\right\rangle\left\langle x_{b} x_{d}\right\rangle+\left\langle x_{a} x_{d}\right\rangle\left\langle x_{b} x_{c}\right\rangle$
+\begin{DispWithArrows}[displaystyle, format=c]
+  \left\langle x_{a} x_{b} x_{c} x_{d}\right\rangle=\left\langle x_{a} x_{b}\right\rangle\left\langle x_{c} x_{d}\right\rangle+\left\langle x_{a} x_{c}\right\rangle\left\langle x_{b} x_{d}\right\rangle+\left\langle x_{a} x_{d}\right\rangle\left\langle x_{b} x_{c}\right\rangle
+\end{DispWithArrows}
 In general
 \begin{DispWithArrows}[displaystyle, format=c]
   \langle\underbrace{x_{i} x_{j} \cdots x_{m} x_{n}}_{s \text { vars }}\rangle=\sum_{p}\left(A^{-1}\right)_{i_{p} j_{p}} \cdots\left(A^{-1}\right)_{m_{p} n_{p}}
@@ -183,7 +187,7 @@ even when indexes are equal).
 Exercise: show that
 \begin{DispWithArrows}[displaystyle, format=ll]
   \begin{aligned}
-    & \left\langle x_{1}^{2} x_{2}^{2}\right\rangle=\left\langle x_1 x_1\right\rangle \left\langle x_2 x_2\right\rangle + 2\left\langle x_1 x_2\right\rangle^2=\frac{3}{8} \cdot \frac{3}{8}+2\left(\frac{1}{8}\right)^2=\frac{11}{64} \\ \nonumber
+    & \left\langle x_{1}^{2} x_{2}^{2}\right\rangle=\left\langle x_1 x_1\right\rangle \left\langle x_2 x_2\right\rangle + 2\left\langle x_1 x_2\right\rangle^2=\frac{3}{8} \cdot \frac{3}{8}+2\left(\frac{1}{8}\right)^2=\frac{11}{64} \\ 
     & \left\langle x_{1}^{4}\right\rangle=3\left\langle x_1^2\right\rangle^2=3\left(\frac{3}{8}\right)^{2}=\frac{27}{64}
   \end{aligned}
 \end{DispWithArrows}

@@ -8,50 +8,50 @@
 
 \section{Gaussian Integrals}
 Let's consider the Gaussian distribution (PDF):
-\begin{DispWithArrows}
+\begin{DispWithArrows}[displaystyle, format=c]
     p(x)=c e^{-\frac{a x^{2}}{2}} \quad a>0
 \end{DispWithArrows}
 $p(x)$ must be normalized in $(-\infty,+\infty)$, so
-\begin{DispWithArrows}
+\begin{DispWithArrows}[displaystyle, format=c]
     \int_{-\infty}^{+\infty} p(x) d x=1 \quad \Rightarrow \quad c \int_{-\infty}^{+\infty} e^{-\frac{a x^{2}}{2}} d x=1
 \end{DispWithArrows}
 This gives the simplest form of Gaussian integral:
-\begin{DispWithArrows}[tag=1]
+\begin{DispWithArrows}[displaystyle, format=c]
     \int_{-\infty}^{+\infty} e^{-\frac{a x^{2}}{2}} d x=\sqrt{\frac{2 \pi}{a}} \quad a>0
 \end{DispWithArrows}
 A more general Gaussian integral:
-\begin{DispWithArrows}[tag=2]
+\begin{DispWithArrows}[displaystyle, format=c]
     \int_{-\infty}^{+\infty} e^{-\frac{a x^{2}}{2}+b x} d x=?
 \end{DispWithArrows}
 To solve it we use a change of vars.
 Notice that the min. of the exponent has changed.
-\begin{DispWithArrows}
+\begin{DispWithArrows}[displaystyle, format=c]
     \frac{d}{d x}\left(-\frac{a x^{2}}{2}+b x\right)=-a x+b=0 \quad \Rightarrow \quad x=\frac{b}{a} \quad b \in \mathbb{R}
 \end{DispWithArrows}
 We introduce the new var. $y=x-\frac{b}{a}$.
 We sub this into the exponent:
-\begin{DispWithArrows}
+\begin{DispWithArrows}[displaystyle, format=c]
     \begin{aligned}
     &-\frac{a x^{2}}{2}+b x=-\frac{a}{2}\left(y+\frac{b}{a}\right)^{2}+b\left(y+\frac{b}{a}\right)=-\frac{a}{2}\left(y^{2}+\frac{2 b y}{a}+\left(\frac{b}{a}\right)^{2}\right)+b y+\frac{b^{2}}{a}=\
     &=-\frac{a}{2} y^{2}+\frac{b^{2}}{2 a} \\
     & \int_{-\infty}^{+\infty} e^{-\frac{a x^{2}}{2}+b x} d x=\int_{-\infty}^{+\infty} e^{-\frac{a y^{2}}{2}+\frac{b^{2}}{2 a}} d y=e^{\frac{b^{2}}{2 a}} \int_{-\infty}^{+\infty} e^{-\frac{a y^{2}}{2}} d y \Rightarrow
     \end{aligned}
 \end{DispWithArrows}
-\begin{DispWithArrows}[tag=3]
+\begin{DispWithArrows}[displaystyle, format=c]
     \int_{-\infty}^{+\infty} e^{-\frac{a x^{2}}{2}+b x} d x=\sqrt{\frac{2 \pi}{a}} e^{\frac{b^{2}}{2 a}} \quad a>0
 \end{DispWithArrows}
 Let's calculate the integral in eq. (3) when $b=i t, t \in \mathbb{R}$.
-\begin{DispWithArrows}
+\begin{DispWithArrows}[displaystyle, format=c]
     \varphi(t)=\int_{-\infty}^{+\infty} d x e^{i x t} \sqrt{\frac{a}{2 \pi} e^{-\frac{a x^{2}}{2}}}
 \end{DispWithArrows}
 This is the Fourier transform of the Gaussian PDF, which is also the characteristic function of the Gaussian PDF.
 
 We take the time derivative of $\varphi$:
-\begin{DispWithArrows}
+\begin{DispWithArrows}[displaystyle, format=c]
     \varphi^{\prime}(t)=\sqrt{\frac{a}{2 \pi}} i \int d x \times e^{i x t} e^{-\frac{a}{2} x^{2}}
 \end{DispWithArrows}
 Why can we do this? In general, $\frac{d}{d t} \int f(x, t) d x=\int \frac{\partial}{\partial t} f(x, t) d x$ if $f, \partial_{t} f$ are continuous and uniformly bounded, which means $|f(x, t)|<A(x),\left|\partial_{t} f(x, t)\right|<B(x)$ where $\int A(x) d x<\infty \int B(x) d x<\infty$.
-\begin{DispWithArrows}
+\begin{DispWithArrows}[displaystyle, format=c]
     \begin{aligned}
     \varphi^{\prime}(t) & =\sqrt{\frac{a}{2 \pi}} i \int d x \times e^{i x t} e^{-\frac{a}{2} x^{2}} \\
     & =-\frac{i}{\sqrt{2 \pi a}} \int d x e^{i x t} \frac{d}{d x} e^{-\frac{a x^{2}}{2}} \quad \frac{d}{d x} e^{-\frac{a x^{2}}{2}}=-a x e^{-a x^{2}/2} \\
@@ -60,7 +60,7 @@ Why can we do this? In general, $\frac{d}{d t} \int f(x, t) d x=\int \frac{\part
     \end{aligned}
 \end{DispWithArrows}
 So $\varphi^{\prime}=-\frac{t}{a} \varphi(t)$ and the solution is $\varphi(t)=c e^{-\frac{t^{2}}{2 a}}$ (check this out!). However as $\varphi(0)=1 \Rightarrow c=1$,
-\begin{DispWithArrows}
+\begin{DispWithArrows}[displaystyle, format=c]
     \varphi(t)=e^{-\frac{t^{2}}{2 a}}
 \end{DispWithArrows}
 If we set $b=it$, we get $e^{\frac{b^2}{2a}} = e^{-\frac{t^2}{2a}}$, which is consistent.

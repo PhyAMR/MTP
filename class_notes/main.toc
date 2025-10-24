@@ -1,0 +1,52 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\babel@toc {nil}{}\relax
+\contentsline {chapter}{\nonumberline Contents}{iii}{chapter*.1}%
+\contentsline {part}{\nonumberline Last year notes}{2}{part*.5}%
+\contentsline {section}{\numberline {0.1}ODEs from reaction rates}{2}{section.0.1}%
+\contentsline {mtocsection}{\numberline {0.1}ODEs from reaction rates}{2}{section.0.1}%
+\contentsline {subsection}{\numberline {0.1.1}Binary and irreversible reaction}{2}{subsection.0.1.1}%
+\contentsline {mtocsubsection}{\numberline {0.1.1}Binary and irreversible reaction}{2}{subsection.0.1.1}%
+\contentsline {subsection}{\numberline {0.1.2}Calculation of the reaction rate}{2}{subsection.0.1.2}%
+\contentsline {mtocsubsection}{\numberline {0.1.2}Calculation of the reaction rate}{2}{subsection.0.1.2}%
+\contentsline {subsection}{\numberline {0.1.3}Binary reversible reaction:}{5}{subsection.0.1.3}%
+\contentsline {mtocsubsection}{\numberline {0.1.3}Binary reversible reaction:}{5}{subsection.0.1.3}%
+\contentsline {subsection}{\numberline {0.1.4}The law of Mass Action}{6}{subsection.0.1.4}%
+\contentsline {mtocsubsection}{\numberline {0.1.4}The law of Mass Action}{6}{subsection.0.1.4}%
+\contentsline {subsection}{\numberline {0.1.5}General chemical reactions}{7}{subsection.0.1.5}%
+\contentsline {mtocsubsection}{\numberline {0.1.5}General chemical reactions}{7}{subsection.0.1.5}%
+\contentsline {section}{\numberline {0.2}Fokker-Planck equation}{2}{section.0.2}%
+\contentsline {mtocsection}{\numberline {0.2}Fokker-Planck equation}{2}{section.0.2}%
+\contentsline {section}{\numberline {0.3}Fokker-Planck equation derivation}{2}{section.0.3}%
+\contentsline {mtocsection}{\numberline {0.3}Fokker-Planck equation derivation}{2}{section.0.3}%
+\contentsline {section}{\numberline {0.4}Turing Pattern Formation}{2}{section.0.4}%
+\contentsline {mtocsection}{\numberline {0.4}Turing Pattern Formation}{2}{section.0.4}%
+\contentsline {subsection}{\numberline {0.4.1}Exercise:}{4}{subsection.0.4.1}%
+\contentsline {mtocsubsection}{\numberline {0.4.1}Exercise:}{4}{subsection.0.4.1}%
+\contentsline {subsection}{\numberline {0.4.2}Two or more chemical species}{4}{subsection.0.4.2}%
+\contentsline {mtocsubsection}{\numberline {0.4.2}Two or more chemical species}{4}{subsection.0.4.2}%
+\contentsline {section}{\numberline {0.5}Birth and death Markov processes}{2}{section.0.5}%
+\contentsline {mtocsection}{\numberline {0.5}Birth and death Markov processes}{2}{section.0.5}%
+\contentsline {section}{\numberline {0.6}Gaussian Integrals}{2}{section.0.6}%
+\contentsline {mtocsection}{\numberline {0.6}Gaussian Integrals}{2}{section.0.6}%
+\contentsline {section}{\numberline {0.7}Wiener path integral}{2}{section.0.7}%
+\contentsline {mtocsection}{\numberline {0.7}Wiener path integral}{2}{section.0.7}%
+\contentsline {section}{\numberline {0.8}Introduction to Stochastic Processes}{2}{section.0.8}%
+\contentsline {mtocsection}{\numberline {0.8}Introduction to Stochastic Processes}{2}{section.0.8}%
+\contentsline {section}{\numberline {0.9}Wick's theorem}{2}{section.0.9}%
+\contentsline {mtocsection}{\numberline {0.9}Wick's theorem}{2}{section.0.9}%
+\contentsline {section}{\numberline {0.10}Introduction to Stochastic Differential Equations}{2}{section.0.10}%
+\contentsline {mtocsection}{\numberline {0.10}Introduction to Stochastic Differential Equations}{2}{section.0.10}%
+\contentsline {section}{\numberline {0.11}Gaussian Integrals continued}{2}{section.0.11}%
+\contentsline {mtocsection}{\numberline {0.11}Gaussian Integrals continued}{2}{section.0.11}%
+\contentsline {section}{\numberline {0.12}Laplace method}{2}{section.0.12}%
+\contentsline {mtocsection}{\numberline {0.12}Laplace method}{2}{section.0.12}%
+\contentsline {section}{\numberline {0.13}Review of Dynamical Systems}{4}{section.0.13}%
+\contentsline {mtocsection}{\numberline {0.13}Review of Dynamical Systems}{4}{section.0.13}%
+\contentsline {section}{\numberline {0.14}Law of large numbers}{2}{section.0.14}%
+\contentsline {mtocsection}{\numberline {0.14}Law of large numbers}{2}{section.0.14}%
+\contentsline {section}{\numberline {0.15}Fokker-Planck equation}{2}{section.0.15}%
+\contentsline {mtocsection}{\numberline {0.15}Fokker-Planck equation}{2}{section.0.15}%
+\contentsline {section}{\numberline {0.16}Laplace method continued}{2}{section.0.16}%
+\contentsline {mtocsection}{\numberline {0.16}Laplace method continued}{2}{section.0.16}%
+\contentsline {section}{\numberline {0.17}Solution of the diffusion equation}{2}{section.0.17}%
+\contentsline {mtocsection}{\numberline {0.17}Solution of the diffusion equation}{2}{section.0.17}%

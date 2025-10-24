@@ -47,13 +47,13 @@ $s$ vars then the possible pairings are $(s-1)!!=(s-1)(s-3) \ldots 3 \cdot 1$.
 variables, how do you calculate the pdf of their sum? What is its c.f.?
 We assume they are real with pdf $q(x)$:
 \begin{DispWithArrows}[displaystyle, format=c]
-  $x=x_{1}+x_{2} \quad x_{1}, x_{2} \sim q(x)$
+  x=x_{1}+x_{2} \quad x_{1}, x_{2} \sim q(x)
 \end{DispWithArrows}
 When we draw $x_{1}$ and $x_{2}$ from $q(x)$, many different outcomes can give
 you the same sum $x$, these have to be added up with the corresponding
 probability, hence
 \begin{DispWithArrows}[displaystyle, format=c]
-  $p(x)=\int \delta\left(x-\left(x_{1}+x_{2}\right)\right) p\left(x_{1}, x_{2}\right) d x_{1} d x_{2} \equiv\left\langle\delta\left(x-x_{1}-x_{2}\right)\right\rangle$
+  p(x)=\int \delta\left(x-\left(x_{1}+x_{2}\right)\right) p\left(x_{1}, x_{2}\right) d x_{1} d x_{2} \equiv\left\langle\delta\left(x-x_{1}-x_{2}\right)\right\rangle
 \end{DispWithArrows}
 we select all possible $x_{1}, x_{2}$ s.t. their sum is $x$.
 i.i.d.
@@ -114,7 +114,7 @@ Claims a) and b) are the core meaning of the
 Let $x_{1} \ldots x_{n}$ be a sequence of i.i.d. r.v. with finite mean $\mu$ and
 finite (non-zero) variance $\sigma^{2}$. Then the p.d.f. of
 \begin{DispWithArrows}[displaystyle, format=c]
-  $Y_{n}=\frac{\sum_{i=1}^{n} x_{i}-\mu n}{\sqrt{n} \sigma} \xrightarrow[n \rightarrow \infty]{\text{conv. in distrib.}} N(0,1)$
+  Y_{n}=\frac{\sum_{i=1}^{n} x_{i}-\mu n}{\sqrt{n} \sigma} \xrightarrow[n \rightarrow \infty]{\text{conv. in distrib.}} N(0,1)
 \end{DispWithArrows}
 Obs:
 $\left\langle Y_{n}\right\rangle=\frac{1}{\sqrt{n} \sigma}\left(\sum_{i}\left\langle x_{i}\right\rangle-\mu n\right)=0$
@@ -136,7 +136,7 @@ $\varphi_{n}(k)$ is the c.f. of $Y_{n}$:
 \end{DispWithArrows}
 As in the previous theorem we can expand $\varphi_{1}$ as $n \rightarrow \infty$
 \begin{DispWithArrows}[displaystyle, format=c]
-  \varphi_{1}\left(\frac{k}{\sqrt{n} \sigma}\right) = 1+\frac{i k}{\sqrt{n} \sigma}\langle x\rangle-\frac{k^{2}}{2 n \sigma^{2}}\left\langle x^{2}\right\rangle+O\left(n^{-3 / 2}ight) = e^{\frac{i k \mu}{\sqrt{n}\sigma}-\frac{k^{2}}{2n}}
+  \varphi_{1}\left(\frac{k}{\sqrt{n} \sigma}\right) = 1+\frac{i k}{\sqrt{n} \sigma}\langle x\rangle-\frac{k^{2}}{2 n \sigma^{2}}\left\langle x^{2}\right\rangle+O\left(n^{-3 / 2}\right) = e^{\frac{i k \mu}{\sqrt{n}\sigma}-\frac{k^{2}}{2n}}
 \end{DispWithArrows}
 from (20)
 \begin{DispWithArrows}[displaystyle, format=c]

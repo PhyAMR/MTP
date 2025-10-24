@@ -20,8 +20,7 @@ that can be studied in this framework include:
     transform upon collisions.
     \item Population systems, where individuals may die, give birth, mate,
     consume each other, immigrate....
-    \item Epidemics, where diseases are transmitted from ind. to ind. (infected
-    & susceptibles)
+    \item Epidemics, where diseases are transmitted from ind. to ind. (infected susceptibles)
     \item Gene expression, where genes can be transcribed (into mRNA) and
     translated (into proteins) upon the appropriate occurrence of some
     transcription factors.
@@ -39,7 +38,7 @@ We will write down the ODEs for the concentrations of the reactants and
 products starting from the corresponding rules that govern the chemical
 reactions.
 
-\subsection*{Binary and irreversible reaction}
+\subsection{Binary and irreversible reaction}
 A molecule of type $X$ and a molecule of type $Y$ (reactants) collide and
 react to produce a molecule of type $Z$ (product):
 \begin{DispWithArrows}[displaystyle, format=c]
@@ -50,15 +49,15 @@ rate of occurrence of the reaction
 \begin{DispWithArrows}[displaystyle, format=c]
 2 \mathrm{H}_{2}+\mathrm{O}_{2} \xrightarrow{\mathrm{~K}} 2 \mathrm{H}_{2} \mathrm{O}
 \end{DispWithArrows}
-stoichiometric coefficients: # of react. or prod. of each type that are
+stoichiometric coefficients: $\#$ of react. or prod. of each type that are
 consumed or produced in the reaction.
 
-\subsection*{Calculation of the reaction rate}
+\subsection{Calculation of the reaction rate}
 We assume that the reaction occurs in a finite volume $V$ where the molecules
 are well-stirred and the concentrations of $X, Y$ and $Z$ are "small", despite
 the number of molecules of each type is "large". We will assume that the
 concentrations $x=\frac{n_{x}}{v}, y=\frac{n_{y}}{v}, z=\frac{n_{z}}{v}$ (
-$n_{i}$ : # of molec. of type $i$ ) are continuous variables. We want to
+$n_{i}$ : $\#$ of molec. of type $i$ ) are continuous variables. We want to
 estimate $r(x, y)$, the reaction rate, in the diluted limit case:
 \begin{DispWithArrows}[displaystyle, format=c]
 r(x, y) \simeq r(0,0)+\left(\partial_{x} r_{0}\right) x+\left(\partial_{y} r_{0}\right) y+\left(\frac{1}{2} \partial_{x x}^{2} r_{0}\right) x^{2}+\left(\partial_{x y}^{2} r_{0}\right) x y+\left(\frac{1}{2} \partial_{y y}^{2} r_{0}\right) y^{2}+h_{0} t
@@ -88,7 +87,7 @@ the product of the concentrations of the reacting substances.
 
 We can use this law to deduce the ODEs for the evolution of the concentrations.
 If we know the concent. at time $t$, then at time $t+\Delta t$ (see eq.(1)):
-\begin{DispWithArrows}[displaystyle, format=ll]
+\begin{DispWithArrows}[displaystyle, format=l]
 \begin{aligned}
 x(t+\Delta t) &=x(t)-k x(t) y(t) \Delta t \\
 y(t+\Delta t) &=y(t)-k x(t) y(t) \Delta t \\
@@ -132,12 +131,12 @@ all $y$ goes to $z$. If $c<0, z \rightarrow z_{0}+x_{0}$.
     \includegraphics[width=\textwidth]{graphics/2025_10_17_109d3ce1ba98c27731a1g-3(2)}
 \end{figure}
 
-\subsection*{Binary reversible reaction:}
+\subsection{Binary reversible reaction:}
 \begin{DispWithArrows}[displaystyle, format=c]
 x+y \underset{k_{-}}{\stackrel{k_{+}}{\rightleftarrows}} z \quad k_{ \pm}>0
 \end{DispWithArrows}
 Along the same lines as before we deduce the evolution of concent.
-\begin{DispWithArrows}[displaystyle, format=ll]
+\begin{DispWithArrows}[displaystyle, format=l]
 \left\{ \begin{aligned}
 \dot{x} &=k_{-}z-k_{+}x y \\
 \dot{y} &=k_{-}z-k_{+}x y \\
@@ -159,7 +158,7 @@ consider then the reaction:
 X+3 Y \underset{k_{-}}{\stackrel{k_{+}}{\rightleftarrows}} 2 z
 \end{DispWithArrows}
 The ODEs for the concentrations are then:
-\begin{DispWithArrows}[displaystyle, format=ll]
+\begin{DispWithArrows}[displaystyle, format=l]
 \left\{\begin{aligned}
 \dot{x} &=-k_{+} x y^{3}+k_{-} z^{2} \\
 \dot{y} &=-3 k_{+} x y^{3}+3 k_{-} z^{2} \\
@@ -195,7 +194,7 @@ $c_{3}$ are not independent?
 
 More generally, we can restate the law of mass action as
 
-\subsection*{The law of Mass Action}
+\subsection{The law of Mass Action}
 In a first approximation, the rate of any chemical reaction is proportional to
 the product of the concentration of the reacting substances, where every
 concentration is raised to a power equal to the corresponding stoichiometric
@@ -211,7 +210,7 @@ The general reaction
 a X+b Y \underset{k_{-}}{\stackrel{k_{+}}{\rightleftarrows}} c z+d W \quad a, b, c, d \in \mathbb{N}
 \end{DispWithArrows}
 leads to the following odes:
-\begin{DispWithArrows}[displaystyle, format=ll]
+\begin{DispWithArrows}[displaystyle, format=l]
 \left\{\begin{aligned}
 \dot{x} &=a\left(-k_{+} x^{a} y^{b}+k_{-} z^{c} w^{d}\right) \\
 \dot{y} &=b\left(-k_{+} x^{a} y^{b}+k_{-} z^{c} w^{d}\right) \\
@@ -223,7 +222,7 @@ Calculate the quantities that are conserved.
 There are types of molecules or species that can interact in different kinds of
 reactions:
 The predator $(Y)$ and prey $(X)$ system: (irreversible reactions)
-\begin{DispWithArrows}[displaystyle, format=ll]
+\begin{DispWithArrows}[displaystyle, format=l]
 \begin{aligned}
 X & \xrightarrow{k_{1}} 2 X \\
 Y+X & \xrightarrow{k_{2}} 2 Y \\
@@ -233,7 +232,7 @@ Y & \xrightarrow{k_{3}} \phi
 reproduction of preys, predator eats a prey, predator dies.
 
 To get the ODEs we have simply to sum the effects of different reactions:
-\begin{DispWithArrows}[displaystyle, format=ll]
+\begin{DispWithArrows}[displaystyle, format=l]
 \left\{\begin{aligned}
 \dot{x} &=k_{1} x-k_{2} x y \\
 \dot{y} &=k_{2} x y-k_{3} y
@@ -245,7 +244,7 @@ $(\bar{x}, \bar{y})$ has eigenvalues $\lambda= \pm i \sqrt{k_{1} k_{3}}$. Is the
 system stable? Show that $V(x, y)=k_{2}(x+y)-k_{3} \ln x-k_{1} \ln y$ is a
 conserved quantity.
 
-\subsection*{General chemical reactions}
+\subsection{General chemical reactions}
 More generally we may consider $m$ different chemical species $x_{i}, i=1, 2
 \ldots m$ which are involved in $n$ different reactions of the form
 \begin{DispWithArrows}[displaystyle, format=c]
@@ -289,22 +288,17 @@ non-zero elements $\vec{c} \in \operatorname{ker}\left(S^{\top}\right)$
 ($\vec{c}^{\top} \cdot \vec{x}=\text{const}$) and the number of (linearly
 independent) conservation laws is given by
 $\operatorname{dim}\left(\operatorname{ker}\left(s^{\top}\right)\right)$. For the
-reaction $x+y \rightarrow z, S=\begin{pmatrix}-1 \ -1 \ 1\end{pmatrix}, \operatorname{ker}\left(S^{\top}\right)=\left\{\left(c_{1}, c_{2}, c_{3}\right)
-\mid c_{1}+c_{2}=c_{3}\right\}, \operatorname{dim}\[\operatorname{ker}\left(s^{\top}\right)\]=2$.
-$\sum_{i} c_{i} x_{i}=c_{1} x+c_{2} y+\left(c_{1}+c_{2}\right) z=\text { const. }$.
+reaction 
+
+
 Basis $(1,-1,0)$ and $(1,0,1) \rightarrow x-y=\text{const.}$
 \begin{DispWithArrows}[displaystyle, format=c]
 x+z=\text{ const. }
 \end{DispWithArrows}
 Tools for the simulation of chemical reactions
-Many tools and libraries are available for the numerical simulation of chemical
+Many tools and libraries are available for the numerical simulation of chemical 
 reactions:
 
-\begin{verbatim}
- http://copasi.org/                             COPASI                (free and professional)
- http://libroadrunner.org/                      LIBROADRUNNER         (for c++/Python)
- sbml.org/SBML_Software_Guide/SBML_Software_Summary                  (for a list)
-\end{verbatim}
 
 It is good practice to write down your own code for you to check whether you
 have understood the basics of the theory.
