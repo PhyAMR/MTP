@@ -1,6 +1,4 @@
 professor_notes/
-*.sty
-*.cls
 
 # Ignore LaTeX auxiliary files
 *.aux
